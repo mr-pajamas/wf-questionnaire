@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="workFaceSurvey"
+  id="myeclipse.1400032325196"
+  context-root="/bigdata_svw"
+  j2ee-spec="5.0"
+  archive="workFaceSurvey.war">
+  <attributes>
+    <attribute name="webrootdir" value="/WebRoot" />
+  </attributes>
+</project-module>
+
