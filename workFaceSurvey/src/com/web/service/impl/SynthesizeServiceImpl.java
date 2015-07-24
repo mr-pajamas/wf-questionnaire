@@ -1,11 +1,13 @@
 package com.web.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
 import com.web.common.service.impl.CommonServiceSpringImpl;
+import com.web.common.utils.StringUtil;
 import com.web.service.ISynthesizeService;
 
 /**
@@ -187,5 +189,25 @@ public class SynthesizeServiceImpl extends CommonServiceSpringImpl implements
 		
 		return super.searchObjectBySQL(sql.toString(), null, null); 
 	}
+	
+	public  List<Map> searchUser(Map map){
+		StringBuffer sql = new StringBuffer();
+		sql.append(" select * from user ");
+		sql.append(" where 1=1 ");
+		
+		String firstResult = StringUtil.safeToString(map.get("firstrs"), "0");
+		String maxResults = StringUtil.safeToString(map.get("maxrs"), "5");
+		return super.searchObjectBySQL(sql.toString(), firstResult, maxResults);
+	}
 
+
+
+
+	public int getTotalRows(Map p) {
+		StringBuffer sql = new StringBuffer();
+		sql.append(" select count(id) from user ");
+		sql.append(" where 1=1 ");
+
+		return super.searchObjectUnique(sql.toString(), null);
+	}
 }

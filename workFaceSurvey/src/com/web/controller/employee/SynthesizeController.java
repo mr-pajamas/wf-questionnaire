@@ -47,196 +47,25 @@ public class SynthesizeController {
 	@RequestMapping(value = "/index")
 	public String synthesize(HttpServletRequest request,
 			HttpServletResponse response) {
-
+		Map map=new HashMap();
+		String page = StringUtil.safeToString(request.getParameter("page"), "1");
+        int totalRows = synthesizeService.getTotalRows(map);
+        int intPage = Integer.valueOf(page);
+        int pageSize = 5;
+        int totalPage = 0;
+        if(totalRows%pageSize == 0){
+        	totalPage = totalRows/pageSize;
+        }else{
+        	totalPage = totalRows/pageSize + 1;
+        }
+        int start = pageSize*(intPage - 1);
+        map.put("firstrs", String.valueOf(start));
+		List<Map> list=synthesizeService.searchUser(map);
+		request.setAttribute("list", list);
+		request.setAttribute("totalPage", totalPage);
+		request.setAttribute("totalRows",totalRows);
+		request.setAttribute("listPage", intPage);
 		
-		String begindate = "";
-		String enddate = "";
-		begindate = TimeUtil.getPreOrNextDay(TimeUtil.getSysDate(), -90);
-		enddate = TimeUtil.getSysDate();
-		// 查询品牌关注度排名
-		Map m=new HashMap();
-		m.put("begindate", begindate);
-		m.put("enddate", enddate);
-		List<Map> brandlist = synthesizeService.searchBrandFoucsSpreadTop(m);
-		int allbrand = synthesizeService
-				.searchBrandFoucsSpreadAll(m);
-		int i = 1;
-		int t1 = 0;
-		for (Map map : brandlist) {
-			map.put("tj", count(StringUtil.safeToString(map.get("focus_count"),
-					""), String.valueOf(allbrand)));
-			String brandid = StringUtil.safeToString(map.get("brandid"), "");
-			String spread_count = StringUtil.safeToString(map
-					.get("focus_count"), "");
-			if (1 == i) {
-				map.put("colour", "#0070c1");
-				t1 = Integer.parseInt(spread_count);
-				map.put("width", "50");
-			} else if ("9".equals(brandid)) {
-				map.put("colour", "#91db78");
-				map.put("width",  Long.parseLong(spread_count) * 50 / t1);
-			} else {
-				map.put("colour", "#00b1f1");
-				map.put("width", Long.parseLong(spread_count) * 50 / t1);
-			}
-			i++;
-		}
-
-		// 查询车系关注度
-		List<Map> serieslist = synthesizeService
-				.searchSeriesFoucsSpreadTop(m);
-		int allseries = synthesizeService.searchSeriesFoucsSpreadAll(m);
-		i = 1;
-		t1 = 0;
-		for (Map map : serieslist) {
-			map.put("tj", count(StringUtil.safeToString(map.get("focus_count"),
-					""), String.valueOf(allseries)));
-			String brandid = StringUtil.safeToString(map.get("brandid"), "");
-			String spread_count = StringUtil.safeToString(map
-					.get("focus_count"), "");
-
-			if (1 == i) {
-				map.put("colour", "#0070c1");
-				t1 = Integer.parseInt(spread_count);
-				map.put("width", "50");
-			} else if ("9".equals(brandid)) {
-				map.put("colour", "#91db78");
-				map.put("width", Long.parseLong(spread_count) * 50 / t1);
-			} else {
-				map.put("colour", "#00b1f1");
-				map.put("width", Long.parseLong(spread_count) * 50 / t1);
-			}
-			i++;
-		}
-
-		// 查询市场网络传播效率
-		i = 1;
-		t1 = 0;
-		int t2 = 0;
-		int t3 = 0;
-		List<Map> ranklist = synthesizeService.searchRankFocusSpread(m);
-		int spread_countall = 0;
-		int foucs_countall = 0;
-		int maxspread_count = 0;
-		int maxfoucs_count = 0;
-		long maxdata3 = 0;
-		
-		for(Map map:ranklist){
-			int foucs_count = Integer.parseInt(StringUtil.safeToString(map.get("foucs_count"), ""));
-			int spread_count = Integer.parseInt(StringUtil.safeToString(map.get("spread_count"), ""));
-			spread_countall = spread_countall + spread_count;
-			foucs_countall = foucs_countall + foucs_count;
-		}
-		for (Map map : ranklist) {
-			int foucs_count = Integer.parseInt(StringUtil.safeToString(map.get("foucs_count"), ""));
-			int spread_count = Integer.parseInt(StringUtil.safeToString(map.get("spread_count"), ""));
-			Double data1 = count(String.valueOf(foucs_count), String.valueOf(foucs_countall));
-			Double data2 = count(String.valueOf(spread_count), String.valueOf(spread_countall));
-			long data3 = Math.round(data1 / data2 * 100);
-
-			if (foucs_count > maxfoucs_count) {
-				maxfoucs_count = foucs_count;
-			}
-			if (spread_count > maxspread_count) {
-				maxspread_count = spread_count;
-			}
-			if (data3 > maxdata3) {
-				maxdata3 = data3;
-			}
-
-		}
-		int w1 = 40;
-		int w2 = 40;
-		int w3 = 40;
-		for (Map map : ranklist) {
-			int foucs_count = Integer.parseInt(StringUtil.safeToString(map.get("foucs_count"), ""));
-			int spread_count = Integer.parseInt(StringUtil.safeToString(map.get("spread_count"), ""));
-			Double data1 = count(String.valueOf(foucs_count), String.valueOf(foucs_countall));
-			Double data2 = count(String.valueOf(spread_count), String.valueOf(spread_countall));
-			long data3 = Math.round(data1 / data2 * 100);
-			String fh = "--";
-			map.put("data1", data1 + "%");
-			map.put("data2", data2 + "%");
-			map.put("data3", data3);
-			
-			
-			if (0 == data3) {
-				map.put("data3", fh);
-			}
-			if (0 == data2) {
-				map.put("data2", fh);
-			}
-			if (0 == data1) {
-				map.put("data1", fh);
-			}
-
-			if (1 == i) {
-				map.put("colour", "#00b1f1");
-			} else if (i == ranklist.size()) {
-				map.put("colour", "#91db78");
-			} else {
-				map.put("colour", "#00b1f1");
-			}
-
-			if (data3 >= 100) {
-				map.put("colour2", "#0000FF");
-				map.put("float", "left");
-			} else {
-				map.put("colour2", "#FF0000");
-				map.put("float", "right");
-			}
-
-			if (foucs_count == maxfoucs_count) {
-				map.put("w1", w1);
-			} else {
-				map.put("w1", (long) foucs_count * w1 / (long) maxfoucs_count);
-			}
-			if (spread_count == maxspread_count) {
-				map.put("w2", w2);
-			} else {
-				map.put("w2", (long) spread_count * w2/ (long) maxspread_count);
-			}
-
-
-			if (data3 == maxdata3) {
-				map.put("w3", w3);
-			} else {
-				if (data3 > 100) {
-					long d4 = data3 - 100;
-					map.put("w3", d4 * w3 / (maxdata3-100));
-				} else if (0 == data3) {
-					map.put("w3", 0);
-				} else {
-					long d4 = 100 - data3;
-					map.put("w3", d4 * w3 / (maxdata3-100));
-				}
-			}
-			i++;
-		}
-
-		List<Map> ranklist2 = synthesizeService.searchRankFocusSpread2(m);
-
-		// 各级别网络声量
-		String rankFocusSpread = addRankFocusSpread(ranklist2);
-		String rankFocusSpreadTip = addRankFocusSpreadTip(ranklist2);
-
-		// 首页热点新闻
-		Map map = new HashMap();
-		map.put("begindate", begindate);
-		map.put("enddate", enddate);
-		map.put("brandid", "9");
-		List<Map> newslist1 = hotNewsService.searchHotNewsMonthTitle(map);
-		request.setAttribute("fc1", synthesizeService
-				.searchBrandFoucsSpreadAll(map));
-
-		// 热点新闻地图
-		request.setAttribute("brandlist", brandlist);
-		request.setAttribute("serieslist", serieslist);
-		request.setAttribute("ranklist", ranklist);
-		request.setAttribute("rankFocusSpread", rankFocusSpread);
-		request.setAttribute("rankFocusSpreadTip", rankFocusSpreadTip);
-		request.setAttribute("newslist1", newslist1);
-
 		return "/jsp/website/synthesize";
 	}
 
