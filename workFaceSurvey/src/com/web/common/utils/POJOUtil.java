@@ -263,7 +263,7 @@ public class POJOUtil {
 		String url="jdbc:mysql://localhost:3306/workfacesurvey"; //数据库连接地址
 		String username="root"; //数据库登录名
 		String pwd="";//数据库密码
-		String tablename="user"; //表名
+		String tablename="anwser"; //表名
 		String file="C:\\data.java";  //输出文件
 		
 		

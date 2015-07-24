@@ -1,0 +1,76 @@
+*{font-family: 'Î¢ÈíÑÅºÚ'}
+
+.page1{
+	text-align: center;
+
+}
+
+.page1 .logo{
+	width:215px;
+	height: 85px ;
+	margin:0 auto;
+	padding-top: 5%;
+	
+}
+
+
+.title{
+	color: #fff;
+	font-size: 35px ;
+	padding-top: 36px;
+}
+
+.page1 .shuru{
+	width:348px;
+	margin:0 auto;
+	padding-top: 60px;
+	/*height:67px;*/
+	/*border-radius:5px;*/
+	/*border:1px solid red;*/
+}
+
+.page1 .shuru input{
+	border:0;
+	width:347px;
+	height: 65px ;
+	/*height: 60px ;*/
+	text-indent: 20px;
+	font-size: 16px ;
+	color: #b1afaf;
+	/*border:1px solid green;*/
+}
+
+
+.page1 .shuru input:first-child{
+	border-top-left-radius:5px ;
+	border-top-right-radius:5px ;
+	border-bottom:1px solid #b6b5b5;
+}
+
+.page1 .shuru input:last-child{
+	border-bottom-left-radius:5px ;
+	border-bottom-right-radius:5px ;
+}
+.submit{
+	margin-top: 42px; 
+}
+
+.page1 .submit input{
+	width:347px ;
+	height:55px;
+	line-height:55px;
+	background: #1696d4 ;
+	border:0;
+	border-radius:5px ;
+	color:#fff;
+	font-size:20px;
+}
+
+.page1 .query a{
+	color:#fff;
+	font-size: 15px ;
+	padding-bottom:5px ;
+	border-bottom:2px solid #fff ;
+}
+
+

@@ -7,7 +7,7 @@
 %>
 <html>
 <head>
-<title>众调网二手车交易平台</title>
+<title>WorkFace Survey</title>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 		<title></title>
@@ -25,9 +25,11 @@
 		<div class="main">
 			<section class="page1">
 		      	<div class="page_container">
-		        	<diV><img src="<%=webRoot %>/images/logo.jpg" class='logo'></diV>
+		        	<div >
+		        		<img class='logo' alt="workface" src="<%=webRoot%>/images/logo.png">
+		        	</diV>
 		        	<div class="title">
-		        		欢迎来到二手车交易平台
+		        		
 		        	</div>
 		        	<form action='<%=webRoot %>/employee/login' method='post'>
 			        	<div class='shuru'>
@@ -38,10 +40,12 @@
 			        	</div>
 			        	<div>
 			        		<p class='submit'><input type='submit' value='登&nbsp;&nbsp;录'></input></p>
-			        		<p class='query'><a href="<%=webRoot %>/admin/home/assessment">快速查询</a></p>
+			        		<p class='query'></p>
 			        	</div>
+			        	
 		        	</form>
 		    	</div>
+		    	
 	    	</section>
 	    	<section class="page2">
 		   		<div class="page_container">
@@ -64,6 +68,7 @@
 		      	</div>
 	    	</section>
 		</div>
+		
 		<script type="text/javascript">
 		    $(".main").onepage_scroll({
 		      sectionContainer: "section"
