@@ -1,8 +1,19 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ include file="../commonincludes.jsp"%>
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
+<META content="IE=11.0000" 
+http-equiv="X-UA-Compatible">
+ <meta http-equiv="pragma" content="no-cache">  
+    <meta http-equiv="cache-control" content="no-cache">  
+    <meta http-equiv="expires" content="0">      
+    <meta http-equiv="keywords" content="Canvas,File,Image">  
+<META name="Author" content="flashlizi - www.riaidea.com">
+<META name="Description" content="HTML5 experiment"> 
+<META http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+<META name="GENERATOR" content="MSHTML 11.00.9600.17105">
+
   <title>【创业上海万人田野调查初步信息表】 WorkFace | 创业者理解创业者</title>
   <meta name="description" content="为【创业上海万人田野调查初步信息表】 WorkFace | 创业者理解创业者提交数据。&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;color: #000000;&quot;&gt;这是一场社会化的田野调查，创业者理解创业者，&lt;/span&gt;&lt;spa...">
   <link rel="shortcut icon" type="image/x-icon" href="<%=webRoot %>/assets/favicon-a1533ba989eeced36f8738b1298892b5.ico" />
@@ -64,7 +75,45 @@
     }
 
 </style>
+<script src="<%=webRoot %>/js/data.js"></script>
+<script type="text/javascript" src="<%=webRoot %>/js/jquery-1.11.1.js"></script>
+<script src="<%=webRoot %>/js/jquery.city.select.min.js"></script>
+<script src="<%=webRoot %>/js/prettify.js"></script>
+<SCRIPT src="<%=webRoot %>/js/imagecropper.min.js" type="text/javascript"></SCRIPT>
+<script type="text/javascript" id="main">
+$(function () {
+    $('#province, #city').citylist({
+        data    : data,
+        id      : 'id',
+        children: 'cities',
+        name    : 'name',
+        metaTag : 'name'
+    });
 
+   $('input:radio[value=${user.gender}]').click();
+   $('input:radio[value=${anwser.q11}]').click();
+   $('input:radio[value=${anwser.q12}]').click();
+   $('input:radio[value=${user.position}]').click();
+   $('input:radio[value=${anwser.q8}]').click();
+   $('input:radio[value=${anwser.q1}]').click();
+
+   $('input:radio[value=${user.age}]').click();
+   $('input:radio[value=${user.degree}]').click();
+   $('input:radio[value=${anwser.q2}]').click();
+   
+   $('#province').val('${user.province}');
+   $("#province").change();
+
+   $('#city').val('${user.city}');
+   $('#street').val('${user.street}');
+
+
+
+      
+
+});
+
+</script>
   <!--[if lte IE 8]>
     <link rel="stylesheet" media="screen" href="<%=webRoot %>/assets/ie/lte-ie8-2a9bd0f5c30bbf4deb56b3b557a2659a.css" />
     <script src="<%=webRoot %>/assets/html5-59fb957970df1cced65a604f1350247d.js"></script>
@@ -73,14 +122,13 @@
     <link rel="stylesheet" media="screen" href="<%=webRoot %>/assets/ie/lte-ie7-b34ed44ef2fd40cfae250bfa47df6b23.css" />
   <![endif]-->
   <!--[if IE 6]> <link rel="stylesheet" media="screen" href="<%=webRoot %>/assets/ie/ie6-265f79696a14803fee1078f36bfae47a.css" /> <![endif]-->
-  <script src="<%=webRoot %>/js/application-c9c3f262299972f8ef29523d02f97708.js"></script>
   <!--[if IE 6]>
     <script src="<%=webRoot %>/js/fix-ie6-ae022401416e12d9756a4d0fe83b2b82.js"></script>
   <![endif]-->
   <meta name="csrf-param" content="authenticity_token" />
 <meta name="csrf-token" content="SqXVsjxaF2gmqixSEibFDYni7wCNMBbXlf0r8/syB/yGqqeaIy6+IxTKdAHxbnMf4qluz0PIhSOoh+tt4tzUww==" />
 </head>
-<body class="entry-container bg-image">
+<body class="entry-container bg-image" onload="init()">
   
 
   
@@ -99,7 +147,7 @@
   <div class="form-description"><p><span style="font-size: 14px;"><span style="color: #000000;">这是一场社会化的田野调查，创业者理解创业者，</span><span style="color: #000000;">我们不是任何第三方。创业事关我们自己的命运，你的成败关乎我的成败，我们不置身事外。</span></span></p>
 <p><span style="font-size: 14px;">请填写以下基础信息，我们的访谈团队伙伴会与你联系，倾听你的创业故事并分享传播给有相互需要的人，懂你的人。</span></p>
 <p><span style="color: #0000ff; font-size: 14px;">这是创业者万人大联结的第一步。创业上海，我们和你在一起！</span></p>
-<pre class="js_message_plain ng-binding"> </pre></div>
+
   
   <fieldset>
     <div class="form-content">
@@ -119,9 +167,8 @@
   <div class="field-content">
 
     <div class="controls">
-      <input type="text" value="" name="entry[field_1]" id="entry_field_1" />
+      <input type="text" value="${user.name}" name="entry[field_1]" id="entry_field_1" />
     </div>
-
   </div>
 </div>
 
@@ -139,11 +186,11 @@
     <div class="controls">
       <div class="clearfix radio-group" data-role="controlgroup">
         <label onclick="" class="radio inline">
-        <input type="radio" value="男" name="entry[field_19]" />
+        <input type="radio" value="男" name="entry[field_19]" id="entry[field_19]" />
         男
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="女" name="entry[field_19]" />
+        <input type="radio" value="女" name="entry[field_19]" id="entry[field_19]"/>
         女
       </label>
 
@@ -165,7 +212,7 @@
   <div class="field-content">
 
     <div class="controls">
-          <input type="tel" value="" name="entry[field_3]" id="entry_field_3" />
+          <input type="tel" value="${sessionScope.phone}" readonly="readonly" name="entry[field_3]" id="entry_field_3" />
 
     </div>
 
@@ -174,6 +221,7 @@
 
 
             </div>
+
             <div class="field section-break" data-api-code="field_5">
                 <hr/>
 <div class="form-group " >
@@ -199,7 +247,7 @@
   <div class="field-content">
 
     <div class="controls">
-      <input type="text" value="" name="entry[field_6]" id="entry_field_6" />
+      <input type="text" value="${user.company}" name="entry[field_6]" id="entry_field_6" />
     </div>
 
   </div>
@@ -231,7 +279,7 @@
           <input class="other_choice" data-field-key="field_20" type="radio" value="其它" name="entry[field_20]" />
           其它
         </label>
-        <input class="other-choice-input gd-input-medium" data-field-key="field_20" type="text" value="" name="entry[field_20_other]" id="entry_field_20_other" />
+        <input class="other-choice-input gd-input-medium" data-field-key="field_20" type="text" value="${user.positionother}" name="entry[field_20_other]" id="entry_field_20_other" />
       </div>
 
 </div>
@@ -335,10 +383,10 @@
       </label>
       <div class="other-choice-area inline">
         <label onclick="" class="radio inline">
-          <input class="other_choice" data-field-key="field_23" type="radio" value=" 其它" name="entry[field_23]" />
+          <input class="other_choice" data-field-key="field_23" type="radio" value="其它" name="entry[field_23]" />
           其它
         </label>
-        <input class="other-choice-input gd-input-medium" data-field-key="field_23" type="text" value="" name="entry[field_23_other]" id="entry_field_23_other" />
+        <input  class="other-choice-input gd-input-medium" data-field-key="field_23" type="text" value="${anwser.q8other}" name="entry[field_23_other]" id="entry_field_23_other" />
       </div>
 
 </div>
@@ -443,19 +491,15 @@
       <div data-role="address" class="">
   <div data-role="controlgroup">
     <div class="dropdown address">
-      <select name="entry[field_18][province]" id="entry_field_18_province" class="gd-input-medium needsclick" data-role="province" data-value="上海市"><option value="">- 省/自治区/直辖市 -</option></select>
+      <select name="province" id="province" class="gd-input-medium needsclick" data-role="province" data-value="上海市"><option value="">- 省/自治区/直辖市 -</option></select>
       <span class="dropdown-trigger needsclick"></span>
     </div>
     <div class="dropdown address">
-      <select name="entry[field_18][city]" id="entry_field_18_city" class="gd-input-small needsclick" data-role="city" data-value="上海市"><option value="">- 市 -</option></select>
-      <span class="dropdown-trigger needsclick"></span>
-    </div>
-    <div class="dropdown address">
-      <select name="entry[field_18][district]" id="entry_field_18_district" class="gd-input-small needsclick" data-role="district" data-value=""><option value="">- 区/县 -</option></select>
+      <select name="city" id="city" class="gd-input-small needsclick" data-role="city" data-value="上海市"><option value="">- 市 -</option></select>
       <span class="dropdown-trigger needsclick"></span>
     </div>
   </div>
-  <textarea name="entry[field_18][street]" id="entry_field_18_street" placeholder="详细地址" rows="3" class="gd-input-xxlarge">
+  <textarea name="street" id="street"  rows="3" class="gd-input-xxlarge" placeholder="详细地址" >
 </textarea>
 </div>
 
@@ -563,7 +607,7 @@
   <div class="field-content">
 
     <div class="controls">
-      <input type="text" name="entry[field_17]" id="entry_field_17" />
+      <input type="text" name="entry[field_17]" id="entry_field_17" value="${user.wecahrt}"/>
     </div>
 
   </div>
@@ -581,7 +625,7 @@
   <div class="field-content">
 
     <div class="controls">
-      <input type="email" name="entry[field_4]" id="entry_field_4" />
+      <input type="email" name="entry[field_4]" id="entry_field_4" value="${user.mail}"/>
     </div>
 
   </div>
@@ -601,7 +645,7 @@
 <p><span style="color: #666699; font-size: 12px;">例如：复旦人 / 阿里系 / 南京人 /  媒体转型 / 编剧 / IT背景/ 80后 ……</span></p></div>
 
     <div class="controls">
-      <textarea rows="3" class="gd-input-xxlarge" name="entry[field_12]" id="entry_field_12">
+      <textarea rows="3" class="gd-input-xxlarge" name="entry[field_12]" id="entry_field_12">${user.tag}
 </textarea>
     </div>
 
@@ -620,7 +664,7 @@
   <div class="field-content">
 
     <div class="controls">
-      <textarea rows="3" class="gd-input-xxlarge" name="entry[field_10]" id="entry_field_10">
+      <textarea rows="3" class="gd-input-xxlarge" name="entry[field_10]" id="entry_field_10">${anwser.q39}
 </textarea>
     </div>
 
@@ -654,7 +698,7 @@
   <div class="field-content">
 
     <div class="controls">
-      <input type="text"  name="entry[field_16]" id="entry_field_16" />
+      <input type="text"  name="entry[field_16]" id="entry_field_16" value="${user.referrer }"/>
     </div>
 
   </div>

@@ -91,13 +91,29 @@
 <script type="text/javascript" id="main">
 $(function () {
 
-    $('#entry_field_17_province, #entry_field_17_city').citylist({
+    $('#homeprovince, #homecity').citylist({
         data    : data,
         id      : 'id',
         children: 'cities',
         name    : 'name',
         metaTag : 'name'
-    });WWWWWW
+    });
+
+    $('#homeprovince').val('${anwser.homeprovince}');
+    $("#homeprovince").change();
+
+    $('#homecity').val('${anwser.homecity}');
+    $('#homestreet').val('${anwser.homestreet}');
+
+    $('input:radio[value=${anwser.q13}]').click();
+    $('input:radio[value=${anwser.q15}]').click();
+
+    var Q40s='${anwser.q40}'.split("|");
+    $.each(Q40s,function(n,value) {   
+    $('input:checkbox[value='+value+']').clicked();
+    
+}); 
+    
 });
 </script>
 
@@ -139,7 +155,7 @@ $(function () {
   <div class="field-content">
 
     <div class="controls">
-      <input type="text" value="" name="entry[field_9]" id="entry_field_9" />
+      <input type="text" value="${user.name}" name="entry[field_9]" readonly="readonly" id="entry_field_9" />
     </div>
 
   </div>
@@ -157,7 +173,7 @@ $(function () {
   <div class="field-content">
 
     <div class="controls">
-      <input type="text" value="" name="entry[field_10]" id="entry_field_10" />
+      <input type="text" value="${user.company}" name="entry[field_10]" readonly="readonly" id="entry_field_10" />
     </div>
 
   </div>
@@ -175,7 +191,7 @@ $(function () {
   <div class="field-content">
 
     <div class="controls">
-          <input type="tel" value="" name="entry[field_11]" id="entry_field_11" />
+          <input type="tel"  name="phone" value="${sessionScope.phone}" readonly="readonly" id="phone" />
 
     </div>
 
@@ -197,16 +213,16 @@ $(function () {
       <div data-role="address" class="">
   <div data-role="controlgroup">
     <div class="dropdown address">
-      <select name="entry[field_17][province]" id="entry_field_17_province" class="gd-input-medium needsclick" data-role="province" data-value="null"><option value="">- 省/自治区/直辖市 -</option></select>
+      <select name="homeprovince" id="homeprovince" class="gd-input-medium needsclick" data-role="province" data-value="null"><option value="">- 省/自治区/直辖市 -</option></select>
       <span class="dropdown-trigger needsclick"></span>
     </div>
     <div class="dropdown address">
-      <select name="entry[field_17][city]" id="entry_field_17_city" class="gd-input-small needsclick" data-role="city" data-value="null"><option value="">- 市 -</option></select>
+      <select name="homecity" id="homecity" class="gd-input-small needsclick" data-role="city" data-value="null"><option value="">- 市 -</option></select>
       <span class="dropdown-trigger needsclick"></span>
     </div>
 
   </div>
-  <textarea name="entry[field_17][street]" id="entry_field_17_street" placeholder="详细地址" rows="3" class="gd-input-xxlarge hide">
+  <textarea name="homestreet" id="homestreet" placeholder="详细地址" rows="3" class="gd-input-xxlarge">
 </textarea>
 </div>
 
@@ -243,7 +259,7 @@ $(function () {
       <div class="help-block"><p>关于上海创业环境</p></div>
 
     <div class="controls">
-      <textarea rows="3" class="gd-input-xxlarge" name="entry[field_6]" id="entry_field_6">
+      <textarea rows="3" class="gd-input-xxlarge" name="entry[field_6]" id="entry_field_6">${anwser.q26}
 </textarea>
     </div>
 
@@ -262,7 +278,7 @@ $(function () {
   <div class="field-content">
 
     <div class="controls">
-      <textarea rows="3" class="gd-input-xxlarge" name="entry[field_13]" id="entry_field_13">
+      <textarea rows="3" class="gd-input-xxlarge" name="entry[field_13]" id="entry_field_13">${anwser.q34}
 </textarea>
     </div>
 
@@ -335,7 +351,7 @@ $(function () {
           <input class="other_choice" data-field-key="field_16" type="radio" value="其它" name="entry[field_16]" />
           其它
         </label>
-        <input class="other-choice-input gd-input-medium" data-field-key="field_16" type="text" value="" name="entry[field_16_other]" id="entry_field_16_other" />
+        <input class="other-choice-input gd-input-medium" data-field-key="field_16" type="text" value="${anwser.q15other}" name="entry[field_16_other]" id="entry_field_16_other" />
       </div>
 
 </div>
@@ -382,7 +398,7 @@ $(function () {
           <input class="other_choice" data-field-key="field_21" type="checkbox" value="其它" name="entry[field_21][]" />
           其它
         </label>
-        <input class="other-choice-input gd-input-medium" data-field-key="field_21" type="text" name="entry[field_21_other]" id="entry_field_21_other" />
+        <input class="other-choice-input gd-input-medium" data-field-key="field_21" value="${anwser.q40other}" type="text" name="entry[field_21_other]" id="entry_field_21_other" />
       </div>
 
 </div>
@@ -419,7 +435,7 @@ $(function () {
       <div class="help-block"><p>关于创业的驱动力和发心</p></div>
 
     <div class="controls">
-      <textarea rows="3" class="gd-input-xxlarge" name="entry[field_1]" id="entry_field_1">
+      <textarea rows="3" class="gd-input-xxlarge" name="entry[field_1]" id="entry_field_1">${anwser.q41}
 </textarea>
     </div>
 
@@ -438,7 +454,7 @@ $(function () {
   <div class="field-content">
 
     <div class="controls">
-      <textarea rows="3" class="gd-input-xxlarge" name="entry[field_2]" id="entry_field_2">
+      <textarea rows="3" class="gd-input-xxlarge" name="entry[field_2]" id="entry_field_2">${anwser.q9}
 </textarea>
     </div>
 
@@ -457,7 +473,7 @@ $(function () {
   <div class="field-content">
 
     <div class="controls">
-      <textarea rows="3" class="gd-input-xxlarge" name="entry[field_4]" id="entry_field_4">
+      <textarea rows="3" class="gd-input-xxlarge" name="entry[field_4]" id="entry_field_4">${anwser.q19}
 </textarea>
     </div>
 
@@ -477,7 +493,7 @@ $(function () {
       <div class="help-block"><p>关于成长环境、家庭和工作关系</p></div>
 
     <div class="controls">
-      <textarea rows="3" class="gd-input-xxlarge" name="entry[field_3]" id="entry_field_3">
+      <textarea rows="3" class="gd-input-xxlarge" name="entry[field_3]" id="entry_field_3">${anwser.q21}
 </textarea>
     </div>
 
@@ -496,7 +512,7 @@ $(function () {
   <div class="field-content">
 
     <div class="controls">
-      <textarea rows="3" class="gd-input-xxlarge" name="entry[field_12]" id="entry_field_12">
+      <textarea rows="3" class="gd-input-xxlarge" name="entry[field_12]" id="entry_field_12">${anwser.q24}
 </textarea>
     </div>
 
@@ -530,7 +546,7 @@ $(function () {
   <div class="field-content">
 
     <div class="controls">
-      <textarea rows="3" class="gd-input-xxlarge" name="entry[field_5]" id="entry_field_5">
+      <textarea rows="3" class="gd-input-xxlarge" name="entry[field_5]" id="entry_field_5">${anwser.q35}
 </textarea>
     </div>
 
@@ -549,7 +565,7 @@ $(function () {
   <div class="field-content">
 
     <div class="controls">
-      <textarea rows="3" class="gd-input-xxlarge" name="entry[field_7]" id="entry_field_7">
+      <textarea rows="3" class="gd-input-xxlarge" name="entry[field_7]" id="entry_field_7">${anwser.q36}
 </textarea>
     </div>
 

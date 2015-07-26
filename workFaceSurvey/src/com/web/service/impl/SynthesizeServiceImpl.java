@@ -194,7 +194,7 @@ public class SynthesizeServiceImpl extends CommonServiceSpringImpl implements
 		StringBuffer sql = new StringBuffer();
 		sql.append(" select * from user ");
 		sql.append(" where 1=1 ");
-		
+	
 		String firstResult = StringUtil.safeToString(map.get("firstrs"), "0");
 		String maxResults = StringUtil.safeToString(map.get("maxrs"), "5");
 		return super.searchObjectBySQL(sql.toString(), firstResult, maxResults);

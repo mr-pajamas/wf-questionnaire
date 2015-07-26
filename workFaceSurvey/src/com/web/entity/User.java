@@ -69,7 +69,53 @@ public class User{
  @Column(name ="tag")
  private String tag;
  
- public void setId(int id){
+ @Column(name ="positionother")
+ private String positionother;
+ 
+ @Column(name ="province")
+ private String province;
+ 
+ @Column(name ="city")
+ private String city;
+ 
+ @Column(name ="street")
+ private String street;
+ 
+
+
+ public String getProvince() {
+	return province;
+}
+
+public void setProvince(String province) {
+	this.province = province;
+}
+
+public String getCity() {
+	return city;
+}
+
+public void setCity(String city) {
+	this.city = city;
+}
+
+public String getStreet() {
+	return street;
+}
+
+public void setStreet(String street) {
+	this.street = street;
+}
+
+public String getPositionother() {
+	return positionother;
+}
+
+public void setPositionother(String positionother) {
+	this.positionother = positionother;
+}
+
+public void setId(int id){
    this.id=id;
  }
 

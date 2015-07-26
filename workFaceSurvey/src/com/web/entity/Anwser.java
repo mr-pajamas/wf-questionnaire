@@ -147,8 +147,89 @@ public class Anwser{
  @Column(name ="updatetime")
  private Date updatetime;
 
+ @Column(name ="phone")
+ private String phone;
 
- public void setId(int id){
+ 
+
+ @Column(name ="homeprovince")
+ private String homeprovince;
+
+
+ @Column(name ="homecity")
+ private String homecity;
+
+ @Column(name ="homestreet")
+ private String homestreet;
+
+ @Column(name ="Q8other")
+ private String Q8other;
+
+ @Column(name ="Q15other")
+ private String Q15other;
+ 
+ @Column(name ="Q40other")
+ private String Q40other;
+ 
+ 
+ 
+ public String getQ40other() {
+	return Q40other;
+}
+
+public void setQ40other(String q40other) {
+	Q40other = q40other;
+}
+
+public String getQ15other() {
+	return Q15other;
+}
+
+public void setQ15other(String q15other) {
+	Q15other = q15other;
+}
+
+public String getHomeprovince() {
+	return homeprovince;
+}
+
+public void setHomeprovince(String homeprovince) {
+	this.homeprovince = homeprovince;
+}
+
+public String getHomecity() {
+	return homecity;
+}
+
+public void setHomecity(String homecity) {
+	this.homecity = homecity;
+}
+
+public String getHomestreet() {
+	return homestreet;
+}
+
+public void setHomestreet(String homestreet) {
+	this.homestreet = homestreet;
+}
+
+public String getQ8other() {
+	return Q8other;
+}
+
+public void setQ8other(String q8other) {
+	Q8other = q8other;
+}
+
+public String getPhone() {
+	return phone;
+}
+
+public void setPhone(String phone) {
+	this.phone = phone;
+}
+
+public void setId(int id){
    this.id=id;
  }
 

@@ -1,10 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%
-	request.setAttribute("contextPath", request.getContextPath());
-	String webRoot = "http://" + request.getServerName() + ":"
-			+ request.getServerPort() + request.getContextPath();
-%>
+<%@ include file="../commonincludes.jsp"%>
+
 <html>
 <head>
 	<meta charset="utf-8">
@@ -20,38 +17,34 @@
 		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 		
 		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-		
+		<script type="text/javascript" src="<%=webRoot %>/js/pagenav1.1.cn.js"></script>
+         <script type="text/javascript" src="<%=webRoot %>/js/jquery-1.11.1.js"></script>
 		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
-		function validate(){
-			var reg= new RegExp( "^0?(13|15|18|14|17)[0-9]{9}$");
-			var phone=$("#inputTelNum").val();
-			var password=$("#inputPassword").val();
-			var passwordRpe=$("#confirmPassword").val();
-			if (phone == "") {
-				alert("手机号码不能为空！");
-				return false;
-			}
-			if (password == "") {
-				alert("密码不能为空！");
-				return false;
-			}
-			if (passwordRpe == "") {
-				alert("确认密码不能为空！");
-				return false;
-			}
-			if (passwordRpe != password) {
-				alert("两次密码输入不一致！");
-				return false;
-			}
-			if (!reg.test(phone)) {
-				alert('手机号码格式不正确！'); 
-			return false;
-			}
-			return true; 
+		$(function() {
+			//optional set
+			pageNav.pre="上一页";
+			pageNav.next="下一页";
+			 //  p,当前页码,pn,总页面
+			pageNav.fn = function(p,pn){
+				//document.getElementById("test").innerHTML ="当前页:"+p+"  ,  总页: "+pn;
+				//$("#test").text("Page:"+p+" of "+pn + " pages."); // jquery调用方式
+				if(${listPage}!=p){
+					$("#page").val(p);
+				    $("#pageNumber").submit();
+				}
+			};
+			
+			//重写分页状态
+			pageNav.go(${listPage},${totalPage});
+
+		});
+		
+		function writedata(phone){
+			window.open("<%=webRoot%>/synthesize/questionnaire1?phone="+phone);        
 		}
+         
 		</script>
 </head>
 
@@ -65,49 +58,48 @@
 		        	<div class="title" style="padding-top: 16px;font-weight:bold">
 		        		创&nbsp;业&nbsp;上&nbsp;海&nbsp;万&nbsp;人&nbsp;田&nbsp;野&nbsp;调&nbsp;查&nbsp;&nbsp;
 		        	</div>
-					<div class="container">
-						<div>
+		        	<div class="container" style="">
+		        	  <form action="index" name="pageNumber" id="pageNumber" method="post">
+			
+		<input type="text" id="search" name="search" />
+		<input type="button" title="查询" value="查询"/>
+		        	</div>
+		  			<c:forEach items="${list}" var="list">
+					<div class="container" style="width: 50%">
+						<div style="">
 							<div style="float:left" >
-								<img style=" width:100px;height:100px" alt="用户头像" src="<%=webRoot%>/images/logo.png">
+								<img style=" width:100px;height:100px" alt="用户头像" src="<%=webRoot %>/images/man.png">
 							</div>
 							<div style="float:left;padding-top:25px;margin-left:10px">
 								<div style="float:left" >
-									<span>姓名：</span>杨树楷
+									<span>姓名：${list.name}</span>
 								</div>
 								<div style="clear"></div>
 								<div style="float:left">
-									<span>公司地址：</span>国定东路XXX
+									<span>公司地址：${list.province}${list.city}${list.street}</span>
 								</div>
 								<div style="clear"></div>
 								<div style="float:left">
-									<span>手机号：</span>15800531997
+									<span>手机号：${list.phone}</span>
 								</div>
+							</div>
+							
+							<div style="float:right;margin-left:100px" >
+							<a href="###" onclick="writedata(${list.phone})" style="background-color:#7AA9D0;border-color: #7AA9D0;margin-top:30px;" class="btn btn-lg btn-info active" >填写</a>
+								
 							</div>
 						</div>
 					</div>
+					</c:forEach>
+								   <!-- 分页控件 -->
+					<input type="hidden" id="page" name="page" />
+		            <div id="pageNav"></div>
+			</form>
+									
 		    	</div>
 		    	
 	    	</section>
-	    	<section class="page2">
-		   		<div class="page_container">
-		        	
-		      	</div>
-		    </section>
-		    <section class="page3">
-		      	<div class="page_container">
-			       
-		      	</div>
-	    	</section>
-	    	<section class="page4">
-		      	<div class="page_container">
-			       
-		      	</div>
-	    	</section>
-	    	<section class="page5">
-		      	<div class="page_container">
-			       
-		      	</div>
-	    	</section>
+	    	
 		</div>
 	</body>
 </html>
