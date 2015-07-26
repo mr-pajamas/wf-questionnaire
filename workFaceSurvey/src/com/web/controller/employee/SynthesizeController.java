@@ -169,15 +169,23 @@ public class SynthesizeController {
 		String Q26=request.getParameter("entry[field_6]");//为什么在上海创业，对上海创业环境的观察体验，热爱和吐槽是：
 		String Q34=request.getParameter("entry[field_13]"); //目前创业项目简介，未来的期望是：
 		String Q13=request.getParameter("entry[field_15]");// 目前项目是否已有产出
-		String Q15=request.getParameter("entry[field_16]");//目前团队规模
+		String Q15=StringUtil.safeToString(request.getParameter("entry[field_16]"), "");//目前团队规模
 		if(Q15.equals("其他")){
 			if(!"".equals(request.getParameter("entry[field_16_other]"))){
 				Q15=request.getParameter("entry[field_16_other]");
 			}
 		}
-		String Q40=request.getParameter("entry[field_21][]");//目前创业碰到的问题/困难并且希望解决的：（多选）
-		if(Q40.contains("其他")){
-			Q40+= "//其他困难：" +request.getParameter("entry[field_21_other]");
+		String Q40="";
+		String Q40s[]=request.getParameterValues("entry[field_21][]");//目前创业碰到的问题/困难并且希望解决的：（多选）
+		for(String a:Q40s){
+			if(Q40.length()>0){
+				Q40+="|";
+			}
+			if("其他".equals(a)){
+				Q40+=a+request.getParameter("entry[field_21_other]");
+			}else{
+				Q40+=a;	
+			}
 		}
 		String Q41=request.getParameter("entry[field_1]");//   目前的创业是怎样产生的，发心是什么？
 		String Q9=request.getParameter("entry[field_2]");// 曾经历的较大困难和挑战是，当时如何解决和面对的
@@ -196,7 +204,7 @@ public class SynthesizeController {
 		anwser.setQ24(Q24);
 		anwser.setQ21(Q21);
 		anwser.setQ19(Q19);
-		anwser.setQ9(Q9);
+		anwser.setQ9(Q9); 
 		anwser.setQ41(Q41);
 		anwser.setQ40(Q40);
 		anwser.setQ15(Q15);

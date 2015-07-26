@@ -3,6 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="<%=webRoot %>/js/data.js"></script>
+    <script src="<%=webRoot %>/js/jquery-1.11.1.js"></script>
+    <script src="<%=webRoot %>/js/jquery.city.select.min.js"></script>
+    <script src="<%=webRoot %>/js/prettify.js"></script>
  <title>【创业上海万人田野调查】-访谈问卷</title>
   <meta name="description" content="为【创业上海万人田野调查】-访谈问卷提交数据。&lt;p&gt;这是一场社会化的田野调查，创业者理解创业者。&lt;/p&gt;
 &lt;p&gt;我们不是任何第三方。&lt;/p&gt;
@@ -84,7 +88,18 @@
 <meta name="csrf-token" content="r3XdxkBdtpMMLd0e3ikN2COluxSn0hMzmjc2tgxmdcY9KN0byJkagO4nsxQZyU6MBxixmE2wiVmyq9DGdIsRSQ==" />
 </head>
 <body class="entry-container bg-image">
-  
+<script type="text/javascript" id="main">
+$(function () {
+
+    $('#entry_field_17_province, #entry_field_17_city').citylist({
+        data    : data,
+        id      : 'id',
+        children: 'cities',
+        name    : 'name',
+        metaTag : 'name'
+    });WWWWWW
+});
+</script>
 
   
 <form class="center" data-form-token="1EHGwC" data-validate-url="f/1EHGwC/validate_fields" id="new_entry" action="<%=webRoot %>/synthesize/SaveQ2" accept-charset="UTF-8" method="post"><input type="hidden" name="utf8" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="jrX3hOH4KuqYdliedVkAg16AMZ52zl/0b7aVhdsOtGgc6PdZaTyG+Xp8NpSyuUPXej07EpysxZ5HKnP1o+PQ5w==" />
@@ -189,10 +204,7 @@
       <select name="entry[field_17][city]" id="entry_field_17_city" class="gd-input-small needsclick" data-role="city" data-value="null"><option value="">- 市 -</option></select>
       <span class="dropdown-trigger needsclick"></span>
     </div>
-    <div class="dropdown address hide">
-      <select name="entry[field_17][district]" id="entry_field_17_district" class="gd-input-small needsclick" data-role="district" data-value="null"><option value="">- 区/县 -</option></select>
-      <span class="dropdown-trigger needsclick"></span>
-    </div>
+
   </div>
   <textarea name="entry[field_17][street]" id="entry_field_17_street" placeholder="详细地址" rows="3" class="gd-input-xxlarge hide">
 </textarea>

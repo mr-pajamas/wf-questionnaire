@@ -40,7 +40,7 @@
 			        	</div>
 			        	<div>
 			        		<p class='submit'><input type='submit' onclick="javascript:return checkform(this.form)" value='登&nbsp;&nbsp;录'></input></p>
-			        		<p class='query'><a style="" href="<%=webRoot %>/admin/home/assessment">注&nbsp;&nbsp;&nbsp;&nbsp;册</a></p>
+			        		<p class='query'><a style="" href="<%=webRoot %>/survey/regist">注&nbsp;&nbsp;&nbsp;&nbsp;册</a></p>
 			        	</div>
 			        	
 		        	</form>
