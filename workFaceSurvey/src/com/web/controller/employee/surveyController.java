@@ -42,9 +42,21 @@ public class surveyController {
 		String password=request.getParameter("password");
 		if(!"".equals(phone) && !"".equals(password) && phone!=null && password!=null){
 			User user=surveyServey.checkLogin(phone,password);
-			request.getSession().setAttribute("username", user.getPhone());
-			request.getSession().setAttribute("id", user.getId());
-			return "";
+			if(user!=null){
+				request.getSession().setAttribute("username", user.getPhone());
+				request.getSession().setAttribute("phone", user.getPhone());
+				request.getSession().setAttribute("id", user.getId());
+				if(user.getRole().equals("1")){
+					return "/jsp/website/choose";
+				}else{
+					return "/jsp/website/wenjuan1";
+				}
+				
+			}else{
+				request.setAttribute("error", "用户名或密码错误，请重新输入");
+				return "/jsp/website/login";
+			}
+			
 		}else{
 			return "/jsp/website/login";
 		}
@@ -66,13 +78,18 @@ public class surveyController {
 		String password=request.getParameter("password");
 		String passwordRpe=request.getParameter("passwordRpe");
 		if(!"".equals(phone) && !"".equals(password) && password.equals(passwordRpe) ){
-			User user=new User();
-			user.setPhone(phone);
-			user.setPassword(password);
-			surveyServey.saveUser(user);
-			return "/jsp/website/login";
+			User user=surveyServey.getUserByPhone(phone);
+			if(user==null){
+				user.setPhone(phone);
+				user.setPassword(password);
+				surveyServey.saveUser(user);
+				return "/jsp/website/login";
+			}else{
+				request.setAttribute("error", "该手机号已被注册，请重试");
+				return "/jsp/website/regist";
+			}
 		}else{
-			request.setAttribute("error", "请确保用户名、密码输入正确");
+			request.setAttribute("error", "请确保密码、用户名输入正确");
 			return "/jsp/website/regist";
 		}
 	}
