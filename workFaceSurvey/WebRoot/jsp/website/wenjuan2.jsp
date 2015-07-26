@@ -87,7 +87,7 @@
   
 
   
-<form class="center" data-form-token="1EHGwC" data-validate-url="f/1EHGwC/validate_fields" id="new_entry" action="f/1EHGwC" accept-charset="UTF-8" method="post"><input type="hidden" name="utf8" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="jrX3hOH4KuqYdliedVkAg16AMZ52zl/0b7aVhdsOtGgc6PdZaTyG+Xp8NpSyuUPXej07EpysxZ5HKnP1o+PQ5w==" />
+<form class="center" data-form-token="1EHGwC" data-validate-url="f/1EHGwC/validate_fields" id="new_entry" action="<%=webRoot %>/synthesize/SaveQ2" accept-charset="UTF-8" method="post"><input type="hidden" name="utf8" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="jrX3hOH4KuqYdliedVkAg16AMZ52zl/0b7aVhdsOtGgc6PdZaTyG+Xp8NpSyuUPXej07EpysxZ5HKnP1o+PQ5w==" />
       <div class="banner">
           <span class="banner-text banner-content"></span>
           
@@ -271,15 +271,15 @@
     <div class="controls">
       <div class="clearfix radio-group" data-role="controlgroup">
         <label onclick="" class="radio inline">
-        <input type="radio" value="tq8d" name="entry[field_15]" />
+        <input type="radio" value="还在前期投入" name="entry[field_15]" />
         还在前期投入
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="23PW" name="entry[field_15]" />
+        <input type="radio" value="收支平衡" name="entry[field_15]" />
         收支平衡
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="Ae72" name="entry[field_15]" />
+        <input type="radio" value="已盈利" name="entry[field_15]" />
         已盈利
       </label>
 
@@ -303,24 +303,24 @@
     <div class="controls">
       <div class="clearfix radio-group" data-role="controlgroup">
         <label onclick="" class="radio inline">
-        <input type="radio" value="IxEo" name="entry[field_16]" />
+        <input type="radio" value="5人以下" name="entry[field_16]" />
         5人以下
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="GtyI" name="entry[field_16]" />
+        <input type="radio" value="5-10人" name="entry[field_16]" />
         5-10人
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="oab2" name="entry[field_16]" />
+        <input type="radio" value="10-30人" name="entry[field_16]" />
         10-30人
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="NBJq" name="entry[field_16]" />
+        <input type="radio" value="30人以上" name="entry[field_16]" />
         30人以上
       </label>
       <div class="other-choice-area inline">
         <label onclick="" class="radio inline">
-          <input class="other_choice" data-field-key="field_16" type="radio" value="BfQV" name="entry[field_16]" />
+          <input class="other_choice" data-field-key="field_16" type="radio" value="其它" name="entry[field_16]" />
           其它
         </label>
         <input class="other-choice-input gd-input-medium" data-field-key="field_16" type="text" value="" name="entry[field_16_other]" id="entry_field_16_other" />
@@ -346,31 +346,31 @@
     <div class="controls">
       <div class="clearfix checkbox-group" data-role="controlgroup">
         <label onclick="" class="checkbox inline">
-        <input type="checkbox" value="KNXh" name="entry[field_21][]" />
+        <input type="checkbox" value="团队建设" name="entry[field_21][]" />
         团队建设
       </label>
       <label onclick="" class="checkbox inline">
-        <input type="checkbox" value="sA7c" name="entry[field_21][]" />
+        <input type="checkbox" value="品牌推广" name="entry[field_21][]" />
         品牌推广
       </label>
       <label onclick="" class="checkbox inline">
-        <input type="checkbox" value="sJD6" name="entry[field_21][]" />
+        <input type="checkbox" value="资金不足" name="entry[field_21][]" />
         资金不足
       </label>
       <label onclick="" class="checkbox inline">
-        <input type="checkbox" value="Q65i" name="entry[field_21][]" />
+        <input type="checkbox" value="产品完善" name="entry[field_21][]" />
         产品完善
       </label>
       <label onclick="" class="checkbox inline">
-        <input type="checkbox" value="oe1s" name="entry[field_21][]" />
+        <input type="checkbox" value="管理经验" name="entry[field_21][]" />
         管理经验
       </label>
       <div class="other-choice-area inline">
         <label onclick="" class="checkbox inline">
-          <input class="other_choice" data-field-key="field_21" type="checkbox" value="G7ke" name="entry[field_21][]" />
+          <input class="other_choice" data-field-key="field_21" type="checkbox" value="其它" name="entry[field_21][]" />
           其它
         </label>
-        <input class="other-choice-input gd-input-medium" data-field-key="field_21" type="text" value="" name="entry[field_21_other]" id="entry_field_21_other" />
+        <input class="other-choice-input gd-input-medium" data-field-key="field_21" type="text" name="entry[field_21_other]" id="entry_field_21_other" />
       </div>
 
 </div>

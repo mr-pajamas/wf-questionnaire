@@ -43,5 +43,35 @@ public class SurveyServiceImp extends CommonServiceSpringImpl implements ISurvey
 		}
 		
 	}
+	
+	public User getUserByPhone(String phone){
+		StringBuffer sql=new StringBuffer();
+		sql.append("FROM User where 1=1");
+		if(!"".equals(phone) && phone!=null ){
+			sql.append(" and phone='").append(phone).append("'");
+		}
+		List<User> list=super.searchObjectByHQL(sql.toString(), null, null, null);
+		if(list.size()==1){
+			return list.get(0);
+		}else{
+			return null;
+		}
+		
+	}
+	
+	public Anwser getAnwserByPhone(String phone){
+		StringBuffer sql=new StringBuffer();
+		sql.append("FROM Anwser where 1=1");
+		if(!"".equals(phone) && phone!=null ){
+			sql.append(" and phone='").append(phone).append("'");
+		}
+		List<Anwser> list=super.searchObjectByHQL(sql.toString(), null, null, null);
+		if(list.size()==1){
+			return list.get(0);
+		}else{
+			return null;
+		}
+		
+	}
 
 }

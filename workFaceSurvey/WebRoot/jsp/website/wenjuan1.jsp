@@ -84,7 +84,7 @@
   
 
   
-<form class="center" data-form-token="hPoGPN" data-validate-url="f/hPoGPN/validate_fields" id="new_entry" action="f/hPoGPN" accept-charset="UTF-8" method="post"><input type="hidden" name="utf8" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="HpELRBDnNOoRiZkAvG8DhmircrYLYKq9T+m0zHg8RAHSnnlsD5OdoSPpwVNfJ7WUA+DzecWYOUlyk3RSYdKXPg==" />
+<form class="center" data-form-token="hPoGPN" data-validate-url="f/hPoGPN/validate_fields" id="new_entry" action="<%=webRoot %>/synthesize/SaveQ1" accept-charset="UTF-8" method="post"><input type="hidden" name="utf8" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="HpELRBDnNOoRiZkAvG8DhmircrYLYKq9T+m0zHg8RAHSnnlsD5OdoSPpwVNfJ7WUA+DzecWYOUlyk3RSYdKXPg==" />
       <div class="banner">
           <div class="banner-img banner-content">
             <img height="382" width="700" style="height:382px;width:700px" src="<%=webRoot %>/images/55a60b8f41505030430000111436945295.jpg" alt="55a60b8f41505030430000111436945295" />
@@ -139,11 +139,11 @@
     <div class="controls">
       <div class="clearfix radio-group" data-role="controlgroup">
         <label onclick="" class="radio inline">
-        <input type="radio" value="xQiB" name="entry[field_19]" />
+        <input type="radio" value="男" name="entry[field_19]" />
         男
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="CwG9" name="entry[field_19]" />
+        <input type="radio" value="女" name="entry[field_19]" />
         女
       </label>
 
@@ -219,16 +219,16 @@
     <div class="controls">
       <div class="clearfix radio-group" data-role="controlgroup">
         <label onclick="" class="radio inline">
-        <input type="radio" value="xQiB" name="entry[field_20]" />
+        <input type="radio" value=" 创始人" name="entry[field_20]" />
         创始人
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="CwG9" name="entry[field_20]" />
+        <input type="radio" value="合伙人" name="entry[field_20]" />
         合伙人
       </label>
       <div class="other-choice-area inline">
         <label onclick="" class="radio inline">
-          <input class="other_choice" data-field-key="field_20" type="radio" value="tSR9" name="entry[field_20]" />
+          <input class="other_choice" data-field-key="field_20" type="radio" value="其它" name="entry[field_20]" />
           其它
         </label>
         <input class="other-choice-input gd-input-medium" data-field-key="field_20" type="text" value="" name="entry[field_20_other]" id="entry_field_20_other" />
@@ -254,15 +254,15 @@
     <div class="controls">
       <div class="clearfix radio-group" data-role="controlgroup">
         <label onclick="" class="radio inline">
-        <input type="radio" value="GmRU" name="entry[field_13]" />
+        <input type="radio" value="1次" name="entry[field_13]" />
         1次
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="xQiB" name="entry[field_13]" />
+        <input type="radio" value="2-3次" name="entry[field_13]" />
         2-3次
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="CwG9" name="entry[field_13]" />
+        <input type="radio" value="3次以上" name="entry[field_13]" />
         3次以上
       </label>
 
@@ -286,19 +286,19 @@
     <div class="controls">
       <div class="clearfix radio-group" data-role="controlgroup">
         <label onclick="" class="radio inline">
-        <input type="radio" value="xQiB" name="entry[field_21]" />
+        <input type="radio" value="1年内" name="entry[field_21]" />
         1年内
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="CwG9" name="entry[field_21]" />
+        <input type="radio" value="1-3年" name="entry[field_21]" />
         1-3年
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="w7Iv" name="entry[field_21]" />
+        <input type="radio" value="3-5年" name="entry[field_21]" />
         3-5年
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="Mfq1" name="entry[field_21]" />
+        <input type="radio" value="5年以上" name="entry[field_21]" />
         5年以上
       </label>
 
@@ -322,20 +322,20 @@
     <div class="controls">
       <div class="clearfix radio-group" data-role="controlgroup">
         <label onclick="" class="radio inline">
-        <input type="radio" value="xQiB" name="entry[field_23]" />
+        <input type="radio" value="家人朋友" name="entry[field_23]" />
         家人朋友
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="CwG9" name="entry[field_23]" />
+        <input type="radio" value="自己积蓄" name="entry[field_23]" />
         自己积蓄
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="w7Iv" name="entry[field_23]" />
+        <input type="radio" value=" 投资人" name="entry[field_23]" />
         投资人
       </label>
       <div class="other-choice-area inline">
         <label onclick="" class="radio inline">
-          <input class="other_choice" data-field-key="field_23" type="radio" value="oqwZ" name="entry[field_23]" />
+          <input class="other_choice" data-field-key="field_23" type="radio" value=" 其它" name="entry[field_23]" />
           其它
         </label>
         <input class="other-choice-input gd-input-medium" data-field-key="field_23" type="text" value="" name="entry[field_23_other]" id="entry_field_23_other" />
@@ -362,63 +362,63 @@
     <div class="controls">
       <div class="clearfix radio-group" data-role="controlgroup">
         <label onclick="" class="radio inline">
-        <input type="radio" value="xQiB" name="entry[field_24]" />
+        <input type="radio" value="互联网与移动 " name="entry[field_24]" />
         互联网与移动 
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="CwG9" name="entry[field_24]" />
+        <input type="radio" value="金融服务" name="entry[field_24]" />
         金融服务
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="w7Iv" name="entry[field_24]" />
+        <input type="radio" value="运动、健身、健康护理" name="entry[field_24]" />
         运动、健身、健康护理
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="jMsE" name="entry[field_24]" />
+        <input type="radio" value="新科技新应用" name="entry[field_24]" />
         新科技新应用
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="tSVc" name="entry[field_24]" />
+        <input type="radio" value="媒体、公关、影视与营销" name="entry[field_24]" />
         媒体、公关、影视与营销
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="XPeP" name="entry[field_24]" />
+        <input type="radio" value="美食、餐饮、F&B" name="entry[field_24]" />
         美食、餐饮、F&amp;B
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="A9lC" name="entry[field_24]" />
+        <input type="radio" value="新农业、环境保护" name="entry[field_24]" />
         新农业、环境保护
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="hHp4" name="entry[field_24]" />
+        <input type="radio" value="设计与文化创意" name="entry[field_24]" />
         设计与文化创意
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="JnFH" name="entry[field_24]" />
+        <input type="radio" value="品牌、经营管理、渠道与其他" name="entry[field_24]" />
         品牌、经营管理、渠道与其他
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="54sN" name="entry[field_24]" />
+        <input type="radio" value="养老养护产业" name="entry[field_24]" />
         养老养护产业
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="QBVB" name="entry[field_24]" />
+        <input type="radio" value="旅行、小吃与文化" name="entry[field_24]" />
         旅行、小吃与文化
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="FsNv" name="entry[field_24]" />
+        <input type="radio" value="教育训练、心灵成长、自我提升" name="entry[field_24]" />
         教育训练、心灵成长、自我提升
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="Pi7i" name="entry[field_24]" />
+        <input type="radio" value="社会创新" name="entry[field_24]" />
         社会创新
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="EVOb" name="entry[field_24]" />
+        <input type="radio" value="婴童育儿产业" name="entry[field_24]" />
         婴童育儿产业
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="RyUR" name="entry[field_24]" />
+        <input type="radio" value="组织发展" name="entry[field_24]" />
         组织发展
       </label>
 
@@ -493,19 +493,19 @@
     <div class="controls">
       <div class="clearfix radio-group" data-role="controlgroup">
         <label onclick="" class="radio inline">
-        <input type="radio" value="xQiB" name="entry[field_25]" />
+        <input type="radio" value="90后" name="entry[field_25]" />
         90后
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="CwG9" name="entry[field_25]" />
+        <input type="radio" value="80-89年" name="entry[field_25]" />
         80-89年
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="w7Iv" name="entry[field_25]" />
+        <input type="radio" value="70-79年" name="entry[field_25]" />
         70-79年
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="RmRa" name="entry[field_25]" />
+        <input type="radio" value="70年前" name="entry[field_25]" />
         70年前
       </label>
 
@@ -529,19 +529,19 @@
     <div class="controls">
       <div class="clearfix radio-group" data-role="controlgroup">
         <label onclick="" class="radio inline">
-        <input type="radio" value="xQiB" name="entry[field_27]" />
+        <input type="radio" value="大专及以下" name="entry[field_27]" />
         大专及以下
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="CwG9" name="entry[field_27]" />
+        <input type="radio" value="大学本科" name="entry[field_27]" />
         大学本科
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="w7Iv" name="entry[field_27]" />
+        <input type="radio" value="MBA" name="entry[field_27]" />
         MBA
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="RmRa" name="entry[field_27]" />
+        <input type="radio" value="硕士及以上" name="entry[field_27]" />
         硕士及以上
       </label>
 
@@ -563,7 +563,7 @@
   <div class="field-content">
 
     <div class="controls">
-      <input type="text" value="" name="entry[field_17]" id="entry_field_17" />
+      <input type="text" name="entry[field_17]" id="entry_field_17" />
     </div>
 
   </div>
@@ -654,7 +654,7 @@
   <div class="field-content">
 
     <div class="controls">
-      <input type="text" value="" name="entry[field_16]" id="entry_field_16" />
+      <input type="text"  name="entry[field_16]" id="entry_field_16" />
     </div>
 
   </div>
@@ -674,15 +674,15 @@
     <div class="controls">
       <div class="clearfix radio-group" data-role="controlgroup">
         <label onclick="" class="radio inline">
-        <input type="radio" value="oOtd" name="entry[field_29]" />
+        <input type="radio" value="很熟悉" name="entry[field_29]" />
         很熟悉
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="qZsI" name="entry[field_29]" />
+        <input type="radio" value="一般" name="entry[field_29]" />
         一般
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="Rx3p" name="entry[field_29]" />
+        <input type="radio" value="不认识" name="entry[field_29]" />
         不认识
       </label>
 

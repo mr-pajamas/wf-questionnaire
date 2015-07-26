@@ -54,14 +54,20 @@ public class User{
  @Column(name ="wecahrt")
  private String wecahrt;
  
+ @Column(name ="degree")
+ private String degree;
+ 
  @Column(name ="createdate")
- private String createdate;
+ private Date createdate;
  
  @Column(name ="updatetime")
- private String updatetime;
+ private Date updatetime;
 
  @Column(name ="role")
  private String role;
+ 
+ @Column(name ="tag")
+ private String tag;
  
  public void setId(int id){
    this.id=id;
@@ -170,19 +176,19 @@ public class User{
    return this.wecahrt;
  }
 
-public String getCreatedate() {
+public Date getCreatedate() {
 	return createdate;
 }
 
-public void setCreatedate(String createdate) {
+public void setCreatedate(Date createdate) {
 	this.createdate = createdate;
 }
 
-public String getUpdatetime() {
+public Date getUpdatetime() {
 	return updatetime;
 }
 
-public void setUpdatetime(String updatetime) {
+public void setUpdatetime(Date updatetime) {
 	this.updatetime = updatetime;
 }
 
@@ -201,6 +207,24 @@ public String getRole() {
 public void setRole(String role) {
 	this.role = role;
 }
+
+public String getDegree() {
+	return degree;
+}
+
+public void setDegree(String degree) {
+	this.degree = degree;
+}
+
+public String getTag() {
+	return tag;
+}
+
+public void setTag(String tag) {
+	this.tag = tag;
+}
+
+
  
 
  
