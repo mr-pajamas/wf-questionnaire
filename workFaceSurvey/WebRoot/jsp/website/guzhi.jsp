@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>省市下拉联动插件 @soulteary</title>
+    <title>省市下拉联动插件</title>
    <%@ include file="../commonincludes.jsp"%>
     <script src="<%=webRoot %>/js/data.js"></script>
     <script src="<%=webRoot %>/js/jquery-1.11.1.js"></script>
