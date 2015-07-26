@@ -1,0 +1,67 @@
+
+input[type="button"]{
+	min-width: 100px;
+	
+	height: 30px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	
+	padding: 3px 3px 3px 5px;
+	
+	box-shadow: inset 0px 1px 4px #ECECEC;
+	-moz-box-shadow: inset 0px 1px 4px #ECECEC;
+	-webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+}
+
+div.uploadArea{
+	border: 1px solid #a0b3d6;
+	max-width: 400px;
+	padding: 3px;
+}
+
+
+
+::-webkit-file-upload-button {
+
+	padding: .4em;
+    line-height: 50px;
+    border: 1px solid #a0b3d6;
+    background: #f0f3f9;
+    color: #34538b;
+}
+
+
+
+div.existingPics
+{
+	margin-left:5px;
+margin-right:auto;
+max-width: 500px;
+background: #F7F7F7;
+padding: 25px 15px 25px 25px;
+/*font: 12px Georgia, "Times New Roman", Times, serif;*/
+color: #9E3F3F;
+text-shadow: 1px 1px 1px #FFF;
+border:1px solid #E4E4E4;
+
+float: left;
+}
+
+div.picPreview{
+	float: left;
+	width: 150px;
+	height: 200px;
+	padding: 2px;
+	/*border: 2px solid red;*/
+	
+}
+
+div.picPreview img { 
+max-width:150px; 
+_width:expression_r(this.width<400px?"auto":"400px"); 
+} 
+
+div.picPreview input{
+	
+	margin-top: 5px;
+}
