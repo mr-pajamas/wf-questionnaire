@@ -75,8 +75,6 @@ public class surveyController {
 			request.setAttribute("error", "请确保用户名、密码输入正确");
 			return "/jsp/website/regist";
 		}
-		
-		
 	}
 
 }
