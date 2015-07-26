@@ -67,4 +67,9 @@ public interface ISynthesizeService {
 	 * @return
 	 */
 	public List<Map> searchRegionHotTopicByProvincename(Map map);
+	
+	
+	public  List<Map> searchUser(Map map);
+	
+	public int getTotalRows(Map p);
 }
