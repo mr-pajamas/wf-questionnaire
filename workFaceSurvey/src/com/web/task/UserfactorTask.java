@@ -34,7 +34,6 @@ public class UserfactorTask {
 	public static final String[] starEnameArr = { "Capricorn", "Aquarius", "Pisces", "Aries", "Taurus",
 		"Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius" };
 
-	@Scheduled(cron = "0 * 23 * * ?")
 	public void updatCconstellation() {
 		//每天23点执行
 		log.info("task---------updatCconstellation-----start");

@@ -3,7 +3,7 @@
   type="WEB"
   name="workFaceSurvey"
   id="myeclipse.1400032325196"
-  context-root="/bigdata_svw"
+  context-root="/workface"
   j2ee-spec="5.0"
   archive="workFaceSurvey.war">
   <attributes>
