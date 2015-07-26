@@ -76,5 +76,10 @@ public class surveyController {
 			return "/jsp/website/regist";
 		}
 	}
+	
+	@RequestMapping("/showmanage")
+	public String  showmangee(HttpServletRequest request,HttpServletResponse response){
+		return "/jsp/website/manage";
+	}
 
 }
