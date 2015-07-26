@@ -1,4 +1,5 @@
-*{font-family: 'Î¢ÈíÑÅºÚ'}
+@charset "utf-8";
+*{font-family: 'Microsoft YaHei'}
 
 .page1{
 	text-align: center;
@@ -6,33 +7,33 @@
 }
 
 .page1 .logo{
-	width:215px;
-	height: 85px ;
+	width:320px;
+	height: 140px ;
 	margin:0 auto;
-	padding-top: 5%;
+	padding-top: 3%;
 	
 }
 
 
 .title{
-	color: #fff;
-	font-size: 35px ;
+	color:#1874CD;
+	font-size: 20px ;
 	padding-top: 36px;
 }
 
 .page1 .shuru{
 	width:348px;
 	margin:0 auto;
-	padding-top: 60px;
+	padding-top: 40px;
 	/*height:67px;*/
 	/*border-radius:5px;*/
 	/*border:1px solid red;*/
 }
 
 .page1 .shuru input{
-	border:0;
+	border:1px;
 	width:347px;
-	height: 65px ;
+	height: 42px ;
 	/*height: 60px ;*/
 	text-indent: 20px;
 	font-size: 16px ;
@@ -67,10 +68,12 @@
 }
 
 .page1 .query a{
-	color:#fff;
-	font-size: 15px ;
+	color: #7aa9d0;
+	font-size: 16px ;
+	font-weight:blod;
 	padding-bottom:5px ;
-	border-bottom:2px solid #fff ;
+	border-bottom:2px solid  #7aa9d0 ;
+	text-decoration:none;
 }
 
 

@@ -16,11 +16,19 @@ public interface ISurveyService extends CommonService {
 	 */
 	public void saveUser(User user);
 	
+	
 	/**
 	 * 保存答卷信息
 	 * @param map
 	 * @return
 	 */
 	public void saveAnwser(Anwser anwser);
+	
+	/**
+	 * 登陆查询
+	 * @param map
+	 * @return
+	 */
+	public User checkLogin(String phone,String password);
 
 }

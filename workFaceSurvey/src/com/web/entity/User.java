@@ -23,6 +23,9 @@ public class User{
 
  @Column(name ="phone")
  private String phone;
+ 
+ @Column(name ="password")
+ private String password;
 
  @Column(name ="referrer")
  private String referrer;
@@ -57,7 +60,9 @@ public class User{
  @Column(name ="updatetime")
  private String updatetime;
 
-
+ @Column(name ="role")
+ private String role;
+ 
  public void setId(int id){
    this.id=id;
  }
@@ -180,7 +185,24 @@ public String getUpdatetime() {
 public void setUpdatetime(String updatetime) {
 	this.updatetime = updatetime;
 }
+
+public String getPassword() {
+	return password;
+}
+
+public void setPassword(String password) {
+	this.password = password;
+}
+
+public String getRole() {
+	return role;
+}
+
+public void setRole(String role) {
+	this.role = role;
+}
  
+
  
 
 }

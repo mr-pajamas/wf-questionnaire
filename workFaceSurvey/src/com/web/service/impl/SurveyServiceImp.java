@@ -1,5 +1,7 @@
 package com.web.service.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.web.common.service.impl.CommonServiceSpringImpl;
@@ -24,6 +26,21 @@ public class SurveyServiceImp extends CommonServiceSpringImpl implements ISurvey
 	public void saveAnwser(Anwser anwser) {
 		// TODO Auto-generated method stub
 		super.saveObject(anwser);
+		
+	}
+	
+	public User checkLogin(String phone,String password){
+		StringBuffer sql=new StringBuffer();
+		sql.append("FROM User where 1=1");
+		if(!"".equals(phone) && !"".equals(password) && phone!=null && password!=null){
+			sql.append(" and phone='").append(phone).append("' and password='").append(password).append("'");
+		}
+		List<User> list=super.searchObjectByHQL(sql.toString(), null, null, null);
+		if(list.size()==1){
+			return list.get(0);
+		}else{
+			return null;
+		}
 		
 	}
 
