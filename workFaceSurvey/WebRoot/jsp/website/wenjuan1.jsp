@@ -3,8 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"383240907d","applicationID":"4830918","transactionName":"dQlXRRFcDQ9SEE1DQFQKUEILVgU8UQ0QXkYZFVFeFA==","queueTime":1,"applicationTime":40,"agent":"js-agent.newrelic.com/nr-632.min.js"}</script>
-<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o?o:n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({QJf3ax:[function(e,n){function t(e){function n(n,t,a){e&&e(n,t,a),a||(a={});for(var u=c(n),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,t);return s}function a(e,n){f[e]=c(e).concat(n)}function c(e){return f[e]||[]}function u(){return t(n)}var f={};return{on:a,emit:n,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=e("gos");n.exports=t()},{gos:"7eSDFh"}],ee:[function(e,n){n.exports=e("QJf3ax")},{}],3:[function(e,n){function t(e){return function(){r(e,[(new Date).getTime()].concat(i(arguments)))}}var r=e("handle"),o=e(1),i=e(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(e,n){window.NREUM[n]=t("api-"+n)}),n.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],"7eSDFh":[function(e,n){function t(e,n,t){if(r.call(e,n))return e[n];var o=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return e[n]=o,o}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],gos:[function(e,n){n.exports=e("7eSDFh")},{}],handle:[function(e,n){n.exports=e("D5DuLP")},{}],D5DuLP:[function(e,n){function t(e,n,t){return r.listeners(e).length?r.emit(e,n,t):(o[e]||(o[e]=[]),void o[e].push(n))}var r=e("ee").create(),o={};n.exports=t,t.ee=r,r.q=o},{ee:"QJf3ax"}],id:[function(e,n){n.exports=e("XL7HBI")},{}],XL7HBI:[function(e,n){function t(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");n.exports=t},{gos:"7eSDFh"}],G9z0Bl:[function(e,n){function t(){var e=d.info=NREUM.info,n=f.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&n){c(p,function(n,t){n in e||(e[n]=t)});var t="https"===s.split(":")[0]||e.sslForHttp;d.proto=t?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=d.proto+e.agent,n.parentNode.insertBefore(r,n)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=e("handle"),c=e(1),u=(e(2),window),f=u.document,s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-632.min.js"},d=n.exports={offset:i(),origin:s,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",t,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",t)),a("mark",["firstbyte",i()])},{1:12,2:3,handle:"D5DuLP"}],loader:[function(e,n){n.exports=e("G9z0Bl")},{}],12:[function(e,n){function t(e,n){var t=[],o="",i=0;for(o in e)r.call(e,o)&&(t[i]=n(o,e[o]),i+=1);return t}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],13:[function(e,n){function t(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(0>o?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=t},{}]},{},["G9z0Bl"]);</script>
   <title>【创业上海万人田野调查初步信息表】 WorkFace | 创业者理解创业者</title>
   <meta name="description" content="为【创业上海万人田野调查初步信息表】 WorkFace | 创业者理解创业者提交数据。&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;color: #000000;&quot;&gt;这是一场社会化的田野调查，创业者理解创业者，&lt;/span&gt;&lt;spa...">
   <link rel="shortcut icon" type="image/x-icon" href="<%=webRoot %>/assets/favicon-a1533ba989eeced36f8738b1298892b5.ico" />
@@ -86,7 +84,7 @@
   
 
   
-<form class="center" data-form-token="hPoGPN" data-validate-url="f/hPoGPN/validate_fields" id="new_entry" action="f/hPoGPN" accept-charset="UTF-8" method="post"><input type="hidden" name="utf8" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="HpELRBDnNOoRiZkAvG8DhmircrYLYKq9T+m0zHg8RAHSnnlsD5OdoSPpwVNfJ7WUA+DzecWYOUlyk3RSYdKXPg==" />
+<form class="center" data-form-token="hPoGPN" data-validate-url="f/hPoGPN/validate_fields" id="new_entry" action="<%=webRoot %>/synthesize/SaveQ1" accept-charset="UTF-8" method="post"><input type="hidden" name="utf8" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="HpELRBDnNOoRiZkAvG8DhmircrYLYKq9T+m0zHg8RAHSnnlsD5OdoSPpwVNfJ7WUA+DzecWYOUlyk3RSYdKXPg==" />
       <div class="banner">
           <div class="banner-img banner-content">
             <img height="382" width="700" style="height:382px;width:700px" src="<%=webRoot %>/images/55a60b8f41505030430000111436945295.jpg" alt="55a60b8f41505030430000111436945295" />
@@ -141,11 +139,11 @@
     <div class="controls">
       <div class="clearfix radio-group" data-role="controlgroup">
         <label onclick="" class="radio inline">
-        <input type="radio" value="xQiB" name="entry[field_19]" />
+        <input type="radio" value="男" name="entry[field_19]" />
         男
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="CwG9" name="entry[field_19]" />
+        <input type="radio" value="女" name="entry[field_19]" />
         女
       </label>
 
@@ -221,16 +219,16 @@
     <div class="controls">
       <div class="clearfix radio-group" data-role="controlgroup">
         <label onclick="" class="radio inline">
-        <input type="radio" value="xQiB" name="entry[field_20]" />
+        <input type="radio" value=" 创始人" name="entry[field_20]" />
         创始人
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="CwG9" name="entry[field_20]" />
+        <input type="radio" value="合伙人" name="entry[field_20]" />
         合伙人
       </label>
       <div class="other-choice-area inline">
         <label onclick="" class="radio inline">
-          <input class="other_choice" data-field-key="field_20" type="radio" value="tSR9" name="entry[field_20]" />
+          <input class="other_choice" data-field-key="field_20" type="radio" value="其它" name="entry[field_20]" />
           其它
         </label>
         <input class="other-choice-input gd-input-medium" data-field-key="field_20" type="text" value="" name="entry[field_20_other]" id="entry_field_20_other" />
@@ -256,15 +254,15 @@
     <div class="controls">
       <div class="clearfix radio-group" data-role="controlgroup">
         <label onclick="" class="radio inline">
-        <input type="radio" value="GmRU" name="entry[field_13]" />
+        <input type="radio" value="1次" name="entry[field_13]" />
         1次
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="xQiB" name="entry[field_13]" />
+        <input type="radio" value="2-3次" name="entry[field_13]" />
         2-3次
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="CwG9" name="entry[field_13]" />
+        <input type="radio" value="3次以上" name="entry[field_13]" />
         3次以上
       </label>
 
@@ -288,19 +286,19 @@
     <div class="controls">
       <div class="clearfix radio-group" data-role="controlgroup">
         <label onclick="" class="radio inline">
-        <input type="radio" value="xQiB" name="entry[field_21]" />
+        <input type="radio" value="1年内" name="entry[field_21]" />
         1年内
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="CwG9" name="entry[field_21]" />
+        <input type="radio" value="1-3年" name="entry[field_21]" />
         1-3年
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="w7Iv" name="entry[field_21]" />
+        <input type="radio" value="3-5年" name="entry[field_21]" />
         3-5年
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="Mfq1" name="entry[field_21]" />
+        <input type="radio" value="5年以上" name="entry[field_21]" />
         5年以上
       </label>
 
@@ -324,20 +322,20 @@
     <div class="controls">
       <div class="clearfix radio-group" data-role="controlgroup">
         <label onclick="" class="radio inline">
-        <input type="radio" value="xQiB" name="entry[field_23]" />
+        <input type="radio" value="家人朋友" name="entry[field_23]" />
         家人朋友
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="CwG9" name="entry[field_23]" />
+        <input type="radio" value="自己积蓄" name="entry[field_23]" />
         自己积蓄
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="w7Iv" name="entry[field_23]" />
+        <input type="radio" value=" 投资人" name="entry[field_23]" />
         投资人
       </label>
       <div class="other-choice-area inline">
         <label onclick="" class="radio inline">
-          <input class="other_choice" data-field-key="field_23" type="radio" value="oqwZ" name="entry[field_23]" />
+          <input class="other_choice" data-field-key="field_23" type="radio" value=" 其它" name="entry[field_23]" />
           其它
         </label>
         <input class="other-choice-input gd-input-medium" data-field-key="field_23" type="text" value="" name="entry[field_23_other]" id="entry_field_23_other" />
@@ -364,63 +362,63 @@
     <div class="controls">
       <div class="clearfix radio-group" data-role="controlgroup">
         <label onclick="" class="radio inline">
-        <input type="radio" value="xQiB" name="entry[field_24]" />
+        <input type="radio" value="互联网与移动 " name="entry[field_24]" />
         互联网与移动 
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="CwG9" name="entry[field_24]" />
+        <input type="radio" value="金融服务" name="entry[field_24]" />
         金融服务
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="w7Iv" name="entry[field_24]" />
+        <input type="radio" value="运动、健身、健康护理" name="entry[field_24]" />
         运动、健身、健康护理
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="jMsE" name="entry[field_24]" />
+        <input type="radio" value="新科技新应用" name="entry[field_24]" />
         新科技新应用
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="tSVc" name="entry[field_24]" />
+        <input type="radio" value="媒体、公关、影视与营销" name="entry[field_24]" />
         媒体、公关、影视与营销
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="XPeP" name="entry[field_24]" />
+        <input type="radio" value="美食、餐饮、F&B" name="entry[field_24]" />
         美食、餐饮、F&amp;B
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="A9lC" name="entry[field_24]" />
+        <input type="radio" value="新农业、环境保护" name="entry[field_24]" />
         新农业、环境保护
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="hHp4" name="entry[field_24]" />
+        <input type="radio" value="设计与文化创意" name="entry[field_24]" />
         设计与文化创意
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="JnFH" name="entry[field_24]" />
+        <input type="radio" value="品牌、经营管理、渠道与其他" name="entry[field_24]" />
         品牌、经营管理、渠道与其他
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="54sN" name="entry[field_24]" />
+        <input type="radio" value="养老养护产业" name="entry[field_24]" />
         养老养护产业
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="QBVB" name="entry[field_24]" />
+        <input type="radio" value="旅行、小吃与文化" name="entry[field_24]" />
         旅行、小吃与文化
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="FsNv" name="entry[field_24]" />
+        <input type="radio" value="教育训练、心灵成长、自我提升" name="entry[field_24]" />
         教育训练、心灵成长、自我提升
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="Pi7i" name="entry[field_24]" />
+        <input type="radio" value="社会创新" name="entry[field_24]" />
         社会创新
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="EVOb" name="entry[field_24]" />
+        <input type="radio" value="婴童育儿产业" name="entry[field_24]" />
         婴童育儿产业
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="RyUR" name="entry[field_24]" />
+        <input type="radio" value="组织发展" name="entry[field_24]" />
         组织发展
       </label>
 
@@ -495,19 +493,19 @@
     <div class="controls">
       <div class="clearfix radio-group" data-role="controlgroup">
         <label onclick="" class="radio inline">
-        <input type="radio" value="xQiB" name="entry[field_25]" />
+        <input type="radio" value="90后" name="entry[field_25]" />
         90后
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="CwG9" name="entry[field_25]" />
+        <input type="radio" value="80-89年" name="entry[field_25]" />
         80-89年
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="w7Iv" name="entry[field_25]" />
+        <input type="radio" value="70-79年" name="entry[field_25]" />
         70-79年
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="RmRa" name="entry[field_25]" />
+        <input type="radio" value="70年前" name="entry[field_25]" />
         70年前
       </label>
 
@@ -531,19 +529,19 @@
     <div class="controls">
       <div class="clearfix radio-group" data-role="controlgroup">
         <label onclick="" class="radio inline">
-        <input type="radio" value="xQiB" name="entry[field_27]" />
+        <input type="radio" value="大专及以下" name="entry[field_27]" />
         大专及以下
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="CwG9" name="entry[field_27]" />
+        <input type="radio" value="大学本科" name="entry[field_27]" />
         大学本科
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="w7Iv" name="entry[field_27]" />
+        <input type="radio" value="MBA" name="entry[field_27]" />
         MBA
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="RmRa" name="entry[field_27]" />
+        <input type="radio" value="硕士及以上" name="entry[field_27]" />
         硕士及以上
       </label>
 
@@ -565,7 +563,7 @@
   <div class="field-content">
 
     <div class="controls">
-      <input type="text" value="" name="entry[field_17]" id="entry_field_17" />
+      <input type="text" name="entry[field_17]" id="entry_field_17" />
     </div>
 
   </div>
@@ -656,7 +654,7 @@
   <div class="field-content">
 
     <div class="controls">
-      <input type="text" value="" name="entry[field_16]" id="entry_field_16" />
+      <input type="text"  name="entry[field_16]" id="entry_field_16" />
     </div>
 
   </div>
@@ -676,15 +674,15 @@
     <div class="controls">
       <div class="clearfix radio-group" data-role="controlgroup">
         <label onclick="" class="radio inline">
-        <input type="radio" value="oOtd" name="entry[field_29]" />
+        <input type="radio" value="很熟悉" name="entry[field_29]" />
         很熟悉
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="qZsI" name="entry[field_29]" />
+        <input type="radio" value="一般" name="entry[field_29]" />
         一般
       </label>
       <label onclick="" class="radio inline">
-        <input type="radio" value="Rx3p" name="entry[field_29]" />
+        <input type="radio" value="不认识" name="entry[field_29]" />
         不认识
       </label>
 

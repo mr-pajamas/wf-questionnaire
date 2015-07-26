@@ -66,19 +66,25 @@
 		        		创&nbsp;业&nbsp;上&nbsp;海&nbsp;万&nbsp;人&nbsp;田&nbsp;野&nbsp;调&nbsp;查&nbsp;&nbsp;
 		        	</div>
 					<div class="container">
-						<form class="form-signin" action="<%=webRoot %>/survey/saveregist" method="post">
-							<h2 class="form-signin-heading">Please register</h2>
-							<label class="sr-only" for="inputTelNum">Phone Number</label>
-							<input id="inputTelNum" class="form-control" name="PhoneNum" type="tel" autofocus="" required="" placeholder="Phone Number">
-							<label class="sr-only" for="inputPassword">Password</label>
-							<input id="inputPassword" class="form-control" type="password" name="password" required="" placeholder="Password">
-							<label class="sr-only" for="confirmPassword">Password</label>
-							<input id="confirmPassword" class="form-control" type="password" required="" name="passwordRpe" placeholder="Confirm Password">
-							<input class="btn btn-lg btn-primary btn-block" onsubmit="validate()" value="Submit" type="submit"/>
-						</form>
-						<div style="color:#b02f2a;font-size:12px;margin-top:10px">${error}</div>
+						<div>
+							<div style="float:left" >
+								<img style=" width:100px;height:100px" alt="用户头像" src="<%=webRoot%>/images/logo.png">
+							</div>
+							<div style="float:left;padding-top:25px;margin-left:10px">
+								<div style="float:left" >
+									<span>姓名：</span>杨树楷
+								</div>
+								<div style="clear"></div>
+								<div style="float:left">
+									<span>公司地址：</span>国定东路XXX
+								</div>
+								<div style="clear"></div>
+								<div style="float:left">
+									<span>手机号：</span>15800531997
+								</div>
+							</div>
+						</div>
 					</div>
-					
 		    	</div>
 		    	
 	    	</section>

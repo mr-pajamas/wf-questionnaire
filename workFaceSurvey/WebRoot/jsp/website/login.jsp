@@ -31,7 +31,7 @@
 		        	<div class="title" style="font-weight:bold">
 		        		创&nbsp;业&nbsp;上&nbsp;海&nbsp;万&nbsp;人&nbsp;田&nbsp;野&nbsp;调&nbsp;查&nbsp;&nbsp;&nbsp;&nbsp;
 		        	</div>
-		        	<form action='<%=webRoot %>/employee/login' method='post'>
+		        	<form action='<%=webRoot %>/survey/login' method='post'>
 			        	<div class='shuru'>
 			        		<input type="text" placeholder="手机号" id='phoneNum' name='phoneNum'/>
 			        		
@@ -40,8 +40,9 @@
 			        	</div>
 			        	<div>
 			        		<p class='submit'><input type='submit' onclick="javascript:return checkform(this.form)" value='登&nbsp;&nbsp;录'></input></p>
-			        		<p class='query'><a style="" href="<%=webRoot %>/admin/home/assessment">注&nbsp;&nbsp;&nbsp;&nbsp;册</a></p>
+			        		<p class='query'><a style="" href="<%=webRoot %>/survey/regist">注&nbsp;&nbsp;&nbsp;&nbsp;册</a></p>
 			        	</div>
+			        	<div style="color:#b02f2a;font-size:12px;margin-top:10px">${error}</div>
 			        	
 		        	</form>
 		    	</div>

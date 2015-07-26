@@ -132,6 +132,15 @@ public class Anwser{
  @Column(name ="Q38")
  private String Q38;
 
+ @Column(name ="Q39")
+ private String Q39;
+ 
+ @Column(name ="Q40")
+ private String Q40;
+ 
+ @Column(name ="Q41")
+ private String Q41;
+ 
  @Column(name ="createtime")
  private Date createtime;
 
@@ -466,6 +475,31 @@ public Date getUpdatetime() {
 public void setUpdatetime(Date updatetime) {
 	this.updatetime = updatetime;
 }
+
+public String getQ39() {
+	return Q39;
+}
+
+public void setQ39(String q39) {
+	Q39 = q39;
+}
+
+public String getQ40() {
+	return Q40;
+}
+
+public void setQ40(String q40) {
+	Q40 = q40;
+}
+
+public String getQ41() {
+	return Q41;
+}
+
+public void setQ41(String q41) {
+	Q41 = q41;
+}
+
 
 
 
