@@ -1,0 +1,66 @@
+
+body{
+	background: white;
+	
+	font-family: Consolas;
+	font-size: 16px;
+}
+
+input[type="text"], .basic-grey input[type="email"]{
+	min-width: 150px;
+}
+
+input[type="number"]
+{
+	width: 80px;
+}
+
+.basic-grey textarea{
+	width: 80%;
+	padding: 5px 3px 3px 5px;
+}
+
+
+
+div.Content{
+	color: rgb(17, 17, 17);
+	display: block;
+	
+	
+	/*font-family: Helvetica, Arial, sans-serif;*/
+	
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	
+	line-height: 19.4400005340576px;
+	margin-bottom: 0px;
+	margin-left: 50px;
+	margin-right: 0px;
+	margin-top: 20px;
+	
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 2px;
+	width: 800px;
+}
+
+div.answers {
+	display: inline-block;
+	width:100%;
+	margin-top:8px;
+	margin-left: 10px;
+}
+
+div.answers label{
+	height: 20px;
+}
+
+/*Following doesnot work.*/
+div.basic-grey div.question{
+	background-color: yellow;
+	margin-top: 50px;
+	border: 1 solid red;
+}
+

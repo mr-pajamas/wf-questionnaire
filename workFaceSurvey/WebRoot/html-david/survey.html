@@ -1,0 +1,365 @@
+﻿<html>
+    
+    <head>
+        <script type="text/javascript">
+</script>
+        <link href="css/survey.css" rel="stylesheet" type="text/css" />
+        <link href="css/survey1.css" rel="stylesheet" type="text/css" />
+    </head>
+    
+    <body>
+        <div class="basic-grey">
+            <h1>创业上海万人田野调查（WorkFace）</h1>
+            <div>
+                <div class="Content">
+                    <span>WF田野调查介绍： 这是一场社会化的田野调查，创业者理解创业者。 我们不是任何第三方。 创业事关我们自己的命运，你的成败关乎我的成败，我们不置身事外。 谢谢你，与我们一起。</span>
+                </div>
+            </div>
+            <div class="quesiton">
+                <label class="longTitle">
+                    <span>您了解WF吗？从哪个渠道了解到WF的？</span>
+                </label>
+                <div class="answers">
+                    <label for="radioSet_KnowWF_Item1">
+                        <input type="radio" name="radioSet_KnowWF" id="radioSet_KnowWF_Item1" value="1" />比较了解</label>
+                    <label for="radioSet_KnowWF_Item2">
+                        <input type="radio" name="radioSet_KnowWF" id="radioSet_KnowWF_Item2" value="2" />一般</label>
+                    <label for="radioSet_KnowWF_Item3">
+                        <input type="radio" name="radioSet_KnowWF" id="radioSet_KnowWF_Item3" value="3" />不太了解</label>
+                </div>
+            </div>
+            <div class="quesiton">
+                <label class="longTitle">
+                    <span>了解渠道：</span>
+                </label>
+                <div class="answers">
+                    <label for="radioSet_Pipe_Item1">
+                        <input type="radio" name="radioSet_Pipe" id="radioSet_Pipe_Item1" value="1" />公众号</label>
+                    <label for="radioSet_Pipe_Item2">
+                        <input type="radio" name="radioSet_Pipe" id="radioSet_Pipe_Item2" value="2" />微信朋友圈转发</label>
+                    <label for="radioSet_Pipe_Item3">
+                        <input type="radio" name="radioSet_Pipe" id="radioSet_Pipe_Item3" value="3" />朋友推荐</label>
+                    <label for="radioSet_Pipe_Item4">
+                        <input type="radio" name="radioSet_Pipe" id="radioSet_Pipe_Item4" value="4" />壹道TV</label>
+                    <label for="radioSet_Pipe_Item5">
+                        <input type="radio" name="radioSet_Pipe" id="radioSet_Pipe_Item5" value="5" />其他（请注明）
+                        <input id="pipeToKonw" type="text" name="radioSet_Pipe_Item5" placeholder="其他" />
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="basic-grey">
+            <!--<div class="quesiton">-->
+            <div class="quesiton">
+                <label class="longTitle">
+                    <span>一、现在创业是怎么发生的，发心是什么？为什么会选择目前的行业/项目？</span>
+                </label>
+                <div class="answers">
+                    <textarea id="message" name="message" placeholder="Your Message"></textarea>
+                </div>
+            </div>
+            <div class="quesiton">
+                <label class="longTitle">
+                    <span>1.1 创业前是否有过工作经历，几年，是在目前创业的行业吗？</span>
+                </label>
+                <div class="answers">
+                    <label for="radioSetItem1">
+                        <input type="radio" name="radioSet1" id="radioSetItem1" value="1" />有过工作经历，工作了
+                        <input id="workedYears" type="number" name="radioSet1" placeholder="年" />
+                    </label>
+                    <label for="radioSetItem2">
+                        <input type="radio" name="radioSet1" id="radioSetItem2" value="2" />没有（毕业即创业）</label>
+                </div>
+            </div>
+            <div class="quesiton">
+                <label class="longTitle">
+                    <span>1.2 第一笔启动资金的来源？</span>
+                </label>
+                <div class="answers">
+                    <input type="radio" name="radioSet_FondSource" value="1" />父母家人支持
+                    <br/>
+                    <input type="radio" name="radioSet_FondSource" value="2" />自己多年工作积累
+                    <br/>
+                    <input type="radio" name="radioSet_FondSource" value="3" />天使投资
+                    <br/>
+                    <input type="radio" name="radioSet_FondSource" value="4" />其他（请注明）
+                    <input id="fondSource" type="text" name="radioSet_FondSource" placeholder="其它" />
+                </div>
+            </div>
+            <div class="quesiton">
+                <label class="longTitle">
+                    <span>1.3 在创业过程中你遇到最大的挑战是什么？如何面对或解决的？</span>
+                </label>
+                <div class="answers">
+                    <textarea id="fixForChallenge" name="radioSet_Challenge" placeholder="Your Message"></textarea>
+                    <br/>
+                    <input type="radio" name="radioSet_Challenge" value="1" />商业模式
+                    <br/>
+                    <input type="radio" name="radioSet_Challenge" value="2" />资本运作
+                    <br/>
+                    <input type="radio" name="radioSet_Challenge" value="3" />团队管理
+                    <br/>
+                    <input type="radio" name="radioSet_Challenge" value="4" />其他（请注明）
+                    <input id="radioSet_Challenge" type="text" name="radioSet_Challenge" placeholder="其它" />
+                </div>
+            </div>
+            <div class="quesiton">
+                <div>
+                    <label class="longTitle">
+                        <span>1.4 目前的创业项目规模和具体情况？</span>
+                        <span>(1)这是第几次创业</span>
+                    </label>
+                </div>
+                <div class="answers">
+                    <label for="radioSet_timeForStartup_Item1">
+                        <input type="radio" name="radioSet_timeForStartup" id="radioSet_timeForStartup_Item1" value="1" />第1次</label>
+                    <label for="radioSet_timeForStartup_Item2">
+                        <input type="radio" name="radioSet_timeForStartup" id="radioSet_timeForStartup_Item2" value="2" />2-3次</label>
+                    <label for="radioSet_timeForStartup_Item3">
+                        <input type="radio" name="radioSet_timeForStartup" id="radioSet_timeForStartup_Item3" value="3" />4次及以上</label>
+                </div>
+                <br />
+                <div>
+                    <label>
+                        <span>(2)目前创业项目运作了</span>
+                        <input id="projectRunYears" type="number" placeholder="年" />年</label>
+                </div>
+                <div>
+                    <label>
+                        <span>(3)项目是否已有产出</span>
+                    </label>
+                </div>
+                <div class="answers">
+                    <label for="radioSet_makeProfit_Item1">
+                        <input type="radio" name="radioSet_makeProfit" id="radioSet_makeProfit_Item1" value="1" />已盈利</label>
+                    <label for="radioSet_makeProfit_Item2">
+                        <input type="radio" name="radioSet_makeProfit" id="radioSet_makeProfit_Item2" value="2" />收支平衡</label>
+                    <label for="radioSet_makeProfit_Item3">
+                        <input type="radio" name="radioSet_makeProfit" id="radioSet_makeProfit_Item3" value="3" />还在投入期</label>
+                </div>
+                <div class="answers">
+                    <label>
+                        <span>(4)办公面积</span>
+                        <input id="squareOfOffice" type="number" placeholder="平米" />平米</label>
+                </div>
+                <div class="answers">
+                    <label>
+                        <span>(5)专职员工数量</span>
+                        <input id="numberOfWorkers" type="number" placeholder="" />人</label>
+                </div>
+                <div class="answers">
+                    <label>
+                        <span>(6)兼职员工数量</span>
+                        <input id="numberOfPartTimes" type="number" placeholder="" />人</label>
+                </div>
+            </div>
+            <div class="quesiton">
+                <label class="longTitle">
+                    <span>1.5 你是如何赚到人生第一桶金的？</span>
+                </label>
+                <div class="answers">
+                    <label for="radioSet_firstBlood_Item1">
+                        <input type="radio" name="radioSet_firstBlood" id="radioSet_firstBlood_Item1" value="1" />已赚到</label>
+                    <label for="radioSet_firstBlood_Item2">
+                        <input type="radio" name="radioSet_firstBlood" id="radioSet_firstBlood_Item2" value="2" />还没赚到</label>
+                </div>
+            </div>
+            <div class="quesiton">
+                <label class="longTitle">
+                    <span>1.6 在创业过程中，是否有你特别想感谢的人？TA是如何影响你的呢？TA的哪些品质是值得学习的？</span>
+                </label>
+                <div class="answers">
+                    <label for="radioSet_thank_Item1">
+                        <input type="radio" name="radioSet_thank" id="radioSet_thank_Item1" value="1" />父母/家人</label>
+                    <label for="radioSet_thank_Item2">
+                        <input type="radio" name="radioSet_thank" id="radioSet_thank_Item2" value="2" />合作伙伴</label>
+                    <label for="radioSet_thank_Item3">
+                        <input type="radio" name="radioSet_thank" id="radioSet_thank_Item3" value="3" />投资方</label>
+                    <label for="radioSet_thank_Item4">
+                        <input type="radio" name="radioSet_thank" id="radioSet_thank_Item4" value="4" />某个人生导师</label>
+                    <label for="radioSet_thank_Item5">
+                        <input type="radio" name="radioSet_thank" id="radioSet_thank_Item5" value="5" />其他（请注明）
+                        <input id="thankToKonw" type="text" name="radioSet_thank_Item5" placeholder="其他" />
+                    </label>
+                </div>
+            </div>
+            <div class="quesiton">
+                <label class="longTitle">
+                    <span>1.7 家庭对你创业有怎样的影响？如何平衡工作与家庭的关系？</span>
+                </label>
+                <div class="answers">
+                    <textarea id="affections" name="radioSet_affection" placeholder="Your Message"></textarea>
+                    <br/>
+                    <input type="radio" name="radioSet_marriage" value="1" />已婚
+                    <br/>
+                    <input type="radio" name="radioSet_marriage" value="2" />未婚</div>
+                <div class="answers">
+                    <span>家族里是否有经营企业的人？</span>
+                    <label for="radioSet_manageBusinessInFamily_Item1">
+                        <input type="radio" name="radioSet_manageBusinessInFamily" id="radioSet_manageBusinessInFamily_Item1" value="1" />有</label>
+                    <label for="radioSet_manageBusinessInFamily_Item2">
+                        <input type="radio" name="radioSet_manageBusinessInFamily" id="radioSet_manageBusinessInFamily_Item2" value="2" />没有</label>
+                </div>
+                <div class="answers">
+                    <span>若有，续问，是哪一位亲属？</span>
+                    <label for="radioSet_relativeInBusiness_Item1">
+                        <input type="radio" name="radioSet_relativeInBusiness" id="radioSet_relativeInBusiness_Item1" value="1" />父母/家人</label>
+                    <label for="radioSet_relativeInBusiness_Item2">
+                        <input type="radio" name="radioSet_relativeInBusiness" id="radioSet_relativeInBusiness_Item2" value="2" />兄弟/姐妹</label>
+                    <label for="radioSet_relativeInBusiness_Item3">
+                        <input type="radio" name="radioSet_relativeInBusiness" id="radioSet_relativeInBusiness_Item3" value="3" />爱人</label>
+                    <label for="radioSet_relativeInBusiness_Item4">
+                        <input type="radio" name="radioSet_relativeInBusiness" id="radioSet_relativeInBusiness_Item4" value="4" />其他（请注明）
+                        <input id="relativeInBusinessToKonw" type="text" name="radioSet_relativeInBusiness_Item4" placeholder="其他" />
+                    </label>
+                </div>
+            </div>
+            <div class="quesiton">
+                <label class="longTitle">
+                    <span>1.8 如果给5年后的自己写信，最想写的是什么？</span>
+                </label>
+                <div class="answers">
+                    <textarea id="messageTo5YearsYourself" name="messageTo5YearsYourself" placeholder="Your Message"></textarea>
+                </div>
+            </div>
+            <div class="quesiton">
+                <label class="longTitle">
+                    <span>1.9 如果请你给其他的创业者一个忠告，会对他们说什么呢？</span>
+                </label>
+                <div class="answers">
+                    <textarea id="messageToStartups" name="messageToStartups" placeholder="Your Message"></textarea>
+                </div>
+            </div>
+            <div class="quesiton">
+                <label class="longTitle">
+                    <span>二、对上海的创业环境的观察体验，为什么会选择在上海而不是其他城市创业呢？</span>
+                </label>
+                <div class="answers">
+                    <textarea id="shanghaiOpinion" name="shanghaiOpinion" placeholder="Your Message"></textarea>
+                </div>
+            </div>
+            <div class="quesiton">
+                <span>2.1 在上海工作或生活多久？</span>
+                <input id="liveInShanghai" type="number" placeholder="年" />年</label>
+                <br/>
+                <span>家乡在哪里？</span>
+                <input id="hometown" type="text" placeholder="" />
+                </label>
+                <br/>
+                <span>是新上海人吗？</span>
+                <label for="radioSet_newShanghai_Item1">
+                    <input type="radio" name="radioSet_newShanghai" id="radioSet_newShanghai_Item1" value="1" />是</label>
+                <label for="radioSet_newShanghai_Item2">
+                    <input type="radio" name="radioSet_newShanghai" id="radioSet_newShanghai_Item2" value="2" />不是</label>
+            </div>
+            <div class="quesiton">
+                <label class="longTitle">
+                    <span>2.2 对您目前所在办公地区园区/孵化器有什么建议吗？</span>
+                </label>
+                <div class="answers">
+                    <textarea id="sugessionForIncubation" name="sugessionForIncubation" placeholder="Your Message"></textarea>
+                </div>
+                <div class="subQuestion">
+                    <span>创业园区名称：</span>
+                    <input id="campuseName" type="text" placeholder="" />
+                    <br/>
+                    <span>房租：(目前)</span>
+                    <input id="rentFeeCurrent" type="number" placeholder="" />元/平米
+                    <span>房租：(理想)</span>
+                    <input id="rentFeeIdeal" type="number" placeholder="" />元/平米
+                    <div></div>
+                    <span>政府支持：</span>
+                    <input id="governmentSupport" type="text" placeholder="" />
+                    <span>人力资源：</span>
+                    <input id="humanResources" type="text" placeholder="" />
+                    <span>其他（请注明）</span>
+                    <input id="othersForIncubation" type="text" placeholder="" />
+                </div>
+            </div>
+            <div class="quesiton">
+                <label class="longTitle">
+                    <span>2.3 你对WF这个平台有什么意见/建议吗？</span>
+                </label>
+                <div class="answers">
+                    <textarea id="suggestionToWF" name="suggestionToWF" placeholder="Your Message"></textarea>
+                </div>
+            </div>
+            <div class="quesiton">
+                <label class="longTitle">
+                    <span>2.4 希望WF能为你提供哪些帮助呢？或有哪些困扰需要解决？</span>
+                </label>
+                <div class="answers">
+                    <textarea id="needHelpFromWF" name="needHelpFromWF" placeholder="Your Message"></textarea>
+                </div>
+            </div>
+            <div class="quesiton">
+                <label class="longTitle">
+                    <span>三、背景资料：</span>
+                </label>
+                <span>3.1 性别：</span>
+                <div class="answers">
+                    <label for="radioSet_sex_Item1">
+                        <input type="radio" name="radioSet_sex" id="radioSet_sex_Item1" value="1" />男</label>
+                    <label for="radioSet_sex_Item2">
+                        <input type="radio" name="radioSet_sex" id="radioSet_sex_Item2" value="2" />女</label>
+                </div>
+            </div>
+            <div class="quesiton">
+                <span>3.2 年龄：</span>
+                <div class="answers">
+                    <label for="radioSet_age_Item1">
+                        <input type="radio" name="radioSet_age" id="radioSet_age_Item1" value="1" />大专或以下</label>
+                    <label for="radioSet_age_Item2">
+                        <input type="radio" name="radioSet_age" id="radioSet_age_Item2" value="2" />大学本科</label>
+                    <label for="radioSet_age_Item3">
+                        <input type="radio" name="radioSet_age" id="radioSet_age_Item3" value="1" />硕士及以上</label>
+                    <label for="radioSet_age_Item4">
+                        <input type="radio" name="radioSet_age" id="radioSet_age_Item4" value="2" />MBA</label>
+                </div>
+                <span>学校名称：</span>
+                <input id="schoolName" type="text" placeholder="" />
+            </div>
+            <div class="quesiton">
+                <span>3.3 国外留学经历：</span>
+                <div class="answers">
+                    <label for="radioSet_abroadExp_Item1">
+                        <input type="radio" name="radioSet_abroadExp" id="radioSet_abroadExp_Item1" value="1" />有</label>
+                    <label for="radioSet_abroadExp_Item2">
+                        <input type="radio" name="radioSet_abroadExp" id="radioSet_abroadExp_Item2" value="2" />没有</label>
+                </div>
+            </div>
+            <div class="quesiton">
+                <span>3.4 星座：</span>
+                <div class="answers">
+                    <select name="selection">
+                        <option value="1">水瓶座</option>
+                        <option value="2">双鱼座</option>
+                        <option value="3">白羊座</option>
+                        <option value="4">金牛座</option>
+                        <option value="5">双子座</option>
+                        <option value="6">巨蟹座</option>
+                        <option value="7">狮子座</option>
+                        <option value="8">处女座</option>
+                        <option value="9">天秤座</option>
+                        <option value="10">天蝎座</option>
+                        <option value="11">射手座</option>
+                        <option value="12">摩羯座</option>
+                    </select>
+                </div>
+            </div>
+            <div class="quesiton">
+                <span>3.5 邮箱：</span>
+                <div class="answers">
+                    <input id="email" type="email" placeholder="aaa@xxx.com" />
+                    <span>微信号码：</span>
+                    <input id="weixin" type="text" placeholder="weixin" />
+                </div>
+            </div>
+            <br />
+            <div>
+                <h1>感谢参与，结束访谈！</h1>
+            </div>
+        </div>
+    </body>
+
+</html>
