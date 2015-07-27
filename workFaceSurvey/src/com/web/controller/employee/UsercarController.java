@@ -18,15 +18,41 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.qiniu.common.QiniuException;
+import com.qiniu.http.Response;
+import com.qiniu.storage.UploadManager;
+import com.qiniu.util.Auth;
+
 import sun.misc.BASE64Decoder;
 
 @Controller
 @RequestMapping("/usercar")
 public class UsercarController {
+	String ACCESS_KEY = "ArTWIe1q_1iDUdMm2notK3vjhARjbcNa_8S1zrZ5";
+	String SECRET_KEY = "N9fwW3xXTNvUCdBKQqtcYZsUmaDquwSK1xh9anFv";
+	
+	Auth auth = Auth.create(ACCESS_KEY, SECRET_KEY);
 
+	private String getUpToken0() {
+		return auth.uploadToken("bucket");
+	}
+	
 	@RequestMapping(value = "/index")
 	public String index(HttpServletRequest request, HttpServletResponse response) {
-
+		  UploadManager uploadManager = new UploadManager();
+			 File file=new File("c:\\wangyc.jpg");
+			try {
+				Response res=  uploadManager.put(file, "ceshi", getUpToken0());
+				
+				
+				
+			} catch (QiniuException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		
+		
 		return "/jsp/website/usercar";
 	}
 
