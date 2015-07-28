@@ -113,13 +113,13 @@ public class surveyController {
 				request.setAttribute("error", "该手机号已被注册，请重试");
 				return "/jsp/website/regist";
 			} else {
-
 				uploadimg(tp,phone+"_img.jpg");
-
 				user = new User();
 				user.setPhone(phone);
 				user.setPassword(password);
 				user.setRole("2");
+				user.setHeadimg(phone+"_img.jpg");
+				
 				
 				surveyServey.saveUser(user);
 				return "/jsp/website/login";
@@ -154,7 +154,7 @@ public class surveyController {
 		request.setAttribute("totalRows", totalRows);
 		request.setAttribute("listPage", intPage);
 
-		return "/jsp/website/manage";
+		return "/jsp/website/management";
 	}
 	
 	@RequestMapping(value="/wechatLogin",method = RequestMethod.GET)
