@@ -49,8 +49,9 @@ public class SurveyServiceImp extends CommonServiceSpringImpl implements ISurvey
 		StringBuffer sql=new StringBuffer();
 		sql.append("FROM User where 1=1");
 		if(!"".equals(phone) && phone!=null ){
-			sql.append(" and phone='").append(phone).append("'");
+			sql.append(" and (phone='").append(phone).append("' or wecahrt='").append(phone).append("')");
 		}
+		System.out.println(sql);
 		List<User> list=super.searchObjectByHQL(sql.toString(), null, null, null);
 		if(list.size()==1){
 			return list.get(0);
@@ -59,6 +60,8 @@ public class SurveyServiceImp extends CommonServiceSpringImpl implements ISurvey
 		}
 		
 	}
+	
+	
 	
 	public Anwser getAnwserByPhone(String phone){
 		StringBuffer sql=new StringBuffer();
