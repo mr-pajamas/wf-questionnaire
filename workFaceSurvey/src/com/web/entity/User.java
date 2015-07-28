@@ -81,6 +81,12 @@ public class User{
  @Column(name ="street")
  private String street;
  
+ @Column(name ="wechat_nickname")
+ private String wechat_nickname;
+ 
+ @Column(name ="headimg")
+ private String headimg;
+ 
 
 
  public String getProvince() {
@@ -269,6 +275,24 @@ public String getTag() {
 public void setTag(String tag) {
 	this.tag = tag;
 }
+
+public String getWechat_nickname() {
+	return wechat_nickname;
+}
+
+public void setWechat_nickname(String wechatNickname) {
+	wechat_nickname = wechatNickname;
+}
+
+public String getHeadimg() {
+	return headimg;
+}
+
+public void setHeadimg(String headimg) {
+	this.headimg = headimg;
+}
+
+
 
 
  
