@@ -1,11 +1,14 @@
 package com.web.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
 import com.web.common.service.impl.CommonServiceSpringImpl;
 import com.web.entity.Anwser;
+import com.web.entity.Family;
 import com.web.entity.User;
 import com.web.service.IAttentionService;
 import com.web.service.ISurveyService;
@@ -60,6 +63,17 @@ public class SurveyServiceImp extends CommonServiceSpringImpl implements ISurvey
 		}
 		
 	}
+	
+	public List<Map> searchUserList(String offset,String limit,String name) {
+		StringBuffer sql = new StringBuffer();
+		sql.append(" select phone,name,headimg,company from user where 1=1 ");
+		if(name!=null && !"".equals(name)){
+			sql.append("and (name like '%").append(name).append("%' or company like '%").append(name).append("%')");
+		}
+		List<Map> tmp = super.searchObjectBySQL(sql.toString(), offset, limit);
+		System.out.println(sql);
+		return tmp;
+	} 
 	
 	
 	

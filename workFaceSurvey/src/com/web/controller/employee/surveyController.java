@@ -1,24 +1,33 @@
 package com.web.controller.employee;
 
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.web.common.utils.HttpUtil;
 import com.web.common.utils.SignUtil;
 import com.web.common.utils.StringUtil;
 import com.web.common.utils.getAccessTokenUtil;
+import com.web.entity.Anwser;
+import com.web.entity.Family;
+import com.web.entity.MessageVO;
+import com.web.entity.SimpleUserInfo;
 import com.web.entity.User;
 import com.web.service.ISurveyService;
 import com.web.service.ISynthesizeService;
@@ -60,7 +69,6 @@ public class surveyController {
 				request.getSession().setAttribute("phone", user.getPhone());
 				request.getSession().setAttribute("id", user.getId());
 				request.getSession().setAttribute("role", user.getRole());
-
 				if(user.getRole().equals("1")){
 //					return "/jsp/website/choose";
 					return "redirect:/survey/showmanage";
@@ -68,6 +76,7 @@ public class surveyController {
 				}else{
 //					return "/jsp/website/wenjuan1";
 					//在Session中保存手机号码
+					request.setAttribute("user", user);
 					return "redirect:/synthesize/questionnaire1";
 				}
 			}else{
@@ -205,10 +214,91 @@ public class surveyController {
 		request.setAttribute("timeStamp", timeStamp);
 		request.setAttribute("nonceStr", nonceStr);
 		request.setAttribute("signature", signature);
-		request.setAttribute("jsTicket", jsTicket);
-		request.setAttribute("url", url);
-	    
 		return "/jsp/website/wenjuan1";
+	}
+	
+	@RequestMapping("/getsurveyinfo")
+	public String  getsurveyinfo(HttpServletRequest request,HttpServletResponse response){
+		String phone=request.getParameter("phone");
+		Anwser anwser=surveyServey.getAnwserByPhone(phone);
+		return "/jsp/website/choose";
+	}
+	/*
+	@RequestMapping(value="userInfo")
+	@ResponseBody
+	public JSONArray searchUserInfo(String offset,String limit){
+		JSONArray userJson = new JSONArray(); 
+		List<Map> temp=surveyServey.searchUserList("0","20");
+		for(Map m:temp){
+			SimpleUserInfo userInfo=new SimpleUserInfo();
+			if(!"".equals(m.get("name"))&&m.get("name")!=null){
+				userInfo.setName(m.get("name").toString());
+			}else{
+				userInfo.setName(null);
+			}
+			if(!"".equals(m.get("phone"))&&m.get("phone")!=null){
+				userInfo.setPhone(m.get("phone").toString());
+				userInfo.setHeadimg("survey/getsurveyinfo?phone=" + m.get("phone").toString());
+			}else{
+				userInfo.setPhone("null");
+			}
+			if(!"".equals(m.get("company"))&&m.get("company")!=null){
+				userInfo.setCompany(m.get("company").toString());
+			}else{
+				userInfo.setCompany("null");
+			}
+			if(!"".equals(m.get("headimg"))&&m.get("headimg")!=null){
+				userInfo.setHeadimg(m.get("headimg").toString());
+			}else{
+				userInfo.setHeadimg("null");
+			}
+			JSONObject user = JSONObject.fromObject(userInfo);
+			userJson.add(user);
+		}
+		
+		System.out.println(userJson);
+		return userJson;
+	}
+	*/
+	
+	@RequestMapping(value="userInfo")
+	@ResponseBody
+	public List<SimpleUserInfo> searchUserInfo(String offset,String limit,String q){
+		List<Map> temp=surveyServey.searchUserList(offset.trim(),limit.trim(),q.trim());
+		List<SimpleUserInfo> result = new LinkedList<SimpleUserInfo>();
+		for(Map m:temp){
+			SimpleUserInfo userInfo=new SimpleUserInfo();
+			if(!"".equals(m.get("name"))&&m.get("name")!=null){
+				userInfo.setFullName(m.get("name").toString());
+			}
+			if(!"".equals(m.get("phone"))&&m.get("phone")!=null){
+				userInfo.setMobile(m.get("phone").toString());
+				userInfo.setUri("survey/getsurveyinfo?phone=" + m.get("phone").toString());
+			}
+			if(!"".equals(m.get("company"))&&m.get("company")!=null){
+				userInfo.setCompany(m.get("company").toString());
+			}
+			if(!"".equals(m.get("headimg"))&&m.get("headimg")!=null){
+				userInfo.setAvatar(m.get("headimg").toString());
+			}
+			result.add(userInfo);
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * 包装机构数据
+	 * @param <T>
+	 * @param e
+	 * @return
+	 */
+	public <T> MessageVO<T> warpeJson(List<T> e) {
+		MessageVO<T> vo = new MessageVO<T>();
+//		vo.setCode("200");
+//		vo.setMessage("请求成功");
+		vo.setResult(e);
+		return vo;
 	}
 
 }

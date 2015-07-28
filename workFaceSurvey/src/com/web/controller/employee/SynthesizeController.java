@@ -125,53 +125,70 @@ public class SynthesizeController {
 	public String SaveQ1(HttpServletRequest request,
 			HttpServletResponse response) {
 		String name = StringUtil.safeToString(request
-				.getParameter("entry[field_1]"), "");
+				.getParameter("q1"), "");
 		String gender = StringUtil.safeToString(request
-				.getParameter("entry[field_19]"), "");
-		String phone = StringUtil.safeToString(request
-				.getParameter("entry[field_3]"), "");
+				.getParameter("q2"), "");
+//		String phone = StringUtil.safeToString(request
+//				.getParameter("entry[field_3]"), "");
 		String company = StringUtil.safeToString(request
-				.getParameter("entry[field_6]"), "");
+				.getParameter("q3"), "");
 		String position = StringUtil.safeToString(request
-				.getParameter("entry[field_20]"), "");
+				.getParameter("q4"), "");
 		String positionother = StringUtil.safeToString(request
-				.getParameter("entry[field_20_other]"), "");
-
+				.getParameter("q4-other"), "");
+		
 		String age = StringUtil.safeToString(request
-				.getParameter("entry[field_25]"), "");
+				.getParameter("q13"), "");
 		String degree = StringUtil.safeToString(request
-				.getParameter("entry[field_27]"), "");
+				.getParameter("q14"), "");
 		String tag = StringUtil.safeToString(request
-				.getParameter("entry[field_12]"), "");
+				.getParameter("q17"), "");
 		String wechat = StringUtil.safeToString(request
-				.getParameter("entry[field_17]"), "");// 微信：
+				.getParameter("q15"), "");// 微信：
 		String referrer = StringUtil.safeToString(request
-				.getParameter("entry[field_16]"), "");// 是谁推荐了您：
+				.getParameter("q19"), "");// 是谁推荐了您：
 		String mail = StringUtil.safeToString(request
-				.getParameter("entry[field_4]"), "");
+				.getParameter("q16"), "");
 
 		String Q11 = StringUtil.safeToString(request
-				.getParameter("entry[field_13]"), "");// 第几次创业
+				.getParameter("q5"), "");// 第几次创业
 		String Q12 = StringUtil.safeToString(request
-				.getParameter("entry[field_21]"), "");// 目前创业项目运营多久了
+				.getParameter("q6"), "");// 目前创业项目运营多久了
+		String Q15 = StringUtil.safeToString(StringUtil.safeToString(request
+				.getParameter("q7"), ""), "");// 目前团队规模
 		String Q8 = StringUtil.safeToString(request
-				.getParameter("entry[field_23]"), "");// 第一笔启动资金的来源：
+				.getParameter("q8"), "");// 第一笔启动资金的来源：
 		String Q8other = StringUtil.safeToString(request
-				.getParameter("entry[field_23_other]"), "");
-
+				.getParameter("q8-other"), "");
+		String Q13 = StringUtil.safeToString(request
+				.getParameter("q9"), "");// 目前项目是否已有产出
+		String Q40 = "";
+		String Q40s[] = request.getParameterValues("q10");// 目前创业碰到的问题/困难并且希望解决的：（多选）
+		if (null != Q40s) {
+			for (String a : Q40s) {
+				if (Q40.length() > 0) {
+					Q40 += "|";
+				}
+				Q40 += a;
+			}
+		}
+		String Q40other = StringUtil.safeToString(request
+				.getParameter("q10-other"), "");
+		
 		String Q1 = StringUtil.safeToString(request
-				.getParameter("entry[field_24]"), "");// 行业分类
+				.getParameter("q11"), "");// 行业分类
 		String Q39 = StringUtil.safeToString(request
-				.getParameter("entry[field_10]"), "");// 公司/创业项目/个人简介：
+				.getParameter("q18"), "");// 公司/创业项目/个人简介：
 		String Q2 = StringUtil.safeToString(request
-				.getParameter("entry[field_29]"), "");// 对WorkFace了解吗
+				.getParameter("q20"), "");// 对WorkFace了解吗
 
 		String province = StringUtil.safeToString(request
-				.getParameter("province"), "");
-		String city = StringUtil.safeToString(request.getParameter("city"), "");
-		String street = StringUtil.safeToString(request.getParameter("street"),
+				.getParameter("q12-1"), "");
+		String city = StringUtil.safeToString(request.getParameter("q12-2"), "");
+		String street = StringUtil.safeToString(request.getParameter("q12-3"),
 				"");
-
+		String phone = StringUtil.safeToString(request.getSession().getAttribute("phone"),
+		"");
 		User user = surveyServey.getUserByPhone(phone);
 		if (null == user) {
 			user = new User();
@@ -184,7 +201,7 @@ public class SynthesizeController {
 		user.setName(name);
 		user.setPosition(position);
 		user.setReferrer(referrer);
-		user.setWecahrt(wechat);
+		user.setWechat_nickname(wechat);
 		user.setTag(tag);
 		user.setUpdatetime(new Date());
 		user.setPositionother(positionother);
@@ -202,6 +219,10 @@ public class SynthesizeController {
 		anwser.setQ11(Q11);
 		anwser.setQ12(Q12);
 		anwser.setQ8(Q8);
+		anwser.setQ40(Q40);
+		anwser.setQ15(Q15);
+		anwser.setQ13(Q13);
+		anwser.setQ40other(Q40other);
 		anwser.setQ39(Q39);
 		anwser.setQ2(Q2);
 		anwser.setQ8other(Q8other);
@@ -228,25 +249,9 @@ public class SynthesizeController {
 				.getParameter("entry[field_6]"), "");// 为什么在上海创业，对上海创业环境的观察体验，热爱和吐槽是：
 		String Q34 = StringUtil.safeToString(request
 				.getParameter("entry[field_13]"), ""); // 目前创业项目简介，未来的期望是：
-		String Q13 = StringUtil.safeToString(request
-				.getParameter("entry[field_15]"), "");// 目前项目是否已有产出
-		String Q15 = StringUtil.safeToString(StringUtil.safeToString(request
-				.getParameter("entry[field_16]"), ""), "");// 目前团队规模
 		String Q15other = StringUtil.safeToString(StringUtil.safeToString(
 				request.getParameter("entry[field_16_other]"), ""), "");// 目前团队规模
 
-		String Q40 = "";
-		String Q40s[] = request.getParameterValues("entry[field_21][]");// 目前创业碰到的问题/困难并且希望解决的：（多选）
-		if (null != Q40s) {
-			for (String a : Q40s) {
-				if (Q40.length() > 0) {
-					Q40 += "|";
-				}
-				Q40 += a;
-			}
-		}
-		String Q40other = StringUtil.safeToString(request
-				.getParameter("entry[field_21_other]"), "");
 		String Q41 = StringUtil.safeToString(request
 				.getParameter("entry[field_1]"), "");// 目前的创业是怎样产生的，发心是什么？
 		String Q9 = StringUtil.safeToString(request
@@ -282,9 +287,6 @@ public class SynthesizeController {
 		anwser.setQ19(Q19);
 		anwser.setQ9(Q9);
 		anwser.setQ41(Q41);
-		anwser.setQ40(Q40);
-		anwser.setQ15(Q15);
-		anwser.setQ13(Q13);
 		anwser.setQ34(Q34);
 		anwser.setQ26(Q26);
 		anwser.setQ28(Q28);
@@ -292,7 +294,6 @@ public class SynthesizeController {
 		anwser.setHomeprovince(homeprovince);
 		anwser.setHomestreet(homestreet);
 		anwser.setQ15other(Q15other);
-		anwser.setQ40other(Q40other);
 		surveyServey.saveAnwser(anwser);
 		return "redirect:/synthesize/end";
 	}
