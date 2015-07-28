@@ -41,8 +41,9 @@ public class UsercarController {
 	public String index(HttpServletRequest request, HttpServletResponse response) {
 		  UploadManager uploadManager = new UploadManager();
 			 File file=new File("c:\\wangyc.jpg");
+			 String tp=new String("");
 			try {
-				Response res=  uploadManager.put(file, "ceshi", getUpToken0());
+				Response res=  uploadManager.put(file, "ceshi.jsp", getUpToken0());
 				
 				
 				

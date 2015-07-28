@@ -1,4 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
+<%@ include file="../commonincludes.jsp"%>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,23 +9,23 @@
   <title>【创业上海万人田野调查】- 调查汇总</title>
 
   <!-- Bootstrap -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="<%=webRoot %>/html-michael/css/bootstrap.min.css" rel="stylesheet">
 
-  <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+  <link href="<%=webRoot %>/html-michael/css/bootstrap-theme.min.css" rel="stylesheet">
 
-  <link href="css/infinite-scroll.css" rel="stylesheet">
+  <link href="<%=webRoot %>/html-michael/css/infinite-scroll.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/question-items.css" rel="stylesheet">
+  <link href="<%=webRoot %>/html-michael/css/question-items.css" rel="stylesheet">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
-  <script src="js/html5shiv.min.js"></script>
-  <script src="js/respond.min.js"></script>
+  <script src="<%=webRoot %>/html-michael/js/html5shiv.min.js"></script>
+  <script src="<%=webRoot %>/html-michael/js/respond.min.js"></script>
   <![endif]-->
 
-  <script src="js/underscore-min.js"></script>
+  <script src="<%=webRoot %>/html-michael/js/underscore-min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -52,22 +54,22 @@
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery-1.11.3.min.js"></script>
+<script src="<%=webRoot %>/html-michael/js/jquery-1.11.3.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
+<script src="<%=webRoot %>/html-michael/js/bootstrap.min.js"></script>
 
-<script src="js/infinite-scroll.js"></script>
+<script src="<%=webRoot %>/html-michael/js/infinite-scroll.js"></script>
 
 <script>
   $("form").submit(function(e) {
-    initialList($("#resultList"), "survey/userInfo", {q: $("form input").val()}, function(data) {
+    initialList($("#resultList"), "<%=webRoot %>/survey/userInfo", {q: $("form input").val()}, function(data) {
       var items = [];
       $.each(data, function(i, val) {
         items.push(
             "<div class=\"col-xs-12 col-sm-6 col-lg-4\">" +
             "<div class=\"thumbnail\">" +
             "<a href=\"" + val.uri + "\">" +
-            "<div class=\"thumbnail-img\" style=\"background-image: url('" + (val.avatar || "images/avatar.png") + "')\"></div>" +
+            "<div class=\"thumbnail-img\" style=\"background-image: url('" + (val.avatar || "<%=webRoot %>/images/avatar.png") + "')\"></div>" +
             "<div class=\"caption\">" +
             "<h3>" + (val.fullName || "N/A") + "</h3>" +
             "<p>" + val.mobile + "</p>" +
@@ -86,3 +88,4 @@
 </script>
 </body>
 </html>
+   
