@@ -28,7 +28,7 @@
 					<array>
 						<value>QuoteFieldNames</value>
 						<value>WriteMapNullValue</value>
-						<value>WriteNullStringAsEmpty</value>
+						<!-- <value>WriteNullStringAsEmpty</value> -->
 						<value>WriteNullListAsEmpty</value>
 						<value>WriteNullNumberAsZero</value>
 						<value>WriteNullBooleanAsFalse</value>

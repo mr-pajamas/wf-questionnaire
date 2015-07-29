@@ -1,5 +1,8 @@
 package com.web.service;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.transaction.annotation.Transactional;
 
 import com.web.common.service.CommonService;
@@ -45,5 +48,13 @@ public interface ISurveyService extends CommonService {
 	 * @return
 	 */
 	public Anwser getAnwserByPhone(String phone);
+	
+	/**
+	 * 通过offset、limit查询用户信息，进行翻页
+	 * @param offset
+	 * @param limit
+	 * @return
+	 */
+	public List<Map> searchUserList(String offset,String limit,String name);
 
 }

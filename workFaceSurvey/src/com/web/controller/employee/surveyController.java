@@ -1,20 +1,24 @@
 package com.web.controller.employee;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.Enumeration;
+import java.io.IOException;import java.io.PrintWriter;
+import java.util.ArrayList;import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.io.FileUtils;
-import net.sf.json.JSONObject;import org.springframework.beans.factory.annotation.Autowired;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.web.common.utils.HttpUtil;
 import com.web.common.utils.SignUtil;import sun.misc.BASE64Decoder;
@@ -24,6 +28,10 @@ import com.qiniu.http.Response;
 import com.qiniu.storage.UploadManager;
 import com.qiniu.util.Auth;import com.web.common.utils.StringUtil;
 import com.web.common.utils.getAccessTokenUtil;
+import com.web.entity.Anwser;
+import com.web.entity.Family;
+import com.web.entity.MessageVO;
+import com.web.entity.SimpleUserInfo;
 import com.web.entity.User;
 import com.web.service.ISurveyService;
 import com.web.service.ISynthesizeService;
@@ -58,17 +66,17 @@ public class surveyController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(HttpServletRequest request, HttpServletResponse response) {
+		String appid =  "wx1f31aecb83b985d7";//微信公众号下的AppID
+		String secret = "9e8c703c6653fe88f02674a6688d380e";//微信公众号下的secret
 		String phone = request.getParameter("phoneNum");
 		String password = request.getParameter("password");
 		if (!"".equals(phone) && !"".equals(password) && phone != null
 				&& password != null) {
 			User user = surveyServey.checkLogin(phone, password);
 			if (null != user) {
-				request.getSession().setAttribute("username", user.getPhone());
 				request.getSession().setAttribute("phone", user.getPhone());
 				request.getSession().setAttribute("id", user.getId());
 				request.getSession().setAttribute("role", user.getRole());
-
 				if (user.getRole().equals("1")) {
 					// return "/jsp/website/choose";
 					return "redirect:/survey/showmanage";
@@ -76,6 +84,7 @@ public class surveyController {
 				} else {
 					// return "/jsp/website/wenjuan1";
 					// 在Session中保存手机号码
+					
 					return "redirect:/synthesize/questionnaire1";
 				}
 			} else {
@@ -102,27 +111,89 @@ public class surveyController {
 	@RequestMapping(value = "/saveregist", method = RequestMethod.POST)
 	public String saveregist(HttpServletRequest request,
 			HttpServletResponse response) {
+		String appid =  "wx1f31aecb83b985d7";//微信公众号下的AppID
+		String secret = "9e8c703c6653fe88f02674a6688d380e";//微信公众号下的secret
 		String phone = request.getParameter("PhoneNum");
 		String password = request.getParameter("password");
 		String passwordRpe = request.getParameter("passwordRpe");
 		String tp = StringUtil.safeToString("tp", "");
-		if (!"".equals(phone) && !"".equals(password)
+		String openid=request.getParameter("openid");
+		if(!"".equals(openid) && openid!=null){
+			String gender=request.getParameter("gender");
+			String province=request.getParameter("province");
+			String city=request.getParameter("city");
+			String headimg=request.getParameter("headimg");
+			
+			User user=surveyServey.getUserByPhone(phone);
+			if(user==null){
+				user=new User();
+				user.setWecahrt(openid);
+				user.setPhone(phone);
+				user.setProvince(province);
+		    	user.setCity(city);
+		    	user.setHeadimg(headimg);
+		    	user.setGender(gender);
+		    	user.setRole("2");
+				surveyServey.saveUser(user);
+			}else{
+				user.setWecahrt(openid);
+				user.setProvince(province);
+		    	user.setCity(city);
+		    	user.setHeadimg(headimg);
+		    	user.setGender(gender);
+		    	user.setRole("2");
+				surveyServey.saveUser(user);
+			}
+			request.setAttribute("user", user);
+			request.getSession().setAttribute("username", user.getPhone());
+			request.getSession().setAttribute("phone", user.getPhone());
+			request.getSession().setAttribute("id", user.getId());
+			request.getSession().setAttribute("role", user.getRole());
+			
+			 String timeStamp=String.valueOf(System.currentTimeMillis());
+				timeStamp=timeStamp.substring(0, 10);
+				String nonceStr = "oYeWRtwKygRjzQFwtAx7fDpE-V-M";
+				String url=request.getRequestURL().toString();
+//				url=url+"?code="+code+ "&state=STATE";//拼成微信转义过的URL（加上code和state参数，否则会造成签名错误）
+				String jsTicket=(String) request.getSession().getAttribute("jsTicket");
+				if(jsTicket=="" || jsTicket==null){
+					String accessToken=(String) request.getSession().getAttribute("accessToken");
+					if(accessToken=="" || accessToken==null){
+						accessToken=getAccessTokenUtil.getAccessToken(appid,secret);
+						request.getSession().setAttribute("accessToken", accessToken);
+					}
+					jsTicket=getAccessTokenUtil.getJsapiTicket(accessToken);
+					request.getSession().setAttribute("jsTicket",jsTicket);
+				}
+				
+				String signature=SignUtil.jsTicketSign(jsTicket,nonceStr,timeStamp,url);
+				request.setAttribute("timeStamp", timeStamp);
+				request.setAttribute("nonceStr", nonceStr);
+				request.setAttribute("signature", signature);
+			return "/jsp/website/wenjuan1";
+		}
+		else if (!"".equals(phone) && !"".equals(password)
 				&& password.equals(passwordRpe)) {
 			User user = surveyServey.getUserByPhone(phone);
 			if (null != user) {
 				request.setAttribute("error", "该手机号已被注册，请重试");
 				return "/jsp/website/regist";
 			} else {
-
 				uploadimg(tp,phone+"_img.jpg");
-
 				user = new User();
 				user.setPhone(phone);
 				user.setPassword(password);
 				user.setRole("2");
-				
+				user.setHeadimg(phone+"_img.jpg");
 				surveyServey.saveUser(user);
-				return "/jsp/website/login";
+//				return "/jsp/website/login";
+				//跳转到问卷1
+				request.setAttribute("user", user);
+				request.getSession().setAttribute("username", user.getPhone());
+				request.getSession().setAttribute("phone", user.getPhone());
+				request.getSession().setAttribute("id", user.getId());
+				request.getSession().setAttribute("role", user.getRole());
+				return "redirect:/synthesize/questionnaire1";
 
 			}
 		} else {
@@ -154,7 +225,7 @@ public class surveyController {
 		request.setAttribute("totalRows", totalRows);
 		request.setAttribute("listPage", intPage);
 
-		return "/jsp/website/manage";
+		return "/jsp/website/management";
 	}
 	
 	@RequestMapping(value="/wechatLogin",method = RequestMethod.GET)
@@ -163,6 +234,9 @@ public class surveyController {
 		
 		request.setCharacterEncoding("utf-8");  
 		String code=request.getParameter("code");
+		if(code==null && "".equals(code)){
+			return "redirect:/survey/login";
+		}
 		String appid =  "wx1f31aecb83b985d7";//微信公众号下的AppID
 		String secret = "9e8c703c6653fe88f02674a6688d380e";//微信公众号下的secret
 		String get_access_token_url="https://api.weixin.qq.com/sns/oauth2/access_token?appid="+appid+"&secret="+secret+"&code="+code+"&grant_type=authorization_code";
@@ -200,9 +274,9 @@ public class surveyController {
 	    	user.setProvince(user_province);
 	    	user.setCity(user_city);
 	    	user.setHeadimg(user_headimgurl);
-	    	surveyServey.saveUser(user);
+//	    	surveyServey.saveUser(user);
 	    }
-	    
+	  
 	    String timeStamp=String.valueOf(System.currentTimeMillis());
 		timeStamp=timeStamp.substring(0, 10);
 		String nonceStr = "oYeWRtwKygRjzQFwtAx7fDpE-V-M";
@@ -223,10 +297,134 @@ public class surveyController {
 		request.setAttribute("timeStamp", timeStamp);
 		request.setAttribute("nonceStr", nonceStr);
 		request.setAttribute("signature", signature);
-		request.setAttribute("jsTicket", jsTicket);
-		request.setAttribute("url", url);
-	    
+		request.setAttribute("user", user);
+		
+		if(!"".equals(user.getPhone()) && user.getPhone()!=null){
+			request.getSession().setAttribute("phone", user.getPhone());
+			if(user.getRole().equals("1")){
+				return "/jsp/website/choose";
+			}else{
+				return "/jsp/website/wenjuan1";
+			}
+			
+		}else{
+			return "/jsp/website/regist";
+		}
+		
+	}
+	
+	@RequestMapping("/getsurveyinfo")
+	public String  getsurveyinfo(HttpServletRequest request,HttpServletResponse response){
+		String phone=request.getParameter("phone");
+		User user = surveyServey.getUserByPhone(phone);
+		Anwser anwser = surveyServey.getAnwserByPhone(phone);
+
+		request.setAttribute("user", user);
+		request.setAttribute("anwser", anwser);
 		return "/jsp/website/wenjuan1";
+	}
+	/*
+	@RequestMapping(value="userInfo")
+	@ResponseBody
+	public JSONArray searchUserInfo(String offset,String limit){
+		JSONArray userJson = new JSONArray(); 
+		List<Map> temp=surveyServey.searchUserList("0","20");
+		for(Map m:temp){
+			SimpleUserInfo userInfo=new SimpleUserInfo();
+			if(!"".equals(m.get("name"))&&m.get("name")!=null){
+				userInfo.setName(m.get("name").toString());
+			}else{
+				userInfo.setName(null);
+			}
+			if(!"".equals(m.get("phone"))&&m.get("phone")!=null){
+				userInfo.setPhone(m.get("phone").toString());
+				userInfo.setHeadimg("survey/getsurveyinfo?phone=" + m.get("phone").toString());
+			}else{
+				userInfo.setPhone("null");
+			}
+			if(!"".equals(m.get("company"))&&m.get("company")!=null){
+				userInfo.setCompany(m.get("company").toString());
+			}else{
+				userInfo.setCompany("null");
+			}
+			if(!"".equals(m.get("headimg"))&&m.get("headimg")!=null){
+				userInfo.setHeadimg(m.get("headimg").toString());
+			}else{
+				userInfo.setHeadimg("null");
+			}
+			JSONObject user = JSONObject.fromObject(userInfo);
+			userJson.add(user);
+		}
+		
+		System.out.println(userJson);
+		return userJson;
+	}
+	*/
+	
+	@RequestMapping(value="userInfo")
+	@ResponseBody
+	public List<SimpleUserInfo> searchUserInfo(String offset,String limit,String q){
+		List<Map> temp=surveyServey.searchUserList(offset.trim(),limit.trim(),q.trim());
+		List<SimpleUserInfo> result = new LinkedList<SimpleUserInfo>();
+		for(Map m:temp){
+			SimpleUserInfo userInfo=new SimpleUserInfo();
+			if(!"".equals(m.get("name"))&&m.get("name")!=null){
+				userInfo.setFullName(m.get("name").toString());
+			}
+			if(!"".equals(m.get("phone"))&&m.get("phone")!=null){
+				userInfo.setMobile(m.get("phone").toString());
+				userInfo.setUri("survey/getsurveyinfo?phone=" + m.get("phone").toString());
+			}
+			if(!"".equals(m.get("company"))&&m.get("company")!=null){
+				userInfo.setCompany(m.get("company").toString());
+			}
+			if(!"".equals(m.get("headimg"))&&m.get("headimg")!=null){
+				userInfo.setAvatar(m.get("headimg").toString());
+			}
+			result.add(userInfo);
+		}
+		
+		return result;
+	}
+	
+	@RequestMapping(value="wechatSecret")
+	@ResponseBody
+	public void wechatSecret(HttpServletRequest request,HttpServletResponse reponse){
+		String appid =  "wx1f31aecb83b985d7";//微信公众号下的AppID
+		String secret = "9e8c703c6653fe88f02674a6688d380e";//微信公众号下的secret
+		String timeStamp=String.valueOf(System.currentTimeMillis());
+		timeStamp=timeStamp.substring(0, 10);
+		String nonceStr = "oYeWRtwKygRjzQFwtAx7fDpE-V-M";
+		String url=request.getRequestURL().toString();
+//		url=url+"?code="+code+ "&state=STATE";//拼成微信转义过的URL（加上code和state参数，否则会造成签名错误）
+		String jsTicket=(String) request.getSession().getAttribute("jsTicket");
+		if(jsTicket=="" || jsTicket==null){
+			String accessToken=(String) request.getSession().getAttribute("accessToken");
+			if(accessToken=="" || accessToken==null){
+				accessToken=getAccessTokenUtil.getAccessToken(appid,secret);
+				request.getSession().setAttribute("accessToken", accessToken);
+			}
+			jsTicket=getAccessTokenUtil.getJsapiTicket(accessToken);
+			request.getSession().setAttribute("jsTicket",jsTicket);
+		}	
+		String signature=SignUtil.jsTicketSign(jsTicket,nonceStr,timeStamp,url);
+		request.setAttribute("timeStamp", timeStamp);
+		request.setAttribute("nonceStr", nonceStr);
+		request.setAttribute("signature", signature);
+	}
+	
+	/**
+	 * 包装机构数据
+	 * @param <T>
+	 * @param e
+	 * @return
+	 */
+	public <T> MessageVO<T> warpeJson(List<T> e) {
+		MessageVO<T> vo = new MessageVO<T>();
+//		vo.setCode("200");
+//		vo.setMessage("请求成功");
+		vo.setResult(e);
+		return vo;
 	}
 
 	String ACCESS_KEY = "ArTWIe1q_1iDUdMm2notK3vjhARjbcNa_8S1zrZ5";
