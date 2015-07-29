@@ -40,6 +40,8 @@
   </div>
 
   <form class="form-horizontal" action="<%=webRoot %>/synthesize/SaveQ1" method="post" >
+     <input type="hidden"  name="phone" value="${user.phone}" id="phone" />
+  
     <div class="form-group">
       <label for="inputQ1" class="col-md-2 control-label">姓名</label>
       <div class="col-md-4">
@@ -85,17 +87,17 @@
         <div class="row">
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q4" value="1"> 创始人
+              <input type="radio" name="q4" value="创始人"> 创始人
             </label>
           </div>
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q4" value="2"> 合伙人
+              <input type="radio" name="q4" value="合伙人"> 合伙人
             </label>
           </div>
           <div class="radio check-other col-sm-4">
             <label class="pull-left">
-              <input type="radio" name="q4" value="3"> 其他
+              <input type="radio" name="q4" value="其他"> 其他
             </label>
             <div style="margin-left: 65px;">
               <input type="text" name="q4-other" value="${user.positionother}" id="inputQ4Other" style="width: 100%;" disabled>
@@ -629,11 +631,17 @@ $(function () {
    $('#q12-1').val('${user.province}');
    $('#q12-2').val('${user.city}');
    $('#q12-3').val('${user.street}');
+
+   $('#inputQ10Other').val('${anwser.q40other}');
+   $('#inputQ8Other').val('${anwser.q8other}');
+   $('#inputQ4Other').val('${user.positionother}');
+ 
  
    var Q40s='${anwser.q40}'.split("|");
    $.each(Q40s,function(n,value) {   
    $('input:checkbox[value='+value+']').attr("checked", true);  
-}); 
+   $('input:checkbox[value='+value+']').change();
+   }); 
 
 
       
