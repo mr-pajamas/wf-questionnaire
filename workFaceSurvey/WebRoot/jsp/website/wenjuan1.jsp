@@ -55,12 +55,13 @@
         <div class="row">
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q2" value="男"> 男
+         
+              <input type="radio" name="q2" value="男" ${user.gender eq '男' ? 'checked' : ''}> 男
             </label>
           </div>
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q2" value="女"> 女
+              <input type="radio" name="q2" value="女" ${user.gender eq '女' ? 'checked' : ''}> 女
             </label>
           </div>
         </div>
@@ -82,22 +83,22 @@
     </div>
 
     <div class="form-group">
-      <label class="col-md-2 control-label">职务/角色</label>
+      <label class="col-md-2 control-label">职务/角色${user.position}</label>
       <div class="col-md-8">
         <div class="row">
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q4" value="创始人"> 创始人
+              <input type="radio" name="q4" value="创始人" ${user.position eq '创始人' ? 'checked' : ''}> 创始人
             </label>
           </div>
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q4" value="合伙人"> 合伙人
+              <input type="radio" name="q4" value="合伙人" ${user.position eq '合伙人' ? 'checked' : ''}> 合伙人
             </label>
           </div>
           <div class="radio check-other col-sm-4">
             <label class="pull-left">
-              <input type="radio" name="q4" value="其他"> 其他
+              <input type="radio" name="q4" value="其他" ${user.position eq '其他' ? 'checked' : ''}> 其他
             </label>
             <div style="margin-left: 65px;">
               <input type="text" name="q4-other" value="${user.positionother}" id="inputQ4Other" style="width: 100%;" disabled>
@@ -614,38 +615,17 @@
 	
 	<script type="text/javascript" id="main">
 $(function () {
-
-   $('input:radio[value=${user.gender}]').click();
-   $('input:radio[value=${anwser.q11}]').click();
-   $('input:radio[value=${anwser.q12}]').click();
-   $('input:radio[value=${user.position}]').click();
-   $('input:radio[value=${anwser.q8}]').click();
-   $('input:radio[value=${anwser.q1}]').click();
-
-   $('input:radio[value=${user.age}]').click();
-   $('input:radio[value=${user.degree}]').click();
-   $('input:radio[value=${anwser.q2}]').click();
-   $('input:radio[value=${anwser.q15}]').click();
-   $('input:radio[value=${anwser.q13}]').click();
-   
-   $('#q12-1').val('${user.province}');
-   $('#q12-2').val('${user.city}');
-   $('#q12-3').val('${user.street}');
-
-   $('#inputQ10Other').val('${anwser.q40other}');
-   $('#inputQ8Other').val('${anwser.q8other}');
-   $('#inputQ4Other').val('${user.positionother}');
- 
- 
-   var Q40s='${anwser.q40}'.split("|");
-   $.each(Q40s,function(n,value) {   
-   $('input:checkbox[value='+value+']').attr("checked", true);  
-   $('input:checkbox[value='+value+']').change();
-   }); 
-
-
-      
-
+	   $('input:radio[value=${user.gender}]').attr("checked",true);
+	   $("input:radio[value=${anwser.q8}]").attr("checked",true);//角色
+	   $('input:radio[value=${anwser.q11}]').attr("checked",true);//这是第几次创业
+	   $('input:radio[value=${anwser.q12}]').attr("checked",true);//目前创业项目运作了多久
+	   $('input:radio[value=${anwser.q15}]').attr("checked",true);//目前团队规模
+	   $('input:radio[value=${anwser.q8}]').attr("checked",true);//第一笔启动资金的来源
+	   $('input:radio[value=${anwser.q13}]').attr("checked",true);//项目是否已有产出
+	   $('input:radio[value=${anwser.q1}]').attr("checked",true);//行业分类
+	   $('input:radio[value=${user.age}]').attr("checked",true);//年龄
+	   $('input:radio[value=${user.degree}]').attr("checked",true);//学历
+	   $('input:radio[value=${anwser.q2}]').attr("checked",true);//您了解WF吗？
 });
 
 </script>
