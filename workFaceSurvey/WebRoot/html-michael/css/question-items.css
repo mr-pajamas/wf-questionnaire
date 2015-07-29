@@ -17,6 +17,12 @@
   margin-top: -7px;
 }
 
+.radio input[type=text][disabled], .checkbox input[type=text][disabled] {
+  cursor: not-allowed;
+  background-color: #eee;
+  opacity: 1;
+}
+
 .radio, .checkbox {
   height: 34px !important;
 }

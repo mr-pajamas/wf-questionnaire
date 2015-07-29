@@ -32,8 +32,108 @@ function initialList($container, url, query, loadCallback) {
         $loaderDiv.remove();
         loading = false;
       });
+
     /*
     var data = [
+      {
+        "uri": ".",
+        "avatar": "images/avatar1.png",
+        "fullName": "汤力丞",
+        "mobile": "18601646631",
+        "company": "某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司"
+      },
+      {
+        "uri": ".",
+        "avatar": null,
+        "fullName": "汤力丞",
+        "mobile": "18601646631",
+        "company": "某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司"
+      },
+      {
+        "uri": ".",
+        "fullName": "汤力丞",
+        "mobile": "18601646631",
+        "company": "某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司"
+      },
+      {
+        "uri": ".",
+        "avatar": "images/avatar1.png",
+        "fullName": "汤力丞",
+        "mobile": "18601646631"
+      },
+      {
+        "uri": ".",
+        "avatar": "images/avatar2.png",
+        "fullName": "汤力丞",
+        "mobile": "18601646631",
+        "company": "某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司"
+      },
+      {
+        "uri": ".",
+        "avatar": "images/avatar1.png",
+        "fullName": "汤力丞",
+        "mobile": "18601646631",
+        "company": "某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司"
+      },
+      {
+        "uri": ".",
+        "avatar": null,
+        "fullName": "汤力丞",
+        "mobile": "18601646631",
+        "company": "某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司"
+      },
+      {
+        "uri": ".",
+        "fullName": "汤力丞",
+        "mobile": "18601646631",
+        "company": "某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司"
+      },
+      {
+        "uri": ".",
+        "avatar": "images/avatar1.png",
+        "fullName": "汤力丞",
+        "mobile": "18601646631"
+      },
+      {
+        "uri": ".",
+        "avatar": "images/avatar2.png",
+        "fullName": "汤力丞",
+        "mobile": "18601646631",
+        "company": "某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司"
+      },
+      {
+        "uri": ".",
+        "avatar": "images/avatar1.png",
+        "fullName": "汤力丞",
+        "mobile": "18601646631",
+        "company": "某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司"
+      },
+      {
+        "uri": ".",
+        "avatar": null,
+        "fullName": "汤力丞",
+        "mobile": "18601646631",
+        "company": "某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司"
+      },
+      {
+        "uri": ".",
+        "fullName": "汤力丞",
+        "mobile": "18601646631",
+        "company": "某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司"
+      },
+      {
+        "uri": ".",
+        "avatar": "images/avatar1.png",
+        "fullName": "汤力丞",
+        "mobile": "18601646631"
+      },
+      {
+        "uri": ".",
+        "avatar": "images/avatar2.png",
+        "fullName": "汤力丞",
+        "mobile": "18601646631",
+        "company": "某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司"
+      },
       {
         "uri": ".",
         "avatar": "images/avatar1.png",
@@ -69,12 +169,14 @@ function initialList($container, url, query, loadCallback) {
       }
     ];
 
-    loadCallback(data);
-    offset += data.length;
-    eol = data.length < limit;
+    setTimeout(function() {
+      loadCallback(data);
+      offset += data.length;
+      eol = data.length < limit;
 
-    $loaderDiv.remove();
-    loading = false;
+      $loaderDiv.remove();
+      loading = false;
+    }, 1000);
     */
   }
 
