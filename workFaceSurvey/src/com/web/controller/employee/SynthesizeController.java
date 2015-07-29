@@ -246,26 +246,26 @@ public class SynthesizeController {
 		String Q28 = StringUtil.safeToString(request
 				.getParameter("entry[field_17][province]"), "");// 您是哪里人(家乡在哪里)
 		String Q26 = StringUtil.safeToString(request
-				.getParameter("entry[field_6]"), "");// 为什么在上海创业，对上海创业环境的观察体验，热爱和吐槽是：
+				.getParameter("inputQ21"), "");// 为什么在上海创业，对上海创业环境的观察体验，热爱和吐槽是：
 		String Q34 = StringUtil.safeToString(request
-				.getParameter("entry[field_13]"), ""); // 目前创业项目简介，未来的期望是：
+				.getParameter("inputQ22"), ""); // 目前创业项目简介，未来的期望是：
 		String Q15other = StringUtil.safeToString(StringUtil.safeToString(
 				request.getParameter("entry[field_16_other]"), ""), "");// 目前团队规模
 
 		String Q41 = StringUtil.safeToString(request
-				.getParameter("entry[field_1]"), "");// 目前的创业是怎样产生的，发心是什么？
+				.getParameter("inputQ23"), "");// 目前的创业是怎样产生的，发心是什么？
 		String Q9 = StringUtil.safeToString(request
-				.getParameter("entry[field_2]"), "");// 曾经历的较大困难和挑战是，当时如何解决和面对的
+				.getParameter("inputQ24"), "");// 曾经历的较大困难和挑战是，当时如何解决和面对的
 		String Q19 = StringUtil.safeToString(request
-				.getParameter("entry[field_4]"), "");// 走上创业之路感受较深的人和事 ，TA对你的影响？
+				.getParameter("inputQ25"), "");// 走上创业之路感受较深的人和事 ，TA对你的影响？
 		String Q21 = StringUtil.safeToString(request
-				.getParameter("entry[field_3]"), "");// 个人成长环境；家人朋友对创业的态度，如何平衡家庭和工作关系？
+				.getParameter("inputQ26"), "");// 个人成长环境；家人朋友对创业的态度，如何平衡家庭和工作关系？
 		String Q24 = StringUtil.safeToString(request
-				.getParameter("entry[field_12]"), "");// 给5年后的自己写封信，最想写什么？
+				.getParameter("inputQ27"), "");// 给5年后的自己写封信，最想写什么？
 		String Q35 = StringUtil.safeToString(request
-				.getParameter("entry[field_5]"), "");// 目前创业需要什么帮助？对万人大联结有什么期待
+				.getParameter("inputQ28"), "");// 目前创业需要什么帮助？对万人大联结有什么期待
 		String Q36 = StringUtil.safeToString(request
-				.getParameter("entry[field_7]"), "");// 其他补充：
+				.getParameter("inputQ29"), "");// 其他补充：
 
 		String homeprovince = StringUtil.safeToString(request
 				.getParameter("homeprovince"), "");

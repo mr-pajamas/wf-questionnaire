@@ -274,7 +274,7 @@
               <input type="checkbox" name="q10" value="其他"> 其他
             </label>
             <div style="margin-left: 65px;">
-              <input type="text" name="q10-other" id="inputQ10Other" style="width: 100%;">
+              <input type="text" name="q10-other" id="inputQ10Other" value="${anwser.q40other}" style="width: 100%;">
             </div>
           </div>
         </div>
@@ -377,20 +377,36 @@
       <div class="col-md-8">
         <div class="row" style="margin-bottom: 10px;">
           <div class="col-xs-6 col-md-2">
-            <select name="q12-1" class="form-control">
+            <select name="q12-1" class="form-control" id="q12-1">
               <option>上海市</option>
             </select>
           </div>
           <div class="col-xs-6 col-md-2">
-            <select name="q12-2" class="form-control">
+            <select name="q12-2" class="form-control" id="q12-2">
               <option>黄浦区</option>
-              <option>徐汇区</option>
+              <option>卢湾区</option>
+               <option>徐汇区</option>
+                <option>长宁区</option>
+                 <option>静安区</option>
+                  <option>普陀区</option>
+                   <option>闸北区</option>
+                    <option>虹口区</option>
+                     <option>杨浦区</option>
+                      <option>闵行区</option>
+                       <option>宝山区</option>
+                        <option>嘉定区</option>
+                         <option>浦东新区</option>
+                          <option>金山区</option>
+                           <option>松江区</option>
+                            <option>青浦区</option>
+                             <option>奉贤区</option>
+                              <option>崇明县</option>
             </select>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <input type="text" name="q12-3" class="form-control" id="inputQ12-3" placeholder="详细地址&hellip;">
+            <input type="text" name="q12-3" class="form-control" id="q12-3" placeholder="详细地址&hellip;">
           </div>
         </div>
       </div>
@@ -586,14 +602,17 @@ $(function () {
    $('input:radio[value=${user.age}]').click();
    $('input:radio[value=${user.degree}]').click();
    $('input:radio[value=${anwser.q2}]').click();
-   $('input:radio[value=${anwser.q20}]').click();
+   $('input:radio[value=${anwser.q15}]').click();
+   $('input:radio[value=${anwser.q13}]').click();
    
-   $('#province').val('${user.province}');
-   $("#province").change();
-
-   $('#city').val('${user.city}');
-   $('#street').val('${user.street}');
-
+   $('#q12-1').val('${user.province}');
+   $('#q12-2').val('${user.city}');
+   $('#q12-3').val('${user.street}');
+ 
+   var Q40s='${anwser.q40}'.split("|");
+   $.each(Q40s,function(n,value) {   
+   $('input:checkbox[value='+value+']').attr("checked", true);  
+}); 
 
 
       
