@@ -79,7 +79,11 @@
 						    <c:if test="${!empty user.wecahrt}">
 						    	<label class="sr-only" for="inputTelNum">手机号码</label>
 								<input id="inputTelNum" class="form-control" name="PhoneNum" type="tel" autofocus="" required="" placeholder="手机号码">
-								<input type="hidden" value="${user.wecahrt}"/>"
+								<input type="hidden" name="openid" value="${user.wecahrt}"/>
+								<input type="hidden" name="gender" value="${user.gender}"/>
+								<input type="hidden" name="province" value="${user.province}"/>
+								<input type="hidden" name="city" value="${user.city}"/>
+								<input type="hidden" name="headimg" value="${user.headimg}"/>
 								<input class="btn btn-lg btn-primary btn-block" onsubmit="checkPhone()" value="下一步" type="submit"/>
 						    </c:if>
 						    <c:if test="${empty user.wecahrt}">

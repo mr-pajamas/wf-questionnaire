@@ -22,8 +22,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.portlet.ModelAndView;
 
 import com.web.common.utils.NumberUtils;
+import com.web.common.utils.SignUtil;
 import com.web.common.utils.StringUtil;
 import com.web.common.utils.TimeUtil;
+import com.web.common.utils.getAccessTokenUtil;
 import com.web.entity.Anwser;
 import com.web.entity.User;
 import com.web.service.IHotNewsService;
@@ -82,6 +84,8 @@ public class SynthesizeController {
 	@RequestMapping(value = "/questionnaire1")
 	public String questionnaire1(HttpServletRequest request,
 			HttpServletResponse response) {
+		String appid =  "wx1f31aecb83b985d7";//微信公众号下的AppID
+		String secret = "9e8c703c6653fe88f02674a6688d380e";//微信公众号下的secret
 		String phone = StringUtil.safeToString(request.getSession()
 				.getAttribute("phone"), "");
 		String role = StringUtil.safeToString(request.getSession()
@@ -96,6 +100,28 @@ public class SynthesizeController {
 
 		request.setAttribute("user", user);
 		request.setAttribute("anwser", anwser);
+		
+		String timeStamp=String.valueOf(System.currentTimeMillis());
+		timeStamp=timeStamp.substring(0, 10);
+		String nonceStr = "oYeWRtwKygRjzQFwtAx7fDpE-V-M";
+		String url=request.getRequestURL().toString();
+//		url=url+"?code="+code+ "&state=STATE";//拼成微信转义过的URL（加上code和state参数，否则会造成签名错误）
+		String jsTicket=(String) request.getSession().getAttribute("jsTicket");
+		if(jsTicket=="" || jsTicket==null){
+			String accessToken=(String) request.getSession().getAttribute("accessToken");
+			if(accessToken=="" || accessToken==null){
+				accessToken=getAccessTokenUtil.getAccessToken(appid,secret);
+				request.getSession().setAttribute("accessToken", accessToken);
+			}
+			jsTicket=getAccessTokenUtil.getJsapiTicket(accessToken);
+			request.getSession().setAttribute("jsTicket",jsTicket);
+		}
+		
+		String signature=SignUtil.jsTicketSign(jsTicket,nonceStr,timeStamp,url);
+		request.setAttribute("timeStamp", timeStamp);
+		request.setAttribute("nonceStr", nonceStr);
+		request.setAttribute("signature", signature);
+		request.setAttribute("user", user);
 
 		return "/jsp/website/wenjuan1";
 	}
@@ -128,8 +154,6 @@ public class SynthesizeController {
 				.getParameter("q1"), "");
 		String gender = StringUtil.safeToString(request
 				.getParameter("q2"), "");
-//		String phone = StringUtil.safeToString(request
-//				.getParameter("entry[field_3]"), "");
 		String company = StringUtil.safeToString(request
 				.getParameter("q3"), "");
 		String position = StringUtil.safeToString(request
