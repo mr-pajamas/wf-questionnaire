@@ -133,10 +133,15 @@ public class surveyController {
 				user.setPassword(password);
 				user.setRole("2");
 				user.setHeadimg(phone+"_img.jpg");
-				
-				
 				surveyServey.saveUser(user);
-				return "/jsp/website/login";
+//				return "/jsp/website/login";
+				//跳转到问卷1
+				request.setAttribute("user", user);
+				request.getSession().setAttribute("username", user.getPhone());
+				request.getSession().setAttribute("phone", user.getPhone());
+				request.getSession().setAttribute("id", user.getId());
+				request.getSession().setAttribute("role", user.getRole());
+				return "redirect:/synthesize/questionnaire1";
 
 			}
 		} else {
