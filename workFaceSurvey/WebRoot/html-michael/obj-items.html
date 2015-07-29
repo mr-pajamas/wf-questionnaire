@@ -88,12 +88,12 @@
               <input type="radio" name="q4" value="2"> 合伙人
             </label>
           </div>
-          <div class="radio col-sm-4">
+          <div class="radio col-sm-4 check-other">
             <label class="pull-left">
               <input type="radio" name="q4" value="3"> 其他
             </label>
             <div style="margin-left: 65px;">
-              <input type="text" name="q4-other" id="inputQ4Other" style="width: 100%;">
+              <input type="text" name="q4-other" id="inputQ4Other" style="width: 100%;" disabled>
             </div>
           </div>
         </div>
@@ -198,12 +198,12 @@
               <input type="radio" name="q8" value="3"> 投资人
             </label>
           </div>
-          <div class="radio col-sm-4">
+          <div class="radio col-sm-4 check-other">
             <label class="pull-left">
               <input type="radio" name="q8" value="4"> 其他
             </label>
             <div style="margin-left: 65px;">
-              <input type="text" name="q8-other" id="inputQ8Other" style="width: 100%;">
+              <input type="text" name="q8-other" id="inputQ8Other" style="width: 100%;" disabled>
             </div>
           </div>
         </div>
@@ -264,12 +264,12 @@
           </div>
         </div>
         <div class="row">
-          <div class="checkbox col-sm-4">
+          <div class="checkbox col-sm-4 check-other">
             <label class="pull-left">
               <input type="checkbox" name="q10" value="6"> 其他
             </label>
             <div style="margin-left: 65px;">
-              <input type="text" name="q10-other" id="inputQ10Other" style="width: 100%;">
+              <input type="text" name="q10-other" id="inputQ10Other" style="width: 100%;" disabled>
             </div>
           </div>
         </div>
@@ -526,6 +526,20 @@
 <script>
   $("input[data-role=tagsinput]").tagsinput({
     confirmKeys: [13, 44, 32]
+  });
+</script>
+
+<script>
+  $("input:radio, input:checkbox").change(function() {
+    $(".check-other").each(function() {
+      var $checkInput = $(this).find("label input");
+      var $textInput = $(this).find("div input");
+      if ($checkInput.is(":checked")) {
+        $textInput.removeAttr("disabled");
+      } else {
+        $textInput.val("").attr("disabled", "disabled");
+      }
+    });
   });
 </script>
 </body>
