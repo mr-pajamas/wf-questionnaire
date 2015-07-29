@@ -88,3 +88,9 @@ button {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.radio input[type=text][disabled], .checkbox input[type=text][disabled] {
+  cursor: not-allowed;
+  background-color: #eee;
+  opacity: 1;
+}

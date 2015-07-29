@@ -300,9 +300,13 @@ public class surveyController {
 		request.setAttribute("user", user);
 		
 		if(!"".equals(user.getPhone()) && user.getPhone()!=null){
-			System.out.println(user.getPhone());
 			request.getSession().setAttribute("phone", user.getPhone());
-			return "/jsp/website/wenjuan1";
+			if(user.getRole().equals("1")){
+				return "/jsp/website/choose";
+			}else{
+				return "/jsp/website/wenjuan1";
+			}
+			
 		}else{
 			return "/jsp/website/regist";
 		}
@@ -312,8 +316,12 @@ public class surveyController {
 	@RequestMapping("/getsurveyinfo")
 	public String  getsurveyinfo(HttpServletRequest request,HttpServletResponse response){
 		String phone=request.getParameter("phone");
-		Anwser anwser=surveyServey.getAnwserByPhone(phone);
-		return "/jsp/website/choose";
+		User user = surveyServey.getUserByPhone(phone);
+		Anwser anwser = surveyServey.getAnwserByPhone(phone);
+
+		request.setAttribute("user", user);
+		request.setAttribute("anwser", anwser);
+		return "/jsp/website/wenjuan1";
 	}
 	/*
 	@RequestMapping(value="userInfo")
