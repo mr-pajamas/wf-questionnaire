@@ -72,7 +72,6 @@ public class surveyController {
 				&& password != null) {
 			User user = surveyServey.checkLogin(phone, password);
 			if (null != user) {
-				request.getSession().setAttribute("username", user.getPhone());
 				request.getSession().setAttribute("phone", user.getPhone());
 				request.getSession().setAttribute("id", user.getId());
 				request.getSession().setAttribute("role", user.getRole());
@@ -114,7 +113,14 @@ public class surveyController {
 		String password = request.getParameter("password");
 		String passwordRpe = request.getParameter("passwordRpe");
 		String tp = StringUtil.safeToString("tp", "");
-		if (!"".equals(phone) && !"".equals(password)
+		String openid=request.getParameter("openid");
+		if(!"".equals(openid) && openid!=null){
+			User user=surveyServey.getUserByPhone(openid);
+			user.setPhone(phone);
+			surveyServey.saveUser(user);
+			return "/jsp/website/wenjuan1";
+		}
+		else if (!"".equals(phone) && !"".equals(password)
 				&& password.equals(passwordRpe)) {
 			User user = surveyServey.getUserByPhone(phone);
 			if (null != user) {
@@ -210,7 +216,7 @@ public class surveyController {
 	    	user.setHeadimg(user_headimgurl);
 	    	surveyServey.saveUser(user);
 	    }
-	    
+	  
 	    String timeStamp=String.valueOf(System.currentTimeMillis());
 		timeStamp=timeStamp.substring(0, 10);
 		String nonceStr = "oYeWRtwKygRjzQFwtAx7fDpE-V-M";
@@ -232,8 +238,24 @@ public class surveyController {
 		request.setAttribute("nonceStr", nonceStr);
 		request.setAttribute("signature", signature);
 		request.setAttribute("user", user);
-		return "/jsp/website/regist";
+		if(!"".equals(user.getPhone()) && user.getPhone()!=null){
+			return "/jsp/website/wenjuan1";
+		}else{
+			return "/jsp/website/regist";
+		}
+		
 	}
+	
+	@RequestMapping("savephone")
+	public String savephone(HttpServletRequest request,HttpServletResponse response){
+		String phone=request.getParameter("PhoneNum");
+		String openid=request.getParameter("openid");
+		User user=surveyServey.getUserByPhone(openid);
+		user.setPhone(phone);
+		surveyServey.saveUser(user);
+		return "/jsp/website/wenjuan1";
+	}
+	
 	
 	@RequestMapping("/getsurveyinfo")
 	public String  getsurveyinfo(HttpServletRequest request,HttpServletResponse response){
@@ -303,6 +325,32 @@ public class surveyController {
 		}
 		
 		return result;
+	}
+	
+	@RequestMapping(value="wechatSecret")
+	@ResponseBody
+	public void wechatSecret(HttpServletRequest request,HttpServletResponse reponse){
+		String appid =  "wx1f31aecb83b985d7";//微信公众号下的AppID
+		String secret = "9e8c703c6653fe88f02674a6688d380e";//微信公众号下的secret
+		String timeStamp=String.valueOf(System.currentTimeMillis());
+		timeStamp=timeStamp.substring(0, 10);
+		String nonceStr = "oYeWRtwKygRjzQFwtAx7fDpE-V-M";
+		String url=request.getRequestURL().toString();
+//		url=url+"?code="+code+ "&state=STATE";//拼成微信转义过的URL（加上code和state参数，否则会造成签名错误）
+		String jsTicket=(String) request.getSession().getAttribute("jsTicket");
+		if(jsTicket=="" || jsTicket==null){
+			String accessToken=(String) request.getSession().getAttribute("accessToken");
+			if(accessToken=="" || accessToken==null){
+				accessToken=getAccessTokenUtil.getAccessToken(appid,secret);
+				request.getSession().setAttribute("accessToken", accessToken);
+			}
+			jsTicket=getAccessTokenUtil.getJsapiTicket(accessToken);
+			request.getSession().setAttribute("jsTicket",jsTicket);
+		}	
+		String signature=SignUtil.jsTicketSign(jsTicket,nonceStr,timeStamp,url);
+		request.setAttribute("timeStamp", timeStamp);
+		request.setAttribute("nonceStr", nonceStr);
+		request.setAttribute("signature", signature);
 	}
 	
 	/**
