@@ -72,6 +72,7 @@
       <label class="col-md-2 control-label">手机</label>
       <div class="col-md-4">
         <p class="form-control-static">${user.phone}</p>
+        <input type="hidden" name="phone" value="${user.phone}"/>
       </div>
     </div>
 

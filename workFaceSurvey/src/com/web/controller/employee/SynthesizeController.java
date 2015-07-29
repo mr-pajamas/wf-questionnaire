@@ -211,8 +211,7 @@ public class SynthesizeController {
 		String city = StringUtil.safeToString(request.getParameter("q12-2"), "");
 		String street = StringUtil.safeToString(request.getParameter("q12-3"),
 				"");
-		String phone = StringUtil.safeToString(request.getSession().getAttribute("phone"),
-		"");
+		String phone = request.getParameter("phone");
 		User user = surveyServey.getUserByPhone(phone);
 		if (null == user) {
 			user = new User();

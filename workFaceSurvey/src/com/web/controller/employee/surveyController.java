@@ -79,7 +79,7 @@ public class surveyController {
 				request.getSession().setAttribute("role", user.getRole());
 				if (user.getRole().equals("1")) {
 					// return "/jsp/website/choose";
-					return "redirect:/survey/showmanage";
+					return "/jsp/website/choose";
 
 				} else {
 					// return "/jsp/website/wenjuan1";
@@ -234,9 +234,6 @@ public class surveyController {
 		
 		request.setCharacterEncoding("utf-8");  
 		String code=request.getParameter("code");
-		if(code==null && "".equals(code)){
-			return "redirect:/survey/login";
-		}
 		String appid =  "wx1f31aecb83b985d7";//微信公众号下的AppID
 		String secret = "9e8c703c6653fe88f02674a6688d380e";//微信公众号下的secret
 		String get_access_token_url="https://api.weixin.qq.com/sns/oauth2/access_token?appid="+appid+"&secret="+secret+"&code="+code+"&grant_type=authorization_code";
