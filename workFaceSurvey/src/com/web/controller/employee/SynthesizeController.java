@@ -90,9 +90,10 @@ public class SynthesizeController {
 		String role = StringUtil.safeToString(request.getSession()
 				.getAttribute("role"), "");
 		//管理员账号从参数获取手机号码
-		if("1".equals(role)){
-			 phone = StringUtil.safeToString(request.getParameter("phone"), "");
-		}
+		//逻辑不对先屏蔽（杨树楷）
+//		if("1".equals(role)){
+//			 phone = StringUtil.safeToString(request.getParameter("phone"), "");
+//		}
 
 		User user = surveyServey.getUserByPhone(phone);
 		Anwser anwser = surveyServey.getAnwserByPhone(phone);
@@ -128,14 +129,15 @@ public class SynthesizeController {
 	@RequestMapping(value = "/questionnaire2")
 	public String questionnaire2(HttpServletRequest request,
 			HttpServletResponse response) {
-		String phone = StringUtil.safeToString(request.getSession()
-				.getAttribute("phone"), "");
+		//
+//		String phone = StringUtil.safeToString(request.getSession()
+//				.getAttribute("phone"), "");
 		String role = StringUtil.safeToString(request.getSession()
 				.getAttribute("role"), "");
 		//管理员账号从参数获取手机号码
-		if("1".equals(role)){
-			 phone = StringUtil.safeToString(request.getAttribute("phone"), "");
-		}
+//		if("1".equals(role)){
+		String phone = StringUtil.safeToString(request.getAttribute("phone"), "");
+//		}
 		
 		User user = surveyServey.getUserByPhone(phone);
 		Anwser anwser = surveyServey.getAnwserByPhone(phone);

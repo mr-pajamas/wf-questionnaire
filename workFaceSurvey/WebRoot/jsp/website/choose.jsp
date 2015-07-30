@@ -28,7 +28,7 @@
 		        		创&nbsp;业&nbsp;上&nbsp;海&nbsp;万&nbsp;人&nbsp;田&nbsp;野&nbsp;调&nbsp;查&nbsp;&nbsp;&nbsp;&nbsp;
 		        	</div>
 		        	<div style="margin-top:60px">
-		        		<a href="<%=webRoot %>/synthesize/questionnaire1" style="background-color:#7AA9D0;border-color: #7AA9D0;margin-right:20px" class="btn btn-lg btn-info active"  role="button">我的问卷</a>
+		        		<a href="<%=webRoot %>/synthesize/questionnaire1?phone=${user.phone}" style="background-color:#7AA9D0;border-color: #7AA9D0;margin-right:20px" class="btn btn-lg btn-info active"  role="button">我的问卷</a>
 						<a href="<%=webRoot %>/survey/showmanage" style="background-color:#95D195;border-color: #95D195;margin-left:20px" class="btn btn-lg btn-success active" role="button">问卷管理</a>
 					</div>
 		        	

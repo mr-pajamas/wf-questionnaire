@@ -43,7 +43,7 @@
           <input type="text" class="form-control" placeholder="姓名/公司&hellip;">
         <span class="input-group-btn">
           <!--<button type="button" class="btn btn-default">找活动</button>-->
-          <button type="button" class="btn btn-default">查询</button>
+          <button type="submit" class="btn btn-default">查询</button>
         </span>
         </div><!-- /.input-group -->
       </div>

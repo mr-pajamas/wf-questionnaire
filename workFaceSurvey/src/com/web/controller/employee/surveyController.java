@@ -77,9 +77,10 @@ public class surveyController {
 				request.getSession().setAttribute("phone", user.getPhone());
 				request.getSession().setAttribute("id", user.getId());
 				request.getSession().setAttribute("role", user.getRole());
+				request.getSession().setAttribute("user", user);
 				if (user.getRole().equals("1")) {
 					// return "/jsp/website/choose";
-					return "/jsp/website/choose";
+					return "redirect:/survey/choose";
 
 				} else {
 					// return "/jsp/website/wenjuan1";
@@ -294,8 +295,8 @@ public class surveyController {
 		request.setAttribute("timeStamp", timeStamp);
 		request.setAttribute("nonceStr", nonceStr);
 		request.setAttribute("signature", signature);
+		request.setAttribute("openid", openid);
 		request.setAttribute("user", user);
-		
 		if(!"".equals(user.getPhone()) && user.getPhone()!=null){
 			request.getSession().setAttribute("phone", user.getPhone());
 			if(user.getRole().equals("1")){
