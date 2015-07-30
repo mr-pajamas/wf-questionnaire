@@ -39,9 +39,7 @@
     <p>创业事关我们大家的命运，我们不置身事外。创业上海，我们和你在一起！</p>
   </div>
 
-  <form class="form-horizontal" action="<%=webRoot %>/synthesize/SaveQ1" method="post" >
-     <input type="hidden"  name="phone" value="${user.phone}" id="phone" />
-  
+  <form class="form-horizontal" action="<%=webRoot %>/synthesize/SaveQ1" method="post" >  
     <div class="form-group">
       <label for="inputQ1" class="col-md-2 control-label">姓名</label>
       <div class="col-md-4">
@@ -84,7 +82,7 @@
     </div>
 
     <div class="form-group">
-      <label class="col-md-2 control-label">职务/角色${user.position}</label>
+      <label class="col-md-2 control-label">职务/角色</label>
       <div class="col-md-8">
         <div class="row">
           <div class="radio col-sm-2">
@@ -102,7 +100,7 @@
               <input type="radio" name="q4" value="其他" ${user.position eq '其他' ? 'checked' : ''}> 其他
             </label>
             <div style="margin-left: 65px;">
-              <input type="text" name="q4-other" value="${user.positionother}" id="inputQ4Other" style="width: 100%;" disabled>
+              <input type="text" name="q4-other" value="${user.positionother}" id="inputQ4Other" style="width: 100%;" ${user.position eq '其他' ? '' : 'disabled'}>
             </div>
           </div>
         </div>
@@ -115,17 +113,17 @@
         <div class="row">
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q5" value="1次"> 1次
+              <input type="radio" name="q5" value="1次" ${anwser.q11 eq '1次' ? 'checked' : ''}> 1次
             </label>
           </div>
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q5" value="2-3次"> 2-3次
+              <input type="radio" name="q5" value="2-3次" ${anwser.q11 eq '2-3次' ? 'checked' : ''}> 2-3次
             </label>
           </div>
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q5" value="3次以上"> 3次以上
+              <input type="radio" name="q5" value="3次以上" ${anwser.q11 eq '3次以上' ? 'checked' : ''}> 3次以上
             </label>
           </div>
         </div>
@@ -138,22 +136,22 @@
         <div class="row">
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q6" value="1年内"> 1年内
+              <input type="radio" name="q6" value="1年内" ${anwser.q12 eq '1年内' ? 'checked' : ''}> 1年内
             </label>
           </div>
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q6" value="1-3年"> 1-3年
+              <input type="radio" name="q6" value="1-3年" ${anwser.q12 eq '1-3年' ? 'checked' : ''}> 1-3年
             </label>
           </div>
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q6" value="3-5年"> 3-5年
+              <input type="radio" name="q6" value="3-5年" ${anwser.q12 eq '3-5年' ? 'checked' : ''}> 3-5年
             </label>
           </div>
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q6" value="5年以上"> 5年以上
+              <input type="radio" name="q6" value="5年以上" ${anwser.q12 eq '5年以上' ? 'checked' : ''}> 5年以上
             </label>
           </div>
         </div>
@@ -166,22 +164,22 @@
         <div class="row">
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q7" value="5人以下"> 5人以下
+              <input type="radio" name="q7" value="5人以下" ${anwser.q15 eq '5人以下' ? 'checked' : ''}> 5人以下
             </label>
           </div>
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q7" value="5-10人"> 5-10人
+              <input type="radio" name="q7" value="5-10人" ${anwser.q15 eq '5-10人' ? 'checked' : ''}> 5-10人
             </label>
           </div>
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q7" value="10-30人"> 10-30人
+              <input type="radio" name="q7" value="10-30人" ${anwser.q15 eq '10-30人' ? 'checked' : ''}> 10-30人
             </label>
           </div>
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q7" value="30人以上"> 30人以上
+              <input type="radio" name="q7" value="30人以上" ${anwser.q15 eq '30人以上' ? 'checked' : ''}> 30人以上
             </label>
           </div>
         </div>
@@ -194,25 +192,25 @@
         <div class="row">
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q8" value="家人朋友"> 家人朋友
+              <input type="radio" name="q8" value="家人朋友" ${anwser.q8 eq '家人朋友' ? 'checked' : ''}> 家人朋友
             </label>
           </div>
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q8" value="自己积蓄"> 自己积蓄
+              <input type="radio" name="q8" value="自己积蓄" ${anwser.q8 eq '自己积蓄' ? 'checked' : ''}> 自己积蓄
             </label>
           </div>
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q8" value="投资人"> 投资人
+              <input type="radio" name="q8" value="投资人" ${anwser.q8 eq '投资人' ? 'checked' : ''}> 投资人
             </label>
           </div>
           <div class="radio check-other col-sm-4">
             <label class="pull-left">
-              <input type="radio" name="q8" value="其他"> 其他
+              <input type="radio" name="q8" value="其他" ${anwser.q8 eq '其他' ? 'checked' : ''}> 其他
             </label>
             <div style="margin-left: 65px;">
-              <input type="text" name="q8-other" value="${anwser.q8other}" id="inputQ8Other" style="width: 100%;" disabled>
+              <input type="text" name="q8-other" value="${anwser.q8other}" id="inputQ8Other" style="width: 100%;" ${anwser.q8 eq '其他' ? '' : 'disabled'}>
             </div>
           </div>
         </div>
@@ -225,17 +223,17 @@
         <div class="row">
           <div class="radio col-sm-4">
             <label>
-              <input type="radio" name="q9" value="还在前期投入"> 还在前期投入
+              <input type="radio" name="q9" value="还在前期投入" ${anwser.q13 eq '还在前期投入' ? 'checked' : ''}> 还在前期投入
             </label>
           </div>
           <div class="radio col-sm-4">
             <label>
-              <input type="radio" name="q9" value="收支平衡"> 收支平衡
+              <input type="radio" name="q9" value="收支平衡" ${anwser.q13 eq '收支平衡' ? 'checked' : ''}> 收支平衡
             </label>
           </div>
           <div class="radio col-sm-4">
             <label>
-              <input type="radio" name="q9" value="已盈利"> 已盈利
+              <input type="radio" name="q9" value="已盈利" ${anwser.q13 eq '已盈利' ? 'checked' : ''}> 已盈利
             </label>
           </div>
         </div>
@@ -291,85 +289,85 @@
         <div class="row">
           <div class="radio col-sm-4">
             <label>
-              <input type="radio" name="q11" value="互联网与移动"> 互联网与移动
+              <input type="radio" name="q11" value="互联网与移动" ${anwser.q1 eq '互联网与移动' ? 'checked' : ''}> 互联网与移动
             </label>
           </div>
           <div class="radio col-sm-4">
             <label>
-              <input type="radio" name="q11" value="金融服务"> 金融服务
+              <input type="radio" name="q11" value="金融服务" ${anwser.q1 eq '金融服务' ? 'checked' : ''}> 金融服务
             </label>
           </div>
           <div class="radio col-sm-4">
             <label>
-              <input type="radio" name="q11" value="运动、健身、健康护理"> 运动、健身、健康护理
-            </label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="radio col-sm-4">
-            <label>
-              <input type="radio" name="q11" value="新科技新应用"> 新科技新应用
-            </label>
-          </div>
-          <div class="radio col-sm-4">
-            <label>
-              <input type="radio" name="q11" value="媒体、公关、影视与营销"> 媒体、公关、影视与营销
-            </label>
-          </div>
-          <div class="radio col-sm-4">
-            <label>
-              <input type="radio" name="q11" value="美食、餐饮、F&B"> 美食、餐饮、F&B
+              <input type="radio" name="q11" value="运动、健身、健康护理" ${anwser.q1 eq '运动、健身、健康护理' ? 'checked' : ''}> 运动、健身、健康护理
             </label>
           </div>
         </div>
         <div class="row">
           <div class="radio col-sm-4">
             <label>
-              <input type="radio" name="q11" value="新农业、环境保护"> 新农业、环境保护
+              <input type="radio" name="q11" value="新科技新应用" ${anwser.q1 eq '新科技新应用' ? 'checked' : ''}> 新科技新应用
             </label>
           </div>
           <div class="radio col-sm-4">
             <label>
-              <input type="radio" name="q11" value="设计与文化创意"> 设计与文化创意
+              <input type="radio" name="q11" value="媒体、公关、影视与营销" ${anwser.q1 eq '媒体、公关、影视与营销' ? 'checked' : ''}> 媒体、公关、影视与营销
             </label>
           </div>
           <div class="radio col-sm-4">
             <label>
-              <input type="radio" name="q11" value="品牌、经营管理、渠道与其他"> 品牌、经营管理、渠道与其他
-            </label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="radio col-sm-4">
-            <label>
-              <input type="radio" name="q11" value="养老养护产业"> 养老养护产业
-            </label>
-          </div>
-          <div class="radio col-sm-4">
-            <label>
-              <input type="radio" name="q11" value="旅行、小吃与文化"> 旅行、小吃与文化
-            </label>
-          </div>
-          <div class="radio col-sm-4">
-            <label>
-              <input type="radio" name="q11" value="教育训练、心灵成长、自我提升"> 教育训练、心灵成长、自我提升
+              <input type="radio" name="q11" value="美食、餐饮、F&amp;B" ${anwser.q1 eq '美食、餐饮、F&B' ? 'checked' : ''}> 美食、餐饮、F&amp;B
             </label>
           </div>
         </div>
         <div class="row">
           <div class="radio col-sm-4">
             <label>
-              <input type="radio" name="q11" value="社会创新"> 社会创新
+              <input type="radio" name="q11" value="新农业、环境保护" ${anwser.q1 eq '新农业、环境保护' ? 'checked' : ''}> 新农业、环境保护
             </label>
           </div>
           <div class="radio col-sm-4">
             <label>
-              <input type="radio" name="q11" value="婴童育儿产业"> 婴童育儿产业
+              <input type="radio" name="q11" value="设计与文化创意" ${anwser.q1 eq '设计与文化创意' ? 'checked' : ''}> 设计与文化创意
             </label>
           </div>
           <div class="radio col-sm-4">
             <label>
-              <input type="radio" name="q11" value="组织发展"> 组织发展
+              <input type="radio" name="q11" value="品牌、经营管理、渠道与其他" ${anwser.q1 eq '品牌、经营管理、渠道与其他' ? 'checked' : ''}> 品牌、经营管理、渠道与其他
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="radio col-sm-4">
+            <label>
+              <input type="radio" name="q11" value="养老养护产业" ${anwser.q1 eq '养老养护产业' ? 'checked' : ''}> 养老养护产业
+            </label>
+          </div>
+          <div class="radio col-sm-4">
+            <label>
+              <input type="radio" name="q11" value="旅行、小吃与文化" ${anwser.q1 eq '旅行、小吃与文化' ? 'checked' : ''}> 旅行、小吃与文化
+            </label>
+          </div>
+          <div class="radio col-sm-4">
+            <label>
+              <input type="radio" name="q11" value="教育训练、心灵成长、自我提升" ${anwser.q1 eq '教育训练、心灵成长、自我提升' ? 'checked' : ''}> 教育训练、心灵成长、自我提升
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="radio col-sm-4">
+            <label>
+              <input type="radio" name="q11" value="社会创新" ${anwser.q1 eq '社会创新' ? 'checked' : ''}> 社会创新
+            </label>
+          </div>
+          <div class="radio col-sm-4">
+            <label>
+              <input type="radio" name="q11" value="婴童育儿产业" ${anwser.q1 eq '婴童育儿产业' ? 'checked' : ''}> 婴童育儿产业
+            </label>
+          </div>
+          <div class="radio col-sm-4">
+            <label>
+              <input type="radio" name="q11" value="组织发展" ${anwser.q1 eq '组织发展' ? 'checked' : ''}> 组织发展
             </label>
           </div>
         </div>
@@ -422,22 +420,22 @@
         <div class="row">
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q13" value="90后"> 90后
+              <input type="radio" name="q13" value="90后" ${user.age eq '90后' ? 'checked' : ''}> 90后
             </label>
           </div>
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q13" value="80-89年"> 80-89年
+              <input type="radio" name="q13" value="80-89年" ${user.age eq '80-89年' ? 'checked' : ''}> 80-89年
             </label>
           </div>
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q13" value="70-79年"> 70-79年
+              <input type="radio" name="q13" value="70-79年" ${user.age eq '70-79年' ? 'checked' : ''}> 70-79年
             </label>
           </div>
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q13" value="70年前"> 70年前
+              <input type="radio" name="q13" value="70年前" ${user.age eq '70年前' ? 'checked' : ''}> 70年前
             </label>
           </div>
         </div>
@@ -450,22 +448,22 @@
         <div class="row">
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q14" value="大专及以下"> 大专及以下
+              <input type="radio" name="q14" value="大专及以下" ${user.degree eq '大专及以下' ? 'checked' : ''}> 大专及以下
             </label>
           </div>
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q14" value="大学本科"> 大学本科
+              <input type="radio" name="q14" value="大学本科" ${user.degree eq '大学本科' ? 'checked' : ''}> 大学本科
             </label>
           </div>
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q14" value="MBA"> MBA
+              <input type="radio" name="q14" value="MBA" ${user.degree eq 'MBA' ? 'checked' : ''}> MBA
             </label>
           </div>
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q14" value="硕士及以上"> 硕士及以上
+              <input type="radio" name="q14" value="硕士及以上" ${user.degree eq '硕士及以上' ? 'checked' : ''}> 硕士及以上
             </label>
           </div>
         </div>
@@ -506,7 +504,7 @@
     <div class="form-group">
       <label for="inputQ19" class="col-md-2 control-label">是谁推荐了您</label>
       <div class="col-md-4">
-        <input type="text" name="q19" value="${user.referrer }" class="form-control" id="inputQ19">
+        <input type="text" name="q19" value="${user.referrer}" class="form-control" id="inputQ19">
       </div>
     </div>
 
@@ -516,17 +514,17 @@
         <div class="row">
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q20" value="很熟悉"> 很熟悉
+              <input type="radio" name="q20" value="很熟悉" ${anwser.q2 eq '很熟悉' ? 'checked' : ''}> 很熟悉
             </label>
           </div>
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q20" value="一般"> 一般
+              <input type="radio" name="q20" value="一般" ${anwser.q2 eq '一般' ? 'checked' : ''}> 一般
             </label>
           </div>
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q20" value="不了解"> 不了解
+              <input type="radio" name="q20" value="不了解" ${anwser.q2 eq '不了解' ? 'checked' : ''}> 不了解
             </label>
           </div>
         </div>
@@ -616,17 +614,22 @@
 	
 	<script type="text/javascript" id="main">
 $(function () {
-	   $('input:radio[value=${user.gender}]').attr("checked",true);
-	   $("input:radio[value=${anwser.q8}]").attr("checked",true);//角色
-	   $('input:radio[value=${anwser.q11}]').attr("checked",true);//这是第几次创业
-	   $('input:radio[value=${anwser.q12}]').attr("checked",true);//目前创业项目运作了多久
-	   $('input:radio[value=${anwser.q15}]').attr("checked",true);//目前团队规模
-	   $('input:radio[value=${anwser.q8}]').attr("checked",true);//第一笔启动资金的来源
-	   $('input:radio[value=${anwser.q13}]').attr("checked",true);//项目是否已有产出
-	   $('input:radio[value=${anwser.q1}]').attr("checked",true);//行业分类
-	   $('input:radio[value=${user.age}]').attr("checked",true);//年龄
-	   $('input:radio[value=${user.degree}]').attr("checked",true);//学历
-	   $('input:radio[value=${anwser.q2}]').attr("checked",true);//您了解WF吗？
+	   $('#q12-1').val('${user.province}');
+	   $('#q12-2').val('${user.city}');
+	   $('#q12-3').val('${user.street}');
+
+	 
+	 
+	 
+	   var Q40s='${anwser.q40}'.split("|");
+	   $.each(Q40s,function(n,value) {   
+	   $('input:checkbox[value='+value+']').attr("checked", true);  
+	   $('input:checkbox[value='+value+']').change();
+	   });
+
+	   $('#inputQ10Other').val('${anwser.q40other}');
+	   $('#inputQ8Other').val('${anwser.q8other}');
+	   $('#inputQ4Other').val('${user.positionother}');
 });
 
 </script>

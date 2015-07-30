@@ -85,7 +85,7 @@ public class surveyController {
 					// return "/jsp/website/wenjuan1";
 					// 在Session中保存手机号码
 					
-					return "redirect:/synthesize/questionnaire1";
+					return "redirect:/synthesize/questionnaire1?phone="+phone;
 				}
 			} else {
 				request.setAttribute("error", "用户名或密码错误，请重新输入");
@@ -193,8 +193,8 @@ public class surveyController {
 				request.getSession().setAttribute("phone", user.getPhone());
 				request.getSession().setAttribute("id", user.getId());
 				request.getSession().setAttribute("role", user.getRole());
-				return "redirect:/synthesize/questionnaire1";
-
+//				return "redirect:/synthesize/questionnaire1";
+			    return "/jsp/website/modify_empinfo";
 			}
 		} else {
 			request.setAttribute("error", "请确保密码、用户名输入正确");
@@ -301,7 +301,8 @@ public class surveyController {
 			if(user.getRole().equals("1")){
 				return "/jsp/website/choose";
 			}else{
-				return "/jsp/website/wenjuan1";
+//				return "/jsp/website/wenjuan1";
+				return "/jsp/website/modify_empinfo";
 			}
 			
 		}else{

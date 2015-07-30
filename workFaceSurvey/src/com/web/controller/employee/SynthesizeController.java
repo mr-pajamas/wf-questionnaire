@@ -86,8 +86,7 @@ public class SynthesizeController {
 			HttpServletResponse response) {
 		String appid =  "wx1f31aecb83b985d7";//微信公众号下的AppID
 		String secret = "9e8c703c6653fe88f02674a6688d380e";//微信公众号下的secret
-		String phone = StringUtil.safeToString(request.getSession()
-				.getAttribute("phone"), "");
+		String phone = StringUtil.safeToString(request.getParameter("phone"), "");
 		String role = StringUtil.safeToString(request.getSession()
 				.getAttribute("role"), "");
 		//管理员账号从参数获取手机号码
