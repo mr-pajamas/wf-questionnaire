@@ -70,13 +70,13 @@
 		        	
 					<div class="container">
 						<form class="form-signin" action="<%=webRoot %>/survey/saveregist" method="post">
-						    <c:if test="${!empty user.headimg}">
+							<c:if test="${!empty openid }">
 						     <img alt="" src="${user.headimg}" width="200" height="200" style="margin-bottom:20px "/>
 						    </c:if>
-						    <c:if test="${empty user.headimg}">
+						    <c:if test="${empty openid}">
 						        <img alt="" src="<%=webRoot %>/images/88957826084468896.jpg" width="200" height="200" style="margin-bottom:20px "/>
 						    </c:if>
-						    <c:if test="${!empty user.wecahrt}">
+						    <c:if test="${!empty openid }">
 						    	<label class="sr-only" for="inputTelNum">手机号码</label>
 								<input id="inputTelNum" class="form-control" name="PhoneNum" type="tel" autofocus="" required="" placeholder="手机号码">
 								<input type="hidden" name="openid" value="${user.wecahrt}"/>
@@ -86,7 +86,7 @@
 								<input type="hidden" name="headimg" value="${user.headimg}"/>
 								<input class="btn btn-lg btn-primary btn-block" onsubmit="checkPhone()" value="下一步" type="submit"/>
 						    </c:if>
-						    <c:if test="${empty user.wecahrt}">
+						    <c:if test="${empty openid}">
 								<label class="sr-only" for="inputTelNum">手机号码</label>
 								<input id="inputTelNum" class="form-control" name="PhoneNum" type="tel" autofocus="" required="" placeholder="手机号码">
 								<label class="sr-only" for="inputPassword">密码</label>

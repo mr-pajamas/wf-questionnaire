@@ -77,15 +77,16 @@ public class surveyController {
 				request.getSession().setAttribute("phone", user.getPhone());
 				request.getSession().setAttribute("id", user.getId());
 				request.getSession().setAttribute("role", user.getRole());
+				request.getSession().setAttribute("user", user);
 				if (user.getRole().equals("1")) {
 					// return "/jsp/website/choose";
-					return "redirect:/survey/showmanage";
+					return "redirect:/survey/choose";
 
 				} else {
 					// return "/jsp/website/wenjuan1";
 					// 在Session中保存手机号码
 					
-					return "redirect:/synthesize/questionnaire1";
+					return "redirect:/synthesize/questionnaire1?phone="+phone;
 				}
 			} else {
 				request.setAttribute("error", "用户名或密码错误，请重新输入");
@@ -193,8 +194,8 @@ public class surveyController {
 				request.getSession().setAttribute("phone", user.getPhone());
 				request.getSession().setAttribute("id", user.getId());
 				request.getSession().setAttribute("role", user.getRole());
-				return "redirect:/synthesize/questionnaire1";
-
+//				return "redirect:/synthesize/questionnaire1";
+			    return "/jsp/website/modify_empinfo";
 			}
 		} else {
 			request.setAttribute("error", "请确保密码、用户名输入正确");
@@ -234,9 +235,6 @@ public class surveyController {
 		
 		request.setCharacterEncoding("utf-8");  
 		String code=request.getParameter("code");
-		if(code==null && "".equals(code)){
-			return "redirect:/survey/login";
-		}
 		String appid =  "wx1f31aecb83b985d7";//微信公众号下的AppID
 		String secret = "9e8c703c6653fe88f02674a6688d380e";//微信公众号下的secret
 		String get_access_token_url="https://api.weixin.qq.com/sns/oauth2/access_token?appid="+appid+"&secret="+secret+"&code="+code+"&grant_type=authorization_code";
@@ -297,14 +295,15 @@ public class surveyController {
 		request.setAttribute("timeStamp", timeStamp);
 		request.setAttribute("nonceStr", nonceStr);
 		request.setAttribute("signature", signature);
+		request.setAttribute("openid", openid);
 		request.setAttribute("user", user);
-		
 		if(!"".equals(user.getPhone()) && user.getPhone()!=null){
 			request.getSession().setAttribute("phone", user.getPhone());
 			if(user.getRole().equals("1")){
 				return "/jsp/website/choose";
 			}else{
-				return "/jsp/website/wenjuan1";
+//				return "/jsp/website/wenjuan1";
+				return "/jsp/website/modify_empinfo";
 			}
 			
 		}else{

@@ -86,14 +86,14 @@ public class SynthesizeController {
 			HttpServletResponse response) {
 		String appid =  "wx1f31aecb83b985d7";//微信公众号下的AppID
 		String secret = "9e8c703c6653fe88f02674a6688d380e";//微信公众号下的secret
-		String phone = StringUtil.safeToString(request.getSession()
-				.getAttribute("phone"), "");
+		String phone = StringUtil.safeToString(request.getParameter("phone"), "");
 		String role = StringUtil.safeToString(request.getSession()
 				.getAttribute("role"), "");
 		//管理员账号从参数获取手机号码
-		if("1".equals(role)){
-			 phone = StringUtil.safeToString(request.getParameter("phone"), "");
-		}
+		//逻辑不对先屏蔽（杨树楷）
+//		if("1".equals(role)){
+//			 phone = StringUtil.safeToString(request.getParameter("phone"), "");
+//		}
 
 		User user = surveyServey.getUserByPhone(phone);
 		Anwser anwser = surveyServey.getAnwserByPhone(phone);
@@ -129,14 +129,15 @@ public class SynthesizeController {
 	@RequestMapping(value = "/questionnaire2")
 	public String questionnaire2(HttpServletRequest request,
 			HttpServletResponse response) {
-		String phone = StringUtil.safeToString(request.getSession()
-				.getAttribute("phone"), "");
+		//
+//		String phone = StringUtil.safeToString(request.getSession()
+//				.getAttribute("phone"), "");
 		String role = StringUtil.safeToString(request.getSession()
 				.getAttribute("role"), "");
 		//管理员账号从参数获取手机号码
-		if("1".equals(role)){
-			 phone = StringUtil.safeToString(request.getAttribute("phone"), "");
-		}
+//		if("1".equals(role)){
+		String phone = StringUtil.safeToString(request.getAttribute("phone"), "");
+//		}
 		
 		User user = surveyServey.getUserByPhone(phone);
 		Anwser anwser = surveyServey.getAnwserByPhone(phone);
@@ -211,8 +212,7 @@ public class SynthesizeController {
 		String city = StringUtil.safeToString(request.getParameter("q12-2"), "");
 		String street = StringUtil.safeToString(request.getParameter("q12-3"),
 				"");
-		String phone = StringUtil.safeToString(request.getSession().getAttribute("phone"),
-		"");
+		String phone = request.getParameter("phone");
 		User user = surveyServey.getUserByPhone(phone);
 		if (null == user) {
 			user = new User();

@@ -43,7 +43,7 @@
           <input type="text" class="form-control" placeholder="姓名/公司&hellip;">
         <span class="input-group-btn">
           <!--<button type="button" class="btn btn-default">找活动</button>-->
-          <button type="button" class="btn btn-default">查询</button>
+          <button type="submit" class="btn btn-default">查询</button>
         </span>
         </div><!-- /.input-group -->
       </div>
@@ -68,7 +68,7 @@
         items.push(
             "<div class=\"col-xs-12 col-sm-6 col-lg-4\">" +
             "<div class=\"thumbnail\">" +
-            "<a href=\"" + val.uri + "\">" +
+            "<a href=\"" + "<%=webRoot %>" +"/"+val.uri + "\">" +
             "<div class=\"thumbnail-img\" style=\"background-image: url('" + (val.avatar || "<%=webRoot %>/images/avatar.png") + "')\"></div>" +
             "<div class=\"caption\">" +
             "<h3>" + (val.fullName || "N/A") + "</h3>" +
