@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-  <title>【创业上海万人田野调查初步信息表】 WorkFace | 创业者理解创业者</title>
+  <title>【创业上海万人田野调查】- 基本信息表</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
 
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -12,7 +13,8 @@
   <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 
   <!-- Bootstrap Tags Input -->
-  <link href="css/bootstrap-tagsinput.css" rel="stylesheet">
+  <!--<link href="css/bootstrap-tagsinput.css" rel="stylesheet">-->
+  <link href="css/bootstrap-wizard.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="css/question-items.css" rel="stylesheet">
@@ -25,13 +27,46 @@
   <![endif]-->
 </head>
 <body>
+<!--<img class="img-responsive" src="images/wf-logo.jpg">-->
+<div class="page-header">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-1 col-md-11">
+        <h1>创业上海万人田野调查 <small>WorkFace | 创业者理解创业者</small></h1>
+        <p>创业者理解创业者，是创业者万人大联结的第一步。</p>
+        <p>这是一场社会化的田野调查。我们的访谈团队会与你联系，倾听你的创业故事并分享传播给有相互需要的人，相互理解的人。</p>
+        <p>创业事关我们大家的命运，我们不置身事外。创业上海，我们和你在一起！</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container">
-  <img class="img-responsive" src="images/wf-logo.jpg">
-  <div class="page-header">
-    <h1>创业上海万人田野调查初步信息表 <small>WorkFace | 创业者理解创业者</small></h1>
-    <p>创业者理解创业者，是创业者万人大联结的第一步。</p>
-    <p>这是一场社会化的田野调查。我们的访谈团队会与你联系，倾听你的创业故事并分享传播给有相互需要的人，相互理解的人。</p>
-    <p>创业事关我们大家的命运，我们不置身事外。创业上海，我们和你在一起！</p>
+
+  <div class="row bs-wizard">
+
+    <div class="col-xs-4 bs-wizard-step active">
+      <div class="text-center bs-wizard-stepnum">步骤 1</div>
+      <div class="progress"><div class="progress-bar"></div></div>
+      <a href="javascript:void(0)" class="bs-wizard-dot"></a>
+      <div class="bs-wizard-info text-center">基本信息表</div>
+    </div>
+
+    <div class="col-xs-4 bs-wizard-step disabled">
+      <div class="text-center bs-wizard-stepnum">步骤 2</div>
+      <div class="progress"><div class="progress-bar"></div></div>
+      <a href="javascript:void(0)" class="bs-wizard-dot"></a>
+      <div class="bs-wizard-info text-center">详细信息表</div>
+    </div>
+
+    <div class="col-xs-4 bs-wizard-step disabled">
+      <div class="text-center bs-wizard-stepnum">步骤 3</div>
+      <div class="progress"><div class="progress-bar"></div></div>
+      <a href="javascript:void(0)" class="bs-wizard-dot"></a>
+      <div class="bs-wizard-info text-center">访谈问卷（选填）</div>
+    </div>
   </div>
 
   <form class="form-horizontal">
@@ -88,6 +123,7 @@
               <input type="radio" name="q4" value="2"> 合伙人
             </label>
           </div>
+          <!--
           <div class="radio col-sm-4 check-other">
             <label class="pull-left">
               <input type="radio" name="q4" value="3"> 其他
@@ -95,6 +131,12 @@
             <div style="margin-left: 65px;">
               <input type="text" name="q4-other" id="inputQ4Other" style="width: 100%;" disabled>
             </div>
+          </div>
+          -->
+          <div class="radio col-sm-2">
+            <label>
+              <input type="radio" name="q4" value="3"> 其他
+            </label>
           </div>
         </div>
       </div>
@@ -198,6 +240,12 @@
               <input type="radio" name="q8" value="3"> 投资人
             </label>
           </div>
+          <div class="radio col-sm-2">
+            <label>
+              <input type="radio" name="q8" value="4"> 其他
+            </label>
+          </div>
+          <!--
           <div class="radio col-sm-4 check-other">
             <label class="pull-left">
               <input type="radio" name="q8" value="4"> 其他
@@ -206,6 +254,7 @@
               <input type="text" name="q8-other" id="inputQ8Other" style="width: 100%;" disabled>
             </div>
           </div>
+          -->
         </div>
       </div>
     </div>
@@ -262,7 +311,13 @@
               <input type="checkbox" name="q10" value="5"> 管理经验
             </label>
           </div>
+          <div class="checkbox col-sm-2">
+            <label>
+              <input type="checkbox" name="q10" value="6"> 其他
+            </label>
+          </div>
         </div>
+        <!--
         <div class="row">
           <div class="checkbox col-sm-4 check-other">
             <label class="pull-left">
@@ -271,6 +326,35 @@
             <div style="margin-left: 65px;">
               <input type="text" name="q10-other" id="inputQ10Other" style="width: 100%;" disabled>
             </div>
+          </div>
+        </div>
+        -->
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-2 control-label">目前创业遇到最大的挑战</label>
+      <div class="col-md-8">
+        <div class="row">
+          <div class="radio col-sm-2">
+            <label>
+              <input type="radio" name="" value="1"> 商业模式
+            </label>
+          </div>
+          <div class="radio col-sm-2">
+            <label>
+              <input type="radio" name="" value="2"> 资本运作
+            </label>
+          </div>
+          <div class="radio col-sm-2">
+            <label>
+              <input type="radio" name="" value="3"> 团队管理
+            </label>
+          </div>
+          <div class="radio col-sm-2">
+            <label>
+              <input type="radio" name="" value="4"> 其他
+            </label>
           </div>
         </div>
       </div>
@@ -463,9 +547,21 @@
 
     <div class="form-group">
       <label for="inputQ17" class="col-md-2 control-label">个人标签</label>
-      <div class="col-md-8">
+      <div class="col-md-8 tags-input-group">
         <span id="q17Help" class="help-block">例如：复旦人、阿里系、南京人、媒体转型、编剧、IT背景、80后……</span>
-        <input type="text" name="q17" class="form-control" id="inputQ17" data-role="tagsinput" aria-describedby="q17Help">
+        <input type="hidden" name="q17" class="tags-param" id="inputHiddenQ17" value="复旦人,阿里系,南京人,媒体转型,编剧,IT背景,80后">
+        <div class="row" style="margin-bottom: 10px">
+          <div class="col-md-6">
+            <!--<input type="text" class="form-control tags-input" id="inputQ17" aria-describedby="q17Help">-->
+            <div class="input-group">
+              <input type="text" class="form-control tag-input" id="inputQ17" aria-describedby="q17Help">
+                <span class="input-group-btn">
+                  <button class="btn btn-default tag-add" type="button">添加标签</button>
+                </span>
+            </div>
+          </div>
+        </div>
+        <div class="tags-show"></div>
       </div>
     </div>
 
@@ -506,6 +602,39 @@
       </div>
     </div>
 
+    <div class="form-group">
+      <label class="col-md-2 control-label">（继上问）了解渠道</label>
+      <div class="col-md-8">
+        <div class="row">
+          <div class="radio col-sm-2">
+            <label>
+              <input type="radio" name="" value="1"> 公众号
+            </label>
+          </div>
+          <div class="radio col-sm-2">
+            <label>
+              <input type="radio" name="" value="2"> 微信朋友圈
+            </label>
+          </div>
+          <div class="radio col-sm-2">
+            <label>
+              <input type="radio" name="" value="3"> 朋友推荐
+            </label>
+          </div>
+          <div class="radio col-sm-2">
+            <label>
+              <input type="radio" name="" value="4"> 壹道TV
+            </label>
+          </div>
+          <div class="radio col-sm-2">
+            <label>
+              <input type="radio" name="" value="5"> 其他
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <hr>
 
     <div class="form-group">
@@ -521,14 +650,19 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
 
-<script src="js/bootstrap-tagsinput.min.js"></script>
+<!--<script src="js/bootstrap-tagsinput.min.js"></script>-->
 
+<script src="js/tags-input.js"></script>
+
+<!--
 <script>
   $("input[data-role=tagsinput]").tagsinput({
     confirmKeys: [13, 44, 32]
   });
 </script>
+-->
 
+<!--
 <script>
   $("input:radio, input:checkbox").change(function() {
     $(".check-other").each(function() {
@@ -541,6 +675,11 @@
       }
     });
   });
+</script>
+-->
+
+<script>
+  initialTagsInput($(".tags-input-group"));
 </script>
 </body>
 </html>
