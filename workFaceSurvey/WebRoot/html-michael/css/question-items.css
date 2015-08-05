@@ -69,32 +69,6 @@ button {
   padding: 10px 24px !important;
 }
 
-.thumbnail-img {
-  float: left;
-  width: 122px;
-  height: 122px;
-  margin: 0;
-  padding: 0;
-  background-size: cover;
-  background-position: 50% 50%;
-}
-
-.thumbnail .caption {
-  margin-left: 134px;
-}
-
-.thumbnail h3 {
-  margin: 8px 0 10px 0;
-}
-
-.thumbnail:hover {
-  background-color: #eee;
-}
-
-.thumbnail > a:hover {
-  text-decoration: none;
-}
-
 .text-overflow {
   overflow: hidden;
   text-overflow: ellipsis;
