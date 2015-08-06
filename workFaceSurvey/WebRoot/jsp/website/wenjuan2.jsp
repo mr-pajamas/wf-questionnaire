@@ -104,7 +104,7 @@
 
         <div class="form-group">
           <label for="inputQ24" class="control-label">曾经历的较大困难和挑战是，当时如何解决和面对的？</label>
-          <textarea class="form-control" id="inputQ24" name="inputQ24"  rows="5">${anwser.q9}</textarea>
+          <textarea class="form-control" id="inputQ24" name="inputQ24"  rows="5">${anwser.q10}</textarea>
         </div>
 
         <div class="form-group">

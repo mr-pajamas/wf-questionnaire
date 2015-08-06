@@ -291,7 +291,7 @@ public class SynthesizeController {
 				.getParameter("inputQ23"), "");// 目前的创业是怎样产生的，发心是什么？
 		String Q18 = StringUtil.safeToString(request
 				.getParameter("inputQ18"), "");// 你是如何赚到人生第一桶金的？
-		String Q9 = StringUtil.safeToString(request
+		String Q10 = StringUtil.safeToString(request
 				.getParameter("inputQ24"), "");// 曾经历的较大困难和挑战是，当时如何解决和面对的
 		String Q19 = StringUtil.safeToString(request
 				.getParameter("inputQ25"), "");// 走上创业之路感受较深的人和事 ，TA对你的影响？
@@ -325,7 +325,7 @@ public class SynthesizeController {
 		anwser.setQ24(Q24);
 		anwser.setQ21(Q21);
 		anwser.setQ19(Q19);
-		anwser.setQ9(Q9);
+		anwser.setQ9(Q10);
 		anwser.setQ41(Q41);
 		anwser.setQ34(Q34);
 		anwser.setQ26(Q26);
