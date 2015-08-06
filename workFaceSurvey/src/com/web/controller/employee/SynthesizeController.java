@@ -179,8 +179,8 @@ public class SynthesizeController {
 				.getParameter("q14"), "");
 		String tag = StringUtil.safeToString(request
 				.getParameter("q17"), "");
-		String wechat = StringUtil.safeToString(request
-				.getParameter("q15"), "");// 微信：
+//		String wechat = StringUtil.safeToString(request
+//				.getParameter("q15"), "");// 微信：
 		String referrer = StringUtil.safeToString(request
 				.getParameter("q19"), "");// 是谁推荐了您：
 		String mail = StringUtil.safeToString(request
@@ -239,7 +239,7 @@ public class SynthesizeController {
 		user.setName(name);
 		user.setPosition(position);
 		user.setReferrer(referrer);
-		user.setWechat_nickname(wechat);
+//		user.setWechat_nickname(wechat);
 		user.setTag(tag);
 		user.setUpdatetime(new Date());
 //		user.setPositionother(positionother);
@@ -325,7 +325,7 @@ public class SynthesizeController {
 		anwser.setQ24(Q24);
 		anwser.setQ21(Q21);
 		anwser.setQ19(Q19);
-		anwser.setQ9(Q10);
+		anwser.setQ10(Q10);
 		anwser.setQ41(Q41);
 		anwser.setQ34(Q34);
 		anwser.setQ26(Q26);

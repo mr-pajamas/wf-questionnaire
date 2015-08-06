@@ -554,13 +554,14 @@
       </div>
     </div>
 
+    <!-- 
     <div class="form-group">
       <label for="inputQ15" class="col-md-2 control-label">微信</label>
       <div class="col-md-4">
         <input type="text" name="q15" class="form-control" id="inputQ15">
       </div>
     </div>
-
+	 -->
     <div class="form-group">
       <label for="inputQ16" class="col-md-2 control-label">邮箱</label>
       <div class="col-md-4">
