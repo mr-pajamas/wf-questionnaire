@@ -2,7 +2,9 @@ package com.web.controller.employee;
 
 import java.io.File;
 import java.io.IOException;import java.io.PrintWriter;
-import java.util.ArrayList;import java.util.Enumeration;
+import java.util.ArrayList;import java.util.Arrays;
+import java.util.Collections;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -328,6 +330,14 @@ public class surveyController {
 
 		request.setAttribute("user", user);
 		request.setAttribute("anwser", anwser);
+		// TODO: 临时方案ll
+		if(null!=anwser )
+			// TODO: 临时方案
+			request.setAttribute("anwserQ40", (anwser.getQ40() == null ? Collections.<String>emptyList() : Arrays.asList(anwser.getQ40().split("\\|"))));
+			// 以上是临时方案
+		else
+			request.setAttribute("anwserQ40",  Collections.<String>emptyList());
+		// 以上是临时方案
 		return "/jsp/website/wenjuan1";
 	}
 	/*
