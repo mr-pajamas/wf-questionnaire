@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -100,6 +101,10 @@ public class SynthesizeController {
 
 		request.setAttribute("user", user);
 		request.setAttribute("anwser", anwser);
+
+		// TODO: 临时方案
+		request.setAttribute("anwserQ40", Arrays.asList(anwser.getQ40().split("|")));
+		// 以上是临时方案
 		
 		String timeStamp=String.valueOf(System.currentTimeMillis());
 		timeStamp=timeStamp.substring(0, 10);

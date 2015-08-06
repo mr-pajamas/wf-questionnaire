@@ -1,8 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	request.setAttribute("contextPath", request.getContextPath());
-	String webRoot = "http://" + request.getServerName() + ":"
-			+ request.getServerPort() + request.getContextPath();
+  String webRoot = "http://" + request.getServerName() + ":"
+ 			+ request.getServerPort() + request.getContextPath();
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,25 +11,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
   <title>【创业上海万人田野调查】- 基本信息表</title>
-  <link rel="shortcut icon" href="<%=webRoot %>/images/favicon.ico" type="image/vnd.microsoft.icon">
+  <link rel="shortcut icon" href="${contextPath}/images/favicon.ico" type="image/vnd.microsoft.icon">
 
   <!-- Bootstrap -->
-  <link href="<%=webRoot %>/css/bootstrap.min.css" rel="stylesheet">
+  <link href="${contextPath}/css/bootstrap.min.css" rel="stylesheet">
 
-  <link href="<%=webRoot %>/css/bootstrap-theme.min.css" rel="stylesheet">
+  <link href="${contextPath}/css/bootstrap-theme.min.css" rel="stylesheet">
 
   <!-- Bootstrap Tags Input -->
   <!--<link href="css/bootstrap-tagsinput.css" rel="stylesheet">-->
-  <link href="<%=webRoot %>/css/bootstrap-wizard.css" rel="stylesheet">
+  <link href="${contextPath}/css/bootstrap-wizard.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="<%=webRoot %>/css/question-items.css" rel="stylesheet">
+  <link href="${contextPath}/css/question-items.css" rel="stylesheet">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
-  <script src="js/html5shiv.min.js"></script>
-  <script src="js/respond.min.js"></script>
+  <script src="${contextPath}/js/html5shiv.min.js"></script>
+  <script src="${contextPath}/js/respond.min.js"></script>
   <![endif]-->
 </head>
 <body>
@@ -75,7 +75,7 @@
     </div>
   </div>
 
-  <form class="form-horizontal" action="<%=webRoot %>/synthesize/SaveQ1" method="post">
+  <form class="form-horizontal" action="${contextPath}/synthesize/SaveQ1" method="post">
     <div class="form-group">
       <label for="inputQ1" class="col-md-2 control-label">姓名</label>
       <div class="col-md-4">
@@ -122,7 +122,7 @@
         <div class="row">
           <div class="radio col-sm-2">
             <label>
-              <input type="radio" name="q4" value="创始人" ${user.position eq '创始人' ? 'checked' : ''} > 创始人
+              <input type="radio" name="q4" value="创始人" ${user.position eq '创始人' ? 'checked' : ''}> 创始人
             </label>
           </div>
           <div class="radio col-sm-2">
@@ -295,32 +295,32 @@
         <div class="row">
           <div class="checkbox col-sm-2">
             <label>
-              <input type="checkbox" name="q10" value="团队建设"> 团队建设
+              <input type="checkbox" name="q10" value="团队建设" ${anwserQ40.contains('团队建设') ? 'checked' : ''}> 团队建设
             </label>
           </div>
           <div class="checkbox col-sm-2">
             <label>
-              <input type="checkbox" name="q10" value="品牌推广"> 品牌推广
+              <input type="checkbox" name="q10" value="品牌推广" ${anwserQ40.contains('品牌推广') ? 'checked' : ''}> 品牌推广
             </label>
           </div>
           <div class="checkbox col-sm-2">
             <label>
-              <input type="checkbox" name="q10" value="资金不足"> 资金不足
+              <input type="checkbox" name="q10" value="资金不足" ${anwserQ40.contains('资金不足') ? 'checked' : ''}> 资金不足
             </label>
           </div>
           <div class="checkbox col-sm-2">
             <label>
-              <input type="checkbox" name="q10" value="产品完善"> 产品完善
+              <input type="checkbox" name="q10" value="产品完善" ${anwserQ40.contains('产品完善') ? 'checked' : ''}> 产品完善
             </label>
           </div>
           <div class="checkbox col-sm-2">
             <label>
-              <input type="checkbox" name="q10" value="管理经验"> 管理经验
+              <input type="checkbox" name="q10" value="管理经验" ${anwserQ40.contains('管理经验') ? 'checked' : ''}> 管理经验
             </label>
           </div>
           <div class="checkbox col-sm-2">
             <label>
-              <input type="checkbox" name="q10" value="其他"> 其他
+              <input type="checkbox" name="q10" value="其他" ${anwserQ40.contains('其他') ? 'checked' : ''}> 其他
             </label>
           </div>
         </div>
@@ -400,7 +400,7 @@
           </div>
           <div class="radio col-sm-4">
             <label>
-              <input type="radio" name="q11" value="美食、餐饮、F&amp;B" ${anwser.q1 eq '美食、餐饮、F&B' ? 'checked' : ''}> 美食、餐饮、F&B
+              <input type="radio" name="q11" value="美食、餐饮、F&amp;B" ${anwser.q1 eq '美食、餐饮、F&B' ? 'checked' : ''}> 美食、餐饮、F&amp;B
             </label>
           </div>
         </div>
@@ -464,35 +464,35 @@
         <div class="row" style="margin-bottom: 10px;">
           <div class="col-xs-6 col-md-2">
             <select name="q12-1" class="form-control" id="q12-1">
-              <option>上海市</option>
+              <option ${user.province eq '上海市' ? 'selected' : ''}>上海市</option>
             </select>
           </div>
           <div class="col-xs-6 col-md-2">
             <select name="q12-2" class="form-control" id="q12-2">
-              <option>黄浦区</option>
-              <option>卢湾区</option>
-               <option>徐汇区</option>
-                <option>长宁区</option>
-                 <option>静安区</option>
-                  <option>普陀区</option>
-                   <option>闸北区</option>
-                    <option>虹口区</option>
-                     <option>杨浦区</option>
-                      <option>闵行区</option>
-                       <option>宝山区</option>
-                        <option>嘉定区</option>
-                         <option>浦东新区</option>
-                          <option>金山区</option>
-                           <option>松江区</option>
-                            <option>青浦区</option>
-                             <option>奉贤区</option>
-                              <option>崇明县</option>
+              <option ${user.city eq '黄浦区' ? 'selected' : ''}>黄浦区</option>
+              <option ${user.city eq '卢湾区' ? 'selected' : ''}>卢湾区</option>
+              <option ${user.city eq '徐汇区' ? 'selected' : ''}>徐汇区</option>
+              <option ${user.city eq '长宁区' ? 'selected' : ''}>长宁区</option>
+              <option ${user.city eq '静安区' ? 'selected' : ''}>静安区</option>
+              <option ${user.city eq '普陀区' ? 'selected' : ''}>普陀区</option>
+              <option ${user.city eq '闸北区' ? 'selected' : ''}>闸北区</option>
+              <option ${user.city eq '虹口区' ? 'selected' : ''}>虹口区</option>
+              <option ${user.city eq '杨浦区' ? 'selected' : ''}>杨浦区</option>
+              <option ${user.city eq '闵行区' ? 'selected' : ''}>闵行区</option>
+              <option ${user.city eq '宝山区' ? 'selected' : ''}>宝山区</option>
+              <option ${user.city eq '嘉定区' ? 'selected' : ''}>嘉定区</option>
+              <option ${user.city eq '浦东新区' ? 'selected' : ''}>浦东新区</option>
+              <option ${user.city eq '金山区' ? 'selected' : ''}>金山区</option>
+              <option ${user.city eq '松江区' ? 'selected' : ''}>松江区</option>
+              <option ${user.city eq '青浦区' ? 'selected' : ''}>青浦区</option>
+              <option ${user.city eq '奉贤区' ? 'selected' : ''}>奉贤区</option>
+              <option ${user.city eq '崇明县' ? 'selected' : ''}>崇明县</option>
             </select>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <input type="text" name="q12-3" class="form-control" id="q12-3" placeholder="详细地址&hellip;">
+            <input type="text" name="q12-3" class="form-control" id="q12-3" placeholder="详细地址&hellip;" value="${user.street}">
           </div>
         </div>
       </div>
@@ -551,13 +551,6 @@
             </label>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="inputQ15" class="col-md-2 control-label">微信</label>
-      <div class="col-md-4">
-        <input type="text" name="q15" class="form-control" id="inputQ15">
       </div>
     </div>
 
@@ -669,13 +662,13 @@
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="<%=webRoot %>/js/jquery-1.11.3.min.js"></script>
+<script src="${contextPath}/js/jquery-1.11.3.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="<%=webRoot %>/js/bootstrap.min.js"></script>
+<script src="${contextPath}/js/bootstrap.min.js"></script>
 
 <!--<script src="js/bootstrap-tagsinput.min.js"></script>-->
 
-<script src="<%=webRoot %>/js/tags-input.js"></script>
+<script src="${contextPath}/js/tags-input.js"></script>
 
 <!--
 <script>
@@ -750,28 +743,6 @@
 	        });
 	    });
 	</script>
-	
-	<script type="text/javascript" id="main">
-$(function () {
-	   $('#q12-1').val('${user.province}');
-	   $('#q12-2').val('${user.city}');
-	   $('#q12-3').val('${user.street}');
-
-	 
-	 
-	 
-	   var Q40s='${anwser.q40}'.split("|");
-	   $.each(Q40s,function(n,value) {   
-	   $('input:checkbox[value='+value+']').attr("checked", true);  
-	   $('input:checkbox[value='+value+']').change();
-	   });
-
-	   $('#inputQ10Other').val('${anwser.q40other}');
-	   $('#inputQ8Other').val('${anwser.q8other}');
-	   $('#inputQ4Other').val('${user.positionother}');
-});
-
-</script>
 </body>
 </html>
 
