@@ -105,7 +105,6 @@ public class SynthesizeController {
 		timeStamp=timeStamp.substring(0, 10);
 		String nonceStr = "oYeWRtwKygRjzQFwtAx7fDpE-V-M";
 		String url=request.getRequestURL().toString();
-//		url=url+"?code="+code+ "&state=STATE";//拼成微信转义过的URL（加上code和state参数，否则会造成签名错误）
 		String jsTicket=(String) request.getSession().getAttribute("jsTicket");
 		if(jsTicket=="" || jsTicket==null){
 			String accessToken=(String) request.getSession().getAttribute("accessToken");
@@ -121,11 +120,10 @@ public class SynthesizeController {
 		request.setAttribute("timeStamp", timeStamp);
 		request.setAttribute("nonceStr", nonceStr);
 		request.setAttribute("signature", signature);
-		request.setAttribute("user", user);
-
+		System.out.println("success");
 		return "/jsp/website/wenjuan1";
 	}
-
+	
 	@RequestMapping(value = "/questionnaire2")
 	public String questionnaire2(HttpServletRequest request,
 			HttpServletResponse response) {
@@ -148,6 +146,19 @@ public class SynthesizeController {
 		return "/jsp/website/wenjuan2";
 	}
 
+	@RequestMapping(value = "/other_items")
+	public String other_items(HttpServletRequest request,
+			HttpServletResponse response) {
+		String phone = StringUtil.safeToString(request.getAttribute("phone"), "");
+		User user = surveyServey.getUserByPhone(phone);
+		Anwser anwser = surveyServey.getAnwserByPhone(phone);
+
+		request.setAttribute("user", user);
+		request.setAttribute("anwser", anwser);
+
+		return "/jsp/website/othr-items";
+	}
+
 	@RequestMapping(value = "/SaveQ1", method = RequestMethod.POST)
 	public String SaveQ1(HttpServletRequest request,
 			HttpServletResponse response) {
@@ -159,8 +170,8 @@ public class SynthesizeController {
 				.getParameter("q3"), "");
 		String position = StringUtil.safeToString(request
 				.getParameter("q4"), "");
-		String positionother = StringUtil.safeToString(request
-				.getParameter("q4-other"), "");
+//		String positionother = StringUtil.safeToString(request
+//				.getParameter("q4-other"), "");
 		
 		String age = StringUtil.safeToString(request
 				.getParameter("q13"), "");
@@ -197,8 +208,10 @@ public class SynthesizeController {
 				Q40 += a;
 			}
 		}
-		String Q40other = StringUtil.safeToString(request
-				.getParameter("q10-other"), "");
+//		String Q40other = StringUtil.safeToString(request
+//				.getParameter("q10-other"), "");
+		String Q9=StringUtil.safeToString(request
+				.getParameter("q10_add"), "");//目前创业遇到最大的挑战
 		
 		String Q1 = StringUtil.safeToString(request
 				.getParameter("q11"), "");// 行业分类
@@ -206,7 +219,8 @@ public class SynthesizeController {
 				.getParameter("q18"), "");// 公司/创业项目/个人简介：
 		String Q2 = StringUtil.safeToString(request
 				.getParameter("q20"), "");// 对WorkFace了解吗
-
+		String Q3=StringUtil.safeToString(request
+				.getParameter("q20_add"), "");// 从哪个渠道了解到WF的？
 		String province = StringUtil.safeToString(request
 				.getParameter("q12-1"), "");
 		String city = StringUtil.safeToString(request.getParameter("q12-2"), "");
@@ -228,7 +242,7 @@ public class SynthesizeController {
 		user.setWechat_nickname(wechat);
 		user.setTag(tag);
 		user.setUpdatetime(new Date());
-		user.setPositionother(positionother);
+//		user.setPositionother(positionother);
 		user.setProvince(province);
 		user.setCity(city);
 		user.setStreet(street);
@@ -246,9 +260,11 @@ public class SynthesizeController {
 		anwser.setQ40(Q40);
 		anwser.setQ15(Q15);
 		anwser.setQ13(Q13);
-		anwser.setQ40other(Q40other);
+		anwser.setQ3(Q3);
+//		anwser.setQ40other(Q40other);
 		anwser.setQ39(Q39);
 		anwser.setQ2(Q2);
+		anwser.setQ9(Q9);
 		anwser.setQ8other(Q8other);
 		anwser.setUpdatetime(new Date());
 
@@ -259,7 +275,7 @@ public class SynthesizeController {
 		
 //		return "redirect:/synthesize/questionnaire2?phone="+phone;
 		request.setAttribute("phone",phone);
-		return questionnaire2(request,response);
+		return other_items(request,response);
 	}
 
 	@RequestMapping(value = "/SaveQ2", method = RequestMethod.POST)
@@ -267,17 +283,14 @@ public class SynthesizeController {
 			HttpServletResponse response) {
 		String phone = StringUtil.safeToString(request.getParameter("phone"),
 				"");
-		String Q28 = StringUtil.safeToString(request
-				.getParameter("entry[field_17][province]"), "");// 您是哪里人(家乡在哪里)
 		String Q26 = StringUtil.safeToString(request
 				.getParameter("inputQ21"), "");// 为什么在上海创业，对上海创业环境的观察体验，热爱和吐槽是：
 		String Q34 = StringUtil.safeToString(request
 				.getParameter("inputQ22"), ""); // 目前创业项目简介，未来的期望是：
-		String Q15other = StringUtil.safeToString(StringUtil.safeToString(
-				request.getParameter("entry[field_16_other]"), ""), "");// 目前团队规模
-
 		String Q41 = StringUtil.safeToString(request
 				.getParameter("inputQ23"), "");// 目前的创业是怎样产生的，发心是什么？
+		String Q18 = StringUtil.safeToString(request
+				.getParameter("inputQ18"), "");// 你是如何赚到人生第一桶金的？
 		String Q9 = StringUtil.safeToString(request
 				.getParameter("inputQ24"), "");// 曾经历的较大困难和挑战是，当时如何解决和面对的
 		String Q19 = StringUtil.safeToString(request
@@ -286,8 +299,11 @@ public class SynthesizeController {
 				.getParameter("inputQ26"), "");// 个人成长环境；家人朋友对创业的态度，如何平衡家庭和工作关系？
 		String Q24 = StringUtil.safeToString(request
 				.getParameter("inputQ27"), "");// 给5年后的自己写封信，最想写什么？
+		String Q25=request.getParameter("inputQ30");//如果请你给其他的创业者一个忠告，会对他们说什么呢？
+		String Q29=request.getParameter("inputQ31");//对您目前所在办公地区园区/孵化器有什么建议吗？
 		String Q35 = StringUtil.safeToString(request
 				.getParameter("inputQ28"), "");// 目前创业需要什么帮助？对万人大联结有什么期待
+		String Q43=StringUtil.safeToString(request.getParameter("inputQ32"), "");//你对WF这个平台有什么意见/建议吗
 		String Q36 = StringUtil.safeToString(request
 				.getParameter("inputQ29"), "");// 其他补充：
 
@@ -313,14 +329,65 @@ public class SynthesizeController {
 		anwser.setQ41(Q41);
 		anwser.setQ34(Q34);
 		anwser.setQ26(Q26);
-		anwser.setQ28(Q28);
+		anwser.setQ18(Q18);
+		anwser.setQ25(Q25);
+		anwser.setQ29(Q29);
+		anwser.setQ43(Q43);
 		anwser.setHomecity(homecity);
 		anwser.setHomeprovince(homeprovince);
 		anwser.setHomestreet(homestreet);
-		anwser.setQ15other(Q15other);
 		surveyServey.saveAnwser(anwser);
 		return "redirect:/synthesize/end";
 	}
+	
+	@RequestMapping(value = "/save_other_items", method = RequestMethod.POST)
+	public String save_other_items(HttpServletRequest request,
+			HttpServletResponse response) {
+		String phone=request.getParameter("phone");
+		String Q5= StringUtil.safeToString(request.getParameter("a1"),"");//创业前是否有过工作经历
+		String Q6="";
+		if(Q5.equals("有")){
+			Q6=StringUtil.safeToString(request.getParameter("a1-other"),"");//工作过几年
+		}
+		String Q7= StringUtil.safeToString(request.getParameter("a2"), "");//之前的工作是在目前创业的行业吗？
+		String Q42=StringUtil.safeToString(request.getParameter("a3"), "");//专职员工数
+		String Q16=StringUtil.safeToString(request.getParameter("a4"), "");//兼职员工数量
+		String Q20=StringUtil.safeToString(request.getParameter("a5"), "");//在创业过程中，你特别想感谢的人
+		String marriage_staus=StringUtil.safeToString(request.getParameter("a6"), "");//婚姻状况
+		String Q22=StringUtil.safeToString(request.getParameter("a7"), "");//家族里是否有经营企业的人
+		String Q23="";
+		if(Q22.equals("有")){
+			Q23= StringUtil.safeToString(request.getParameter("a8"), "");//若有，是哪位亲属
+		}
+		String Q27= StringUtil.safeToString(request.getParameter("a9"), "");//在上海工作/生活多久
+		String Q28= StringUtil.safeToString(request.getParameter("a10"), "");//家乡在哪里
+		String Q37= StringUtil.safeToString(request.getParameter("a11"), "");//海外留学经历
+		User user = surveyServey.getUserByPhone(phone);
+		user.setMarriage_staus(marriage_staus);
+		
+		Anwser anwser = surveyServey.getAnwserByPhone(phone);
+		if (anwser == null) {
+			anwser = new Anwser();
+			anwser.setCreatetime(new Date());
+			anwser.setPhone(phone);
+		}
+		anwser.setQ5(Q5);
+		anwser.setQ6(Q6);
+		anwser.setQ7(Q7);
+		anwser.setQ42(Q42);
+		anwser.setQ16(Q16);
+		anwser.setQ20(Q20);
+		anwser.setQ22(Q22);
+		anwser.setQ23(Q23);
+		anwser.setQ27(Q27);
+		anwser.setQ28(Q28);
+		anwser.setQ37(Q37);
+		surveyServey.saveUser(user);
+		surveyServey.saveAnwser(anwser);
+		request.setAttribute("phone",phone);
+		return questionnaire2(request,response);
+	}
+	
 
 	@RequestMapping(value = "/end")
 	public String end(HttpServletRequest request, HttpServletResponse response) {

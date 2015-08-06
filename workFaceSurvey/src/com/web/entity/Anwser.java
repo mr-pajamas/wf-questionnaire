@@ -171,6 +171,12 @@ public class Anwser{
  @Column(name ="Q40other")
  private String Q40other;
  
+ @Column(name ="Q42")
+ private String Q42;
+ 
+ @Column(name ="Q43")
+ private String Q43;
+ 
  
  
  public String getQ40other() {
@@ -580,6 +586,24 @@ public String getQ41() {
 public void setQ41(String q41) {
 	Q41 = q41;
 }
+
+public String getQ42() {
+	return Q42;
+}
+
+public void setQ42(String q42) {
+	Q42 = q42;
+}
+
+public String getQ43() {
+	return Q43;
+}
+
+public void setQ43(String q43) {
+	Q43 = q43;
+}
+
+
 
 
 

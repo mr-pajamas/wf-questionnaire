@@ -17,7 +17,7 @@ function initialList($container, url, query, loadCallback) {
     var $loaderDiv = $("<div></div>").appendTo($container).addClass("loader");
 
     var queryObject = _.extend({offset: offset, limit: limit}, query);
-    /*
+
     $.getJSON(url, queryObject)
       .done(function(data) {
         loadCallback(data);
@@ -32,7 +32,8 @@ function initialList($container, url, query, loadCallback) {
         $loaderDiv.remove();
         loading = false;
       });
-    */
+
+    /*
     var data = [
       {
         "uri": ".",
@@ -43,7 +44,26 @@ function initialList($container, url, query, loadCallback) {
       },
       {
         "uri": ".",
+        "avatar": null,
+        "fullName": "汤力丞",
+        "mobile": "18601646631",
+        "company": "某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司"
+      },
+      {
+        "uri": ".",
+        "fullName": "汤力丞",
+        "mobile": "18601646631",
+        "company": "某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司"
+      },
+      {
+        "uri": ".",
         "avatar": "images/avatar1.png",
+        "fullName": "汤力丞",
+        "mobile": "18601646631"
+      },
+      {
+        "uri": ".",
+        "avatar": "images/avatar2.png",
         "fullName": "汤力丞",
         "mobile": "18601646631",
         "company": "某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司"
@@ -57,10 +77,88 @@ function initialList($container, url, query, loadCallback) {
       },
       {
         "uri": ".",
+        "avatar": null,
+        "fullName": "汤力丞",
+        "mobile": "18601646631",
+        "company": "某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司"
+      },
+      {
+        "uri": ".",
+        "fullName": "汤力丞",
+        "mobile": "18601646631",
+        "company": "某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司"
+      },
+      {
+        "uri": ".",
+        "avatar": "images/avatar1.png",
+        "fullName": "汤力丞",
+        "mobile": "18601646631"
+      },
+      {
+        "uri": ".",
+        "avatar": "images/avatar2.png",
+        "fullName": "汤力丞",
+        "mobile": "18601646631",
+        "company": "某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司"
+      },
+      {
+        "uri": ".",
         "avatar": "images/avatar1.png",
         "fullName": "汤力丞",
         "mobile": "18601646631",
         "company": "某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司"
+      },
+      {
+        "uri": ".",
+        "avatar": null,
+        "fullName": "汤力丞",
+        "mobile": "18601646631",
+        "company": "某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司"
+      },
+      {
+        "uri": ".",
+        "fullName": "汤力丞",
+        "mobile": "18601646631",
+        "company": "某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司"
+      },
+      {
+        "uri": ".",
+        "avatar": "images/avatar1.png",
+        "fullName": "汤力丞",
+        "mobile": "18601646631"
+      },
+      {
+        "uri": ".",
+        "avatar": "images/avatar2.png",
+        "fullName": "汤力丞",
+        "mobile": "18601646631",
+        "company": "某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司"
+      },
+      {
+        "uri": ".",
+        "avatar": "images/avatar1.png",
+        "fullName": "汤力丞",
+        "mobile": "18601646631",
+        "company": "某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司"
+      },
+      {
+        "uri": ".",
+        "avatar": null,
+        "fullName": "汤力丞",
+        "mobile": "18601646631",
+        "company": "某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司"
+      },
+      {
+        "uri": ".",
+        "fullName": "汤力丞",
+        "mobile": "18601646631",
+        "company": "某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司某公司"
+      },
+      {
+        "uri": ".",
+        "avatar": "images/avatar1.png",
+        "fullName": "汤力丞",
+        "mobile": "18601646631"
       },
       {
         "uri": ".",
@@ -71,12 +169,15 @@ function initialList($container, url, query, loadCallback) {
       }
     ];
 
-    loadCallback(data);
-    offset += data.length;
-    eol = data.length < limit;
+    setTimeout(function() {
+      loadCallback(data);
+      offset += data.length;
+      eol = data.length < limit;
 
-    $loaderDiv.remove();
-    loading = false;
+      $loaderDiv.remove();
+      loading = false;
+    }, 1000);
+    */
   }
 
   loadItems();

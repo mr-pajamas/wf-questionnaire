@@ -24,9 +24,35 @@
   <script src="<%=webRoot %>/html-michael/js/html5shiv.min.js"></script>
   <script src="<%=webRoot %>/html-michael/js/respond.min.js"></script>
   <![endif]-->
-
   <script src="<%=webRoot %>/html-michael/js/underscore-min.js"></script>
-</head>
+<style type="text/css">
+.thumbnail-img {
+	float: left;
+	width: 122px;
+	height: 122px;
+	margin: 0;
+	padding: 0;
+	background-size: cover;
+	background-position: 50% 50%;
+}
+
+.thumbnail .caption {
+	margin-left: 134px;
+}
+
+.thumbnail h3 {
+	margin: 8px 0 10px 0;
+}
+
+.thumbnail:hover {
+	background-color: #eee;
+}
+
+.thumbnail>a:hover {
+	text-decoration: none;
+}
+</style>
+	</head>
 <body>
 <div class="container">
   <div class="page-header">
