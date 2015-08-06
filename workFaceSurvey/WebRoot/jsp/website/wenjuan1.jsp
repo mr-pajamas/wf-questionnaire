@@ -108,6 +108,14 @@
          <input type="hidden" name="phone" value="${user.phone}"/>
       </div>
     </div>
+    
+     <div class="form-group">
+      <label for="inputQ16" class="col-md-2 control-label">邮箱</label>
+      <div class="col-md-4">
+        <input type="text" name="q16" class="form-control" value="${user.mail}" id="inputQ16">
+      </div>
+    </div>
+    
 
     <div class="form-group">
       <label for="inputQ3" class="col-md-2 control-label">公司</label>
@@ -551,13 +559,6 @@
             </label>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="inputQ16" class="col-md-2 control-label">邮箱</label>
-      <div class="col-md-4">
-        <input type="text" name="q16" class="form-control" value="${user.mail}" id="inputQ16">
       </div>
     </div>
 

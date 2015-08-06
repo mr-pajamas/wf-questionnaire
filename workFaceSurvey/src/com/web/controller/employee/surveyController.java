@@ -146,6 +146,10 @@ public class surveyController {
 				surveyServey.saveUser(user);
 			}
 			request.setAttribute("user", user);
+			Anwser anwser = surveyServey.getAnwserByPhone(phone);
+			if(anwser!=null){
+				request.setAttribute("anwser", anwser);
+			}
 			request.getSession().setAttribute("username", user.getPhone());
 			request.getSession().setAttribute("phone", user.getPhone());
 			request.getSession().setAttribute("id", user.getId());
@@ -187,7 +191,9 @@ public class surveyController {
 				user.setRole("2");
 				user.setHeadimg(phone+"_img.jpg");
 				surveyServey.saveUser(user);
-//				return "/jsp/website/login";
+//				return "/jsp/website/login";//注册完毕，跳转登陆界面
+				
+
 				//跳转到问卷1
 				request.setAttribute("user", user);
 				request.getSession().setAttribute("username", user.getPhone());
@@ -196,6 +202,7 @@ public class surveyController {
 				request.getSession().setAttribute("role", user.getRole());
 //				return "redirect:/synthesize/questionnaire1";
 			    return "/jsp/website/modify_empinfo";
+			    
 			}
 		} else {
 			request.setAttribute("error", "请确保密码、用户名输入正确");
@@ -279,6 +286,7 @@ public class surveyController {
 		timeStamp=timeStamp.substring(0, 10);
 		String nonceStr = "oYeWRtwKygRjzQFwtAx7fDpE-V-M";
 		String url=request.getRequestURL().toString();
+		System.out.println(url);
 		url=url+"?code="+code+ "&state=STATE";//拼成微信转义过的URL（加上code和state参数，否则会造成签名错误）
 		String jsTicket=(String) request.getSession().getAttribute("jsTicket");
 		if(jsTicket=="" || jsTicket==null){

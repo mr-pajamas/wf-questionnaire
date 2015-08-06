@@ -2,6 +2,7 @@ package com.web.controller.employee;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -102,8 +103,13 @@ public class SynthesizeController {
 		request.setAttribute("user", user);
 		request.setAttribute("anwser", anwser);
 
-		// TODO: 临时方案
-		request.setAttribute("anwserQ40", Arrays.asList(anwser.getQ40().split("|")));
+		// TODO: 临时方案ll
+		if(null!=anwser )
+			// TODO: 临时方案
+			request.setAttribute("anwserQ40", (anwser.getQ40() == null ? Collections.<String>emptyList() : Arrays.asList(anwser.getQ40().split("\\|"))));
+			// 以上是临时方案
+		else
+			request.setAttribute("anwserQ40",  Collections.<String>emptyList());
 		// 以上是临时方案
 		
 		String timeStamp=String.valueOf(System.currentTimeMillis());
