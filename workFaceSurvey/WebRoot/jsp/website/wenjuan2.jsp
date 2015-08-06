@@ -7,22 +7,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
   <title>【创业上海万人田野调查】- 访谈问卷</title>
-  <link rel="shortcut icon" href="<%=webRoot %>/images/favicon.ico" type="image/vnd.microsoft.icon">
+  <link rel="shortcut icon" href="${contextPath}/images/favicon.ico" type="image/vnd.microsoft.icon">
 
   <!-- Bootstrap -->
-  <link href="<%=webRoot %>/css/bootstrap.min.css" rel="stylesheet">
+  <link href="${contextPath}/css/bootstrap.min.css" rel="stylesheet">
 
-  <link href="<%=webRoot %>/css/bootstrap-theme.min.css" rel="stylesheet">
+  <link href="${contextPath}/css/bootstrap-theme.min.css" rel="stylesheet">
 
-  <link href="<%=webRoot %>/css/bootstrap-wizard.css" rel="stylesheet">
+  <link href="${contextPath}/css/bootstrap-wizard.css" rel="stylesheet">
   <!-- Custom styles for this template -->
-  <link href="<%=webRoot %>/css/question-items.css" rel="stylesheet">
+  <link href="${contextPath}/css/question-items.css" rel="stylesheet">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
-  <script src="js/html5shiv.min.js"></script>
-  <script src="js/respond.min.js"></script>
+  <script src="${contextPath}/js/html5shiv.min.js"></script>
+  <script src="${contextPath}/js/respond.min.js"></script>
   <![endif]-->
 </head>
 <body>
@@ -76,9 +76,9 @@
     </div>
   </div>
 
-  <form action="<%=webRoot %>/synthesize/SaveQ2" method="post">
+  <form action="${contextPath}/synthesize/SaveQ2" method="post">
     <div class="row">
-	  <input type="hidden"  name="phone" value="${phone}" id="phone" />
+	  <input type="hidden" name="phone" value="${phone}" id="phone" />
       <div class="col-md-8 col-md-offset-2">
         <div class="form-group">
           <label for="inputQ21" class="control-label">为什么在上海创业？对上海创业环境的观察体验，热爱和吐槽是？</label>

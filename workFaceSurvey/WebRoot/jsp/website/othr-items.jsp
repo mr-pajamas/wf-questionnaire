@@ -8,22 +8,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
   <title>【创业上海万人田野调查】- 详细信息表</title>
-  <link rel="shortcut icon" href="<%=webRoot %>/images/favicon.ico" type="image/vnd.microsoft.icon">
+  <link rel="shortcut icon" href="${contextPath}/images/favicon.ico" type="image/vnd.microsoft.icon">
 
   <!-- Bootstrap -->
-  <link href="<%=webRoot %>/css/bootstrap.min.css" rel="stylesheet">
+  <link href="${contextPath}/css/bootstrap.min.css" rel="stylesheet">
 
-  <link href="<%=webRoot %>/css/bootstrap-theme.min.css" rel="stylesheet">
+  <link href="${contextPath}/css/bootstrap-theme.min.css" rel="stylesheet">
 
-  <link href="<%=webRoot %>/css/bootstrap-wizard.css" rel="stylesheet">
+  <link href="${contextPath}/css/bootstrap-wizard.css" rel="stylesheet">
   <!-- Custom styles for this template -->
-  <link href="<%=webRoot %>/css/question-items.css" rel="stylesheet">
+  <link href="${contextPath}/css/question-items.css" rel="stylesheet">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
-  <script src="js/html5shiv.min.js"></script>
-  <script src="js/respond.min.js"></script>
+  <script src="${contextPath}/js/html5shiv.min.js"></script>
+  <script src="${contextPath}/js/respond.min.js"></script>
   <![endif]-->
 </head>
 <body>
@@ -77,7 +77,7 @@
     </div>
   </div>
 
-  <form class="form-horizontal" action="<%=webRoot %>/synthesize/save_other_items" method="post">
+  <form class="form-horizontal" action="${contextPath}/synthesize/save_other_items" method="post">
   	<input type="hidden" name="phone" value="${phone}"/>
     <div class="form-group">
       <label class="col-md-2 control-label">创业前是否有过工作经历</label>
@@ -249,41 +249,41 @@
       <label class="col-md-2 control-label">家乡在哪里</label>
       <div class="col-md-2">
         <select name="a10" id="a10" class="form-control">
-          <option>北京市</option>
-          <option>天津市</option>
-          <option>河北省</option>
-          <option>山西省</option>
-          <option>内蒙古自治区</option>
-          <option>辽宁省</option>
-          <option>吉林省</option>
-          <option>黑龙江省</option>
-          <option>上海市</option>
-          <option>江苏省</option>
-          <option>浙江省</option>
-          <option>安徽省</option>
-          <option>福建省</option>
-          <option>江西省</option>
-          <option>山东省</option>
-          <option>河南省</option>
-          <option>湖北省</option>
-          <option>湖南省</option>
-          <option>广东省</option>
-          <option>广西壮族自治区</option>
-          <option>海南省</option>
-          <option>重庆市</option>
-          <option>四川省</option>
-          <option>贵州省</option>
-          <option>云南省</option>
-          <option>西藏自治区</option>
-          <option>陕西省</option>
-          <option>甘肃省</option>
-          <option>青海省</option>
-          <option>宁夏回族自治区</option>
-          <option>新疆维吾尔自治区</option>
-          <option>香港特别行政区</option>
-          <option>澳门特别行政区</option>
-          <option>台湾省</option>
-          <option>海外</option>
+          <option ${anwser.q28 eq '北京市' ? 'selected' : ''}>北京市</option>
+          <option ${anwser.q28 eq '天津市' ? 'selected' : ''}>天津市</option>
+          <option ${anwser.q28 eq '河北省' ? 'selected' : ''}>河北省</option>
+          <option ${anwser.q28 eq '山西省' ? 'selected' : ''}>山西省</option>
+          <option ${anwser.q28 eq '内蒙古自治区' ? 'selected' : ''}>内蒙古自治区</option>
+          <option ${anwser.q28 eq '辽宁省' ? 'selected' : ''}>辽宁省</option>
+          <option ${anwser.q28 eq '吉林省' ? 'selected' : ''}>吉林省</option>
+          <option ${anwser.q28 eq '黑龙江省' ? 'selected' : ''}>黑龙江省</option>
+          <option ${anwser.q28 eq '上海市' ? 'selected' : ''}>上海市</option>
+          <option ${anwser.q28 eq '江苏省' ? 'selected' : ''}>江苏省</option>
+          <option ${anwser.q28 eq '浙江省' ? 'selected' : ''}>浙江省</option>
+          <option ${anwser.q28 eq '安徽省' ? 'selected' : ''}>安徽省</option>
+          <option ${anwser.q28 eq '福建省' ? 'selected' : ''}>福建省</option>
+          <option ${anwser.q28 eq '江西省' ? 'selected' : ''}>江西省</option>
+          <option ${anwser.q28 eq '山东省' ? 'selected' : ''}>山东省</option>
+          <option ${anwser.q28 eq '河南省' ? 'selected' : ''}>河南省</option>
+          <option ${anwser.q28 eq '湖北省' ? 'selected' : ''}>湖北省</option>
+          <option ${anwser.q28 eq '湖南省' ? 'selected' : ''}>湖南省</option>
+          <option ${anwser.q28 eq '广东省' ? 'selected' : ''}>广东省</option>
+          <option ${anwser.q28 eq '广西壮族自治区' ? 'selected' : ''}>广西壮族自治区</option>
+          <option ${anwser.q28 eq '海南省' ? 'selected' : ''}>海南省</option>
+          <option ${anwser.q28 eq '重庆市' ? 'selected' : ''}>重庆市</option>
+          <option ${anwser.q28 eq '四川省' ? 'selected' : ''}>四川省</option>
+          <option ${anwser.q28 eq '贵州省' ? 'selected' : ''}>贵州省</option>
+          <option ${anwser.q28 eq '云南省' ? 'selected' : ''}>云南省</option>
+          <option ${anwser.q28 eq '西藏自治区' ? 'selected' : ''}>西藏自治区</option>
+          <option ${anwser.q28 eq '陕西省' ? 'selected' : ''}>陕西省</option>
+          <option ${anwser.q28 eq '甘肃省' ? 'selected' : ''}>甘肃省</option>
+          <option ${anwser.q28 eq '青海省' ? 'selected' : ''}>青海省</option>
+          <option ${anwser.q28 eq '宁夏回族自治区' ? 'selected' : ''}>宁夏回族自治区</option>
+          <option ${anwser.q28 eq '新疆维吾尔自治区' ? 'selected' : ''}>新疆维吾尔自治区</option>
+          <option ${anwser.q28 eq '香港特别行政区' ? 'selected' : ''}>香港特别行政区</option>
+          <option ${anwser.q28 eq '澳门特别行政区' ? 'selected' : ''}>澳门特别行政区</option>
+          <option ${anwser.q28 eq '台湾省' ? 'selected' : ''}>台湾省</option>
+          <option ${anwser.q28 eq '海外' ? 'selected' : ''}>海外</option>
         </select>
       </div>
     </div>
@@ -317,9 +317,9 @@
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="<%=webRoot %>/js/jquery-1.11.3.min.js"></script>
+<script src="${contextPath}/js/jquery-1.11.3.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="<%=webRoot %>/js/bootstrap.min.js"></script>
+<script src="${contextPath}/js/bootstrap.min.js"></script>
 
 <script>
   $("input:radio, input:checkbox").change(function() {
@@ -332,11 +332,7 @@
         $textInput.val("").attr("disabled", "disabled");
       }
     });
-  });
-  $(function () {
-	   $('#a10').val('${anwser.q28}');
-
-});
+  }).change();
 </script>
 </body>
 </html>
