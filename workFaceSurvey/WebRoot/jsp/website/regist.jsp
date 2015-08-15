@@ -1,8 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+ <%@ include file="../commonincludes.jsp"%>
 <html>
 <head>
-   <%@ include file="../commonincludes.jsp"%>
+  
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,16 +11,15 @@
 	    <link rel="stylesheet" type="text/css" href="<%=webRoot %>/css/login.css" />
 	    <link rel="stylesheet" type="text/css" href="<%=webRoot %>/css/regist.css" />
 	   <!-- 新 Bootstrap 核心 CSS 文件 -->
-		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 		
 		<!-- 可选的Bootstrap主题文件（一般不用引入） -->
-		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-		
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
 		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+		<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 		
 		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="<%=webRoot %>/js/jquery-1.11.1.js"></script>
 		<script type="text/javascript">
 		function validate(){
@@ -69,7 +69,7 @@
 		      	<div class="page_container">
 		        	
 					<div class="container">
-						<form class="form-signin" action="<%=webRoot %>/survey/saveregist" method="post">
+						<form class="form-signin" action="<%=webRoot %>/survey/saveregist" onsubmit="return validate()" method="post">
 							<c:if test="${!empty openid }">
 						     <img alt="" src="${user.headimg}" width="200" height="200" style="margin-bottom:20px "/>
 						    </c:if>
@@ -93,7 +93,7 @@
 								<input id="inputPassword" class="form-control" type="password" name="password" required="" placeholder="密码">
 								<label class="sr-only" for="confirmPassword">确认密码</label>
 								<input id="confirmPassword" class="form-control" type="password" required="" name="passwordRpe" placeholder="确认密码">
-								<input class="btn btn-lg btn-primary btn-block" onsubmit="validate()" value="注册" type="submit"/>
+								<input class="btn btn-lg btn-primary btn-block" value="注册" type="submit"/>
 						  	</c:if>
 						</form>
 						<div style="color:#b02f2a;font-size:12px;margin-top:10px">${error}</div>
